@@ -12,7 +12,6 @@ public class HomeController {
 	//test �ּ��Դϴ�.
 	//test by Youngwoo
 	//test by Youngwoo2
-	//test by Youngwoo3
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	
