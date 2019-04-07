@@ -27,10 +27,10 @@ public class OneController {
 		return "one/contact";
 	}
 	
-	@RequestMapping("/events")
-	public String events() {
+	@RequestMapping("/board")
+	public String board() {
 	
-		return "one/events";
+		return "one/board";
 	}
 	
 	@RequestMapping("/program")
@@ -39,11 +39,19 @@ public class OneController {
 		return "one/program";
 	}
 	
-	@RequestMapping("/trainers")
-	public String trainers() {
+	@RequestMapping("/login")
+	public String login() {
 	
-		return "one/trainers";
+		return "one/login";
 	}
+	
+	@RequestMapping("/join")
+	public String join() {
+	
+		return "one/join";
+	}
+	
+	
 	
 	
 	

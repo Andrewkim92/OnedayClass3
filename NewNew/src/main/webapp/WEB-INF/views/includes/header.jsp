@@ -57,14 +57,14 @@
 
                     <ul class="site-menu js-clone-nav d-none d-lg-block">
                    
-                      <li><a href="trainers">Login</a></li>
-                      <li><a href="trainers">Join</a></li>
-                      <li><a href="events">Board</a></li>
+                      <li><a href="login">Login</a></li>
+                      <li><a href="join">Join</a></li>
+                      <li><a href="board">Board</a></li>
                       <li><a href="about">About</a></li>
                      <!--  <li><a href="contact">Contact</a></li> -->
                      
                         <li class="has-children">
-                        <a href="program">Program</a>
+                        <a href="program">Q&A</a>
                         <ul class="dropdown arrow-top">
                           <li><a href="program">Body Building</a></li>
                           <li><a href="program">Morning Energy</a></li>
