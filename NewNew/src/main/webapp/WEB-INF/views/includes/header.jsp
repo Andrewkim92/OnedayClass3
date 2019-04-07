@@ -5,7 +5,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <title> Oneday Class &mdash; </title>
+ <title> Oneday Class!! &mdash; </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -45,10 +45,10 @@
       
       <div class="container">
         <div class="site-navbar bg-light">
-          <div class="py-1">
+          <div class="py-1"> 	
             <div class="row align-items-center">
               <div class="col-2">
-                <h2 class="mb-0 site-logo"><a href="index">Cross<strong>fits</strong></a></h2>
+                <h2 class="mb-0 site-logo"><a href="/">OneDay<strong>Class</strong></a></h2>
               </div>
               <div class="col-10">
                 <nav class="site-navigation text-right" role="navigation">
@@ -56,8 +56,16 @@
                     <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
 
                     <ul class="site-menu js-clone-nav d-none d-lg-block">
-                      <li class="has-children">
-                        <a href="program">Program</a>
+                   
+                      <li><a href="login">Login</a></li>
+                      <li><a href="join">Join</a></li>
+                      <li><a href="board">Board</a></li>
+                      <li><a href="about">About</a></li>
+                     <!--  <li><a href="contact">Contact</a></li> -->
+                     
+                     
+                        <li class="has-children">
+                        <a href="program">Q&A</a>
                         <ul class="dropdown arrow-top">
                           <li><a href="program">Body Building</a></li>
                           <li><a href="program">Morning Energy</a></li>
@@ -75,10 +83,7 @@
 
                         </ul>
                       </li>
-                      <li><a href="trainers">Our Trainers</a></li>
-                      <li><a href="events">News</a></li>
-                      <li><a href="about">About</a></li>
-                      <li><a href="contact">Contact</a></li>
+                      
                     </ul>
                   </div>
                 </nav>
