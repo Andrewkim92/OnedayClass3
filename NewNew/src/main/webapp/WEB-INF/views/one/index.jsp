@@ -22,7 +22,7 @@
           </div>
         <!-- </div> -->
       </div>  
-
+	
       <div class="site-blocks-cover inner-page" style="background-image: url(/resources/images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
         <!-- <div class="container"> -->
           <div class="row align-items-center justify-content-center">

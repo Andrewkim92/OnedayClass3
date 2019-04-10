@@ -30,5 +30,8 @@
 		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
 		<property name="mapperLocations" value="classpath:mybatis/sqlmaps/*.xml" />
 	</bean>
+	
+	
+		
 </beans>
  

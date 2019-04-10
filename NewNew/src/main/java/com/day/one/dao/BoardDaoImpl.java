@@ -18,6 +18,7 @@ public class BoardDaoImpl implements BoardDao {
 	
 	@Override
 	public String checkId(int id) {
+		
 		return sqlSession.selectOne("checkId", id);
 	}
 }
