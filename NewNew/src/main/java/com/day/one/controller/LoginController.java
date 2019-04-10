@@ -8,25 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
 
 	@RequestMapping("/register")
-	public String index() {
+	public String register() {
 	
-		return "one/index";
+		return "login/register";
 	}
 	
 	@RequestMapping("/login")
 	public String login() {
 	
-		return "one/login";
+		return "login/login";
 	}
 	
-	@RequestMapping("/join")
-	public String join() {
+	@RequestMapping("/findPassword")
+	public String findPassword() {
 	
-		return "one/join";
+		return "login/findPassword";
 	}
-	
-	
-	
-	
-	
 }

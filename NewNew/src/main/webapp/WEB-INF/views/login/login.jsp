@@ -7,18 +7,8 @@
 <!-- <script src="resources/js/login.js"></script> -->
 <script type="text/javascript">
 	function clickEmailLogin() {
-// 		var login = document.getElementById("login");
-// 		var eLogin = document.getElementById("eLogin");
-// 		login.style.display = 'none';
 		$('#login').css('display', 'none');
 		$('#eLogin').css('display', 'block');
-// 		if (loginArea.style.display == 'none') {
-// 			loginArea.style.display = 'block';
-// 			eLogin.style.displye = 'block';
-// 		} else {
-// 			loginArea.style.display = 'none';
-// 			eLogin.style.displye = 'block';
-// 		}
 	}
 </script>
 
