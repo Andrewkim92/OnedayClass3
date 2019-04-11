@@ -10,13 +10,13 @@ public class BoardController {
 	@RequestMapping(value="/classBoardWrite")
 	public String index() {
 	
-		return "board/classBoardWrite";
+		return "board/classBoardWrite.tiles";
 	}
 	
 	@RequestMapping(value="/classInfo")
 	public String classInfo() {
 	
-		return "board/classInfo";
+		return "board/classInfo.tiles";
 	}
 	
 	

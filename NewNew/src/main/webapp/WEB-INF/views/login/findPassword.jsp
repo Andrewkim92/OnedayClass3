@@ -12,9 +12,6 @@
 	}
 </script>
 
-<%@include file="../includes/header.jsp"%>
-
-
 <div id="loginArea"
 	style="width:100% height:1000px; margin: 100px 0px 100px 0px; text-align: center;">
 
@@ -75,5 +72,3 @@
 </div>
 <div id="eLogin2" style="display: none;">Hide none</div>
 
-</div>
-<%@include file="../includes/footer.jsp"%>

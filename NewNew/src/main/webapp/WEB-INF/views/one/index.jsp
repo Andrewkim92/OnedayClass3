@@ -3,11 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<%@include file="../includes/header.jsp"%>
-<!-- 커밋 테스트 ㅎㅎㅎ  -->
-
-
-
 <!-- <div style="height: 113px;"></div> -->
 	<!--  이 div땜에 아래 background-image를 header에 못넣음  -->
     <div class="slide-one-item home-slider owl-carousel">
@@ -250,15 +245,6 @@
               </div>
             </div>
           </div>
-
         </div>
-
       </div>
-      
     </div>
-
-
-   
-   
-   
-<%@include file="../includes/footer.jsp"%>

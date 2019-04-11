@@ -3,8 +3,6 @@ package com.day.one.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-//test.....jjj//4444
-
 @Controller
 @RequestMapping("/*")
 public class OneController {
@@ -12,47 +10,42 @@ public class OneController {
 	@RequestMapping("/")
 	public String index() {
 	
-		return "one/index";
+		return "one/index.tiles";
 	}
 	
 	@RequestMapping("/about")
 	public String about() {
 	
-		return "one/about";
+		return "one/about.tiles";
 	}
 	
 	@RequestMapping("/contact")
 	public String contact() {
 	
-		return "one/contact";
+		return "one/contact.tiles";
 	}
 	
 	@RequestMapping("/board")
 	public String board() {
 	
-		return "one/board";
+		return "one/board.tiles";
 	}
 	
 	@RequestMapping("/program")
 	public String program() {
 	
-		return "one/program";
-	}
-	
-	@RequestMapping("/login")
-	public String login() {
-	
-		return "one/login";
+		return "one/program.tiles";
 	}
 	
 	@RequestMapping("/join")
 	public String join() {
 	
-		return "one/join";
+		return "one/join.tiles";
 	}
 	
+	@RequestMapping("/login")
+	public String login() {
 	
-	
-	
-	
+		return "login/login.tiles";
+	}
 }

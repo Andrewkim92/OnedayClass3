@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Oneday Class!! &mdash;</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700"
+	rel="stylesheet">
+<link rel="stylesheet" href="/resources/fonts/icomoon/style.css">
+
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/css/magnific-popup.css">
+<link rel="stylesheet" href="/resources/css/jquery-ui.css">
+<link rel="stylesheet" href="/resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/resources/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="/resources/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="/resources/css/animate.css">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+<link rel="stylesheet"
+	href="/resources/fonts/flaticon/font/flaticon.css">
+
+<link rel="stylesheet" href="/resources/css/aos.css">
+
+<link rel="stylesheet" href="/resources/css/style.css">

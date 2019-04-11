@@ -10,18 +10,12 @@ public class LoginController {
 	@RequestMapping("/register")
 	public String register() {
 	
-		return "login/register";
-	}
-	
-	@RequestMapping("/login")
-	public String login() {
-	
-		return "login/login";
+		return "login/register.tiles";
 	}
 	
 	@RequestMapping("/findPassword")
 	public String findPassword() {
 	
-		return "login/findPassword";
+		return "login/findPassword.tiles";
 	}
 }

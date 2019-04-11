@@ -3,10 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<!--  header.......... -->
-<%@include file="../includes/header.jsp"%>
- 
- 
  <!--  메인사진........ -->
     <div class="site-blocks-cover inner-page" style="background-image: url(/resources/images/hero_b1_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="row align-items-center justify-content-center">
@@ -134,4 +130,3 @@
       </div>
     </div>
     
-  <%@include file="../includes/footer.jsp"%>
