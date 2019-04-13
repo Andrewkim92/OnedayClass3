@@ -31,24 +31,32 @@
 
 								<ul class="site-menu js-clone-nav d-none d-lg-block">
 
-									<li><a href="login">Login</a></li>
-									<li><a href="join">Join</a></li>
-									<li><a href="board">Board</a></li>
-									<li><a href="about">About</a></li>
+									<!-- login 후 Mypage로 변경 -->
+									<li><a href="/login">Login</a></li>
+									<!-- <li class="has-children"><a href="login">Mypage</a>
+										<ul class="dropdown arrow-top">
+											<li><a href="program">My class</a></li>
+											<li><a href="program">Edit profile</a></li>
+											<li><a href="program">Logout</a></li>
+										</ul>
+									</li> -->
+									<li><a href="/join">Join</a></li>
+									<li><a href="/board">Board</a></li>
+									<li><a href="/about">About</a></li>
 									<!--  <li><a href="contact">Contact</a></li> -->
 
 
 									<li class="has-children"><a href="program">Q&A</a>
 										<ul class="dropdown arrow-top">
-											<li><a href="program">Body Building</a></li>
-											<li><a href="program">Morning Energy</a></li>
-											<li><a href="program">Stretching</a></li>
+											<li><a href="/program">Body Building</a></li>
+											<li><a href="/program">Morning Energy</a></li>
+											<li><a href="/program">Stretching</a></li>
 											<li class="has-children"><a href="program">Sub Menus</a>
 												<ul class="dropdown">
-													<li><a href="program">Swimming</a></li>
-													<li><a href="program">Boxing</a></li>
-													<li><a href="program">Running</a></li>
-													<li><a href="program">Jogging</a></li>
+													<li><a href="/program">Swimming</a></li>
+													<li><a href="/program">Boxing</a></li>
+													<li><a href="/program">Running</a></li>
+													<li><a href="/program">Jogging</a></li>
 
 												</ul></li>
 

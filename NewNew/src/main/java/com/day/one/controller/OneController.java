@@ -7,43 +7,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/*")
 public class OneController {
 
-	@RequestMapping("/")
+	@RequestMapping(value="/")
 	public String index() {
 	
 		return "one/index.tiles";
 	}
 	
-	@RequestMapping("/about")
+	@RequestMapping(value="/about")
 	public String about() {
 	
 		return "one/about.tiles";
 	}
 	
-	@RequestMapping("/contact")
+	@RequestMapping(value="/contact")
 	public String contact() {
 	
 		return "one/contact.tiles";
 	}
 	
-	@RequestMapping("/board")
-	public String board() {
 	
-		return "one/board.tiles";
-	}
-	
-	@RequestMapping("/program")
+	@RequestMapping(value="/program")
 	public String program() {
 	
 		return "one/program.tiles";
 	}
 	
-	@RequestMapping("/join")
+	@RequestMapping(value="/join")
 	public String join() {
 	
 		return "one/join.tiles";
 	}
 	
-	@RequestMapping("/login")
+	@RequestMapping(value="/board")
+	public String board() {
+	
+		return "one/board.tiles";
+	}
+	
+	@RequestMapping(value="/login")
 	public String login() {
 	
 		return "login/login.tiles";
