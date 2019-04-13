@@ -31,15 +31,7 @@
 
 								<ul class="site-menu js-clone-nav d-none d-lg-block">
 
-									<!-- login 후 Mypage로 변경 -->
 									<li><a href="/login">Login</a></li>
-									<!-- <li class="has-children"><a href="login">Mypage</a>
-										<ul class="dropdown arrow-top">
-											<li><a href="program">My class</a></li>
-											<li><a href="program">Edit profile</a></li>
-											<li><a href="program">Logout</a></li>
-										</ul>
-									</li> -->
 									<li><a href="/join">Join</a></li>
 									<li><a href="/board">Board</a></li>
 									<li><a href="/about">About</a></li>
