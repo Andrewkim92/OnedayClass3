@@ -49,4 +49,10 @@ public class OneController {
 	
 		return "login/login.tiles";
 	}
+	
+	@RequestMapping("/register")
+	public String register() {
+	
+		return "login/register.tiles";
+	}
 }

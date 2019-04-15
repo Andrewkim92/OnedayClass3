@@ -10,10 +10,28 @@
 		$('#login').css('display', 'none');
 		$('#eLogin').css('display', 'block');
 	}
+
+	function checkValue() {
+		if (!document.userInfo.id.value) {
+			alert("아이디를 입력하세요.");
+			return false;
+		}
+
+		if (!document.userInfo.password.value) {
+			alert("비밀번호를 입력하세요.");
+			return false;
+		}
+
+		// 비밀번호와 비밀번호 확인에 입력된 값이 동일한지 확인
+		if (document.userInfo.password.value != document.userInfo.password2.value) {
+			alert("비밀번호를 동일하게 입력하세요.");
+			return false;
+		}
+	}
 </script>
 
 <div id="loginArea"
-	style="width:100% height:1000px; margin: 100px 0px 100px 0px; text-align: center;">
+	style="width: 100% height:1000px; margin: 100px 0px 100px 0px; text-align: center;">
 
 	<div id="login">
 		<h2>회원가입</h2>
@@ -42,27 +60,44 @@
 
 	<div id="eLogin" style="display: none;">
 		<h2>이메일로 회원가입</h2>
-		<div id="eLogin_email" style="margin: 15px 0px 3px 0px;">
-			<input
-				style="border-bottom: 12px solid gold; width: 35%; height: 50px; line-height: 12px; font-size: 12px; padding: 14px 0px; outline: none; border: none; background: transparent;"
-				type="email" placeholder="이메일 입력" value="">
-		</div>
-		<div
-			style="background: #CECECE; width: 35%; height: 1px; padding: 0; margin: auto;">
-		</div>
-		<div>
-			<input style="margin: 15px 0px 3px 0px; border-bottom: 12px solid gold; width: 35%; height: 50px; line-height: 12px; font-size: 12px; padding: 14px 0px; outline: none; border: none; background: transparent;"
-			type="password" placeholder="비밀번호 입력" value="">
-		</div>
-		<div
-			style="background: #CECECE; width: 35%; height: 1px; padding: 0; margin: auto;">
-		</div>
-		<div id="eLogin_submit">
-			<button  type="submit"
-				style="width: 35%; height: 50px; background-color: rgb(51, 151, 255); color: white; line-height: 13px; font-size: 13px; border-radius: 4px;"
-				disabled="">가입하기</button>
-		</div><br>
-		
+		<form method="post" action="../login/doRegister" name="userInfo"
+			onsubmit="return checkValue()">
+			<div id="eLogin_email" style="margin: 15px 0px 3px 0px;">
+				<input id="id" name="id"
+					style="border-bottom: 12px solid gold; width: 35%; height: 50px; line-height: 12px; font-size: 12px; padding: 14px 0px; outline: none; border: none; background: transparent;"
+					type="email" placeholder="이메일 입력" value="">
+			</div>
+			<div
+				style="background: #CECECE; width: 35%; height: 1px; padding: 0; margin: auto;">
+			</div>
+			<div>
+				<input id="password" name="password"
+					style="margin: 15px 0px 3px 0px; border-bottom: 12px solid gold; width: 35%; height: 50px; line-height: 12px; font-size: 12px; padding: 14px 0px; outline: none; border: none; background: transparent;"
+					type="password" placeholder="비밀번호 입력" value="">
+			</div>
+			<div
+				style="background: #CECECE; width: 35%; height: 1px; padding: 0; margin: auto;">
+			</div>
+			<div>
+				<input id="password2" name="password2"
+					style="margin: 15px 0px 3px 0px; border-bottom: 12px solid gold; width: 35%; height: 50px; line-height: 12px; font-size: 12px; padding: 14px 0px; outline: none; border: none; background: transparent;"
+					type="password" placeholder="비밀번호 확인" value="">
+			</div>
+			<div
+				style="background: #CECECE; width: 35%; height: 1px; padding: 0; margin: auto;">
+			</div>
+			<div>
+				<input type ="checkbox" name ="registerChk" value="">이용약관, 개인정보 처리방침, 위치기반 서비스 이용약관에 동의합니다.
+<br>프립은 만 14세 이상 회원만 이용 가능합니다.<br>
+			</div>
+			<div id="eLogin_submit">
+				<input type="submit"
+					style="width: 35%; height: 50px; background-color: rgb(51, 151, 255); color: white; line-height: 13px; font-size: 13px; border-radius: 4px;"
+					value="가입하기"></input>
+			</div>
+			<br>
+		</form>
+
 	</div>
 
 
