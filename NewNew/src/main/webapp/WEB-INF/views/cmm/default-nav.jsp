@@ -31,14 +31,9 @@
 
 								<ul class="site-menu js-clone-nav d-none d-lg-block">
 
-									<li><a href="/login">Login</a></li>
-									<li><a href="/join">Join</a></li>
-									<li><a href="/board">Board</a></li>
-									<li><a href="/about">About</a></li>
-									<!--  <li><a href="contact">Contact</a></li> -->
-
-
-									<li class="has-children"><a href="program">Q&A</a>
+									<li><a href="/register">회원가입</a></li>
+									<li><a href="/login">로그인</a></li>
+									<li class="has-children"><a href="program">고객센터</a>
 										<ul class="dropdown arrow-top">
 											<li><a href="/program">Body Building</a></li>
 											<li><a href="/program">Morning Energy</a></li>
@@ -53,6 +48,9 @@
 												</ul></li>
 
 										</ul></li>
+									<li><a href="/board">Board</a></li>
+									<li><a href="/about">제휴문의</a></li>
+									<!--  <li><a href="contact">Contact</a></li> -->
 
 								</ul>
 							</div>
