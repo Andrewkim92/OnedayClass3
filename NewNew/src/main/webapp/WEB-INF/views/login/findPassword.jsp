@@ -11,7 +11,7 @@
 		$('#eLogin').css('display', 'block');
 	}
 </script>
-
+<!-- 수정 -->
 <div id="loginArea"
 	style="width:100% height:1000px; margin: 100px 0px 100px 0px; text-align: center;">
 
