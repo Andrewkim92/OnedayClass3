@@ -95,7 +95,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="4" style="padding-top:80px;">
+				<td colspan="5" style="padding-top:80px;">
 					<div style="text-align: center">
 						<input type="submit" value="저장" /> 
 						<input type="button" value="취소">
