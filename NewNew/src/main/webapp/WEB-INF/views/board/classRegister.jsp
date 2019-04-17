@@ -69,25 +69,27 @@
 			<tr>
 				<td class="title" style="padding-top:80px;"><font size="4em"> 진행장소 </font></td>
 				<td width="30"></td>
-				<td>
-					<font size="4em"> 우편주소&emsp; </font> 
+				<td colspan="2">
+					<font size="4em"> 우편번호&emsp; </font> 
 					<input type="text" size="5"> 
 					<font size="4em"> - </font> 
-					<input type="text" size="5"></td>
+					<input type="text" size="5">&emsp;
+					<input type="button" value="우편번호 검색">
+				</td>
 			</tr>
 			<tr>
 				<td rowspan="3"></td>
 			</tr>
 			<tr>
 				<td width="30"></td>
-				<td colspan="2">
+				<td colspan="3">
 					<font size="4em"> 기본주소&emsp; </font> 
 					<input type="text" size="60">
 				</td>
 			</tr>
 			<tr>
 				<td width="30"></td>
-				<td colspan="2">
+				<td colspan="3">
 					<font size="4em"> 상세주소&emsp; </font> 
 					<input type="text" size="60">
 				</td>
