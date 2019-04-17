@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link rel="stylesheet" type="text/css" href="/resources/css/board.css">
+<script src="/resources/js/timeSelecter.js"></script>
 
 <script>
 $(document).ready(function() {
