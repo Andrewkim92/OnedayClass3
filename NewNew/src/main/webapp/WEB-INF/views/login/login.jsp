@@ -10,6 +10,19 @@
 		$('#login').css('display', 'none');
 		$('#eLogin').css('display', 'block');
 	}
+	
+	function checkValue() {
+		if (!document.userInfo.id.value) {
+			alert("아이디를 입력하세요.");
+			return false;
+		}
+
+		if (!document.userInfo.password.value) {
+			alert("비밀번호를 입력하세요.");
+			return false;
+		}
+
+	}
 </script>
 
 <div id="loginArea"
@@ -42,8 +55,11 @@
 
 	<div id="eLogin" style="display: none;">
 		<h2>이메일로 로그인</h2>
-		<div id="eLogin_email" style="margin: 15px 0px 3px 0px;">
+		<form method="post" action="../login/loginPost" name="userInfo"
+			onsubmit="return checkValue()">
+		<div style="margin: 15px 0px 3px 0px;">
 			<input
+				id="id" name="id"
 				style="border-bottom: 12px solid gold; width: 35%; height: 50px; line-height: 12px; font-size: 12px; padding: 14px 0px; outline: none; border: none; background: transparent;"
 				type="email" placeholder="이메일 입력" value="">
 		</div>
@@ -51,7 +67,9 @@
 			style="background: #CECECE; width: 35%; height: 1px; padding: 0; margin: auto;">
 		</div>
 		<div>
-			<input style="margin: 15px 0px 3px 0px; border-bottom: 12px solid gold; width: 35%; height: 50px; line-height: 12px; font-size: 12px; padding: 14px 0px; outline: none; border: none; background: transparent;"
+			<input 
+			id="password" name="password"
+			style="margin: 15px 0px 3px 0px; border-bottom: 12px solid gold; width: 35%; height: 50px; line-height: 12px; font-size: 12px; padding: 14px 0px; outline: none; border: none; background: transparent;"
 			type="password" placeholder="비밀번호 입력" value="">
 		</div>
 		<div
@@ -60,12 +78,12 @@
 		<div id="eLogin_submit">
 			<button  type="submit"
 				style="width: 35%; height: 50px; background-color: rgb(51, 151, 255); color: white; line-height: 13px; font-size: 13px; border-radius: 4px;"
-				disabled="">로그인</button>
+				>로그인</button>
 		</div><br>
 		<div>
 			<a href="/find-password">비밀번호를 잊어버리셨나요?</a>
 		</div>
-		
+		</form>
 	</div>
 
 

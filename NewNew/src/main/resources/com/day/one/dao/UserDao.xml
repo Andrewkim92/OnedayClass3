@@ -7,22 +7,44 @@
     	<!-- 자동으로 항상 int -->
     	
     	<insert id="insert">
-    		insert into odc.user (id, password, name, userGrade, phoneNumber, intro, confirm) 
-    		values (#{id}, #{password}, #{name}, #{userGrade}, #{phoneNumber}, #{intro}, #{confirm})
-    		<!-- userNumber는 AI라 자동으로 값이 들어감 -->
-    	</insert>
-    	
-    	<select id="read" resultType="com.day.one.vo.UserVO">
-    		select * from odc.user where userNumber = #{userNumber }
-    	</select>
-    	
-    	<delete id="delete">
-    		delete odc.user where userNumber = #{userNumber }
-    	</delete>
-    	
-    	<update id="update">
-    		update odc.user
-    		set id=#{id}, password=#{password}, name=#{name}, userGrade=#{userGrade}, phoneNumber=#{phoneNumber}, intro=#{intro}, confirm=#{confirm} where userNumber=#{userNumber}
-    	</update>
+		insert into odc.user (id, password, name, userGrade, phoneNumber,
+		intro, confirm)
+		values (#{id}, #{password}, #{name}, #{userGrade}, #{phoneNumber}, #{intro},
+		#{confirm})
+		<!-- userNumber는 AI라 자동으로 값이 들어감 -->
+	</insert>
+
+	<select id="read" resultType="com.day.one.vo.UserVO">
+		select * from odc.user where userNumber = #{userNumber }
+	</select>
+
+	<select id="checkIDPwd" parameterType="com.day.one.vo.UserVO" resultType="int">
+		select
+			userNumber
+		from
+		odc.user
+		where
+		id = #{id} and password= #{password}
+	</select>
+
+	<select id="login" resultType="com.day.one.vo.UserVO">
+		select
+		*
+		from
+		odc.user
+		where
+		id = #{id}
+	</select>
+
+	<delete id="delete">
+		delete odc.user where userNumber = #{userNumber }
+	</delete>
+
+	<update id="update">
+		update odc.user
+		set id=#{id}, password=#{password}, name=#{name}, userGrade=#{userGrade},
+		phoneNumber=#{phoneNumber}, intro=#{intro}, confirm=#{confirm} where
+		userNumber=#{userNumber}
+	</update>
     	
     </mapper>

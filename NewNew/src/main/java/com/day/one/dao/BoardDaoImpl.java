@@ -10,8 +10,6 @@ public class BoardDaoImpl implements BoardDao {
 	@Autowired
 	private SqlSession sqlSession;
 
-//	private static final String namespace="org."
-	
 	public void setSqlSession(SqlSession sqlSession){
         this.sqlSession = sqlSession;
     }
