@@ -51,7 +51,6 @@
 									<li><a href="/board">Board</a></li>
 									<li><a href="/about">제휴문의</a></li>
 									<!--  <li><a href="contact">Contact</a></li> -->
-
 								</ul>
 							</div>
 						</nav>
