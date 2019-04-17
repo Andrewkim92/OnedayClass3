@@ -47,7 +47,7 @@
 			<tr>
 				<td class="title" width="125"><font size="4em"> 가격 </font></td>
 				<td width="30"></td>
-				<td><input type="text"></td>
+				<td><input type="text" size ="10" style = "text-align:right;"></td>
 			</tr>
 			<tr>
 				<td class="title" style="padding-top:80px;"><font size="4em" > 날짜 </font></td>

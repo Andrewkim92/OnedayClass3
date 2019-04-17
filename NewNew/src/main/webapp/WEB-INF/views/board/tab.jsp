@@ -16,7 +16,6 @@ $(document).ready(function() {
 		call(activeTab);
 	});
 });
-
 </script>
 
 <div class="container2">
@@ -49,7 +48,7 @@ $(document).ready(function() {
 <script>
 	function call(activeTab) {
 		if(activeTab == "tab2"){
-			jQuery.getScript("/resources/js/timeSelecter.js", function() {timeSelecter();});
+			jQuery.getScript("/resources/js/timeSelecter.js", function(){timeSelecter();});
 		}
 	};
 </script>
