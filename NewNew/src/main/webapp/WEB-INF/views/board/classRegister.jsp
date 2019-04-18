@@ -47,7 +47,8 @@
 			<tr>
 				<td class="title" width="125"><font size="4em"> 가격 </font></td>
 				<td width="30"></td>
-				<td><input type="text" size ="10" style = "text-align:right;"></td>
+				<td width="105"><input type="text" size ="10" style="text-align:right;"></td>
+				<td><font size="4em"> 원 </font></td>
 			</tr>
 			<tr>
 				<td class="title" style="padding-top:80px;"><font size="4em" > 날짜 </font></td>
@@ -69,7 +70,7 @@
 			<tr>
 				<td class="title" style="padding-top:80px;"><font size="4em"> 진행장소 </font></td>
 				<td width="30"></td>
-				<td colspan="2">
+				<td colspan="3">
 					<font size="4em"> 우편번호&emsp; </font> 
 					<input type="text" size="5"> 
 					<font size="4em"> - </font> 
