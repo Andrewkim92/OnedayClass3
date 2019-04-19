@@ -8,15 +8,15 @@
 	<div id="wrap">
 		<table>
 			<tr>
-				<td class="title" width="125"><font size="4em"> 가격 </font></td>
+				<td class="title" width="125" ><font size="4em"> 가격 </font></td>
 				<td width="30"></td>
-				<td width="105"><input type="text" size ="10" style="text-align:right;"></td>
+				<td width="105"><input type="text" size ="10" name="price" style="text-align:right;"></td>
 				<td><font size="4em"> 원 </font></td>
 			</tr>
 			<tr>
 				<td class="title" style="padding-top:80px;"><font size="4em" > 날짜 </font></td>
 				<td width="30"></td>
-				<td colspan="1"><input type="text" id="datepicker"></td>
+				<td colspan="1"><input type="text" id="datepicker" name="class_date" ></td>
 			</tr>
 			<tr>
 				<td class="title" style="padding-top:80px;"><font size="4em"> 시작/종료시간 </font></td>
@@ -35,7 +35,7 @@
 				<td width="30"></td>
 				<td colspan="3">
 					<font size="4em"> 우편번호&emsp; </font> 
-					<input type="text" size="5"> 
+					<input type="text" size="5" name="zip_code"> 
 					<font size="4em"> - </font> 
 					<input type="text" size="5">&emsp;
 					<input type="button" value="우편번호 검색">
@@ -48,14 +48,14 @@
 				<td width="30"></td>
 				<td colspan="3">
 					<font size="4em"> 기본주소&emsp; </font> 
-					<input type="text" size="60">
+					<input type="text" size="60" name="address">
 				</td>
 			</tr>
 			<tr>
 				<td width="30"></td>
 				<td colspan="3">
 					<font size="4em"> 상세주소&emsp; </font> 
-					<input type="text" size="60">
+					<input type="text" size="60" name="address_detail">
 				</td>
 			</tr>
 			<tr>

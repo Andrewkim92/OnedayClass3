@@ -9,17 +9,17 @@
 		<table>
 			<tr height="50">
 				<td>
-					<input type="text" class="hide" placeholder="한줄 소개" size="95">
+					<input type="text" class="hide" name="sub_title" placeholder="한줄 소개" size="95">
 				</td>
 			</tr>
 			<tr>
 				<td class="title">
-					<input type="text" class="hide" placeholder="제목" style="font-size: 30px;" size="50">
+					<input type="text" class="hide"  name="title" placeholder="제목" style="font-size: 30px;" size="50">
 				</td>
 			</tr>
 			<tr>
 				<td class="a hide" style="padding-top: 60px;">
-					<!-- 	네이버에디터 -->
+					<!-- 	네이버에디터   -->
 					<textarea rows="20" cols="90" id="editerArea" name="editerArea"></textarea>
 				</td>
 			</tr>

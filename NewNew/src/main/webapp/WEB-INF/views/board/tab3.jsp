@@ -13,7 +13,7 @@
 				</td>
 				<td width="30"></td>
 				<td rowspan="2">
-					<textarea cols="75" rows="5"></textarea>
+					<textarea cols="75" rows="5" name="details"></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -25,7 +25,7 @@
 				</td>
 				<td width="30"></td>
 				<td rowspan="2" height="50" style="padding-top:80px;">
-					<textarea cols="75" rows="5"></textarea>
+					<textarea cols="75" rows="5" name="inclusion"></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -36,7 +36,7 @@
 					<font size="4em"> 불포함사항</font></td>
 				<td width="30"></td>
 				<td rowspan="2" height="50" style="padding-top:80px;" >
-					<textarea cols="75" rows="5"></textarea>
+					<textarea cols="75" rows="5" name="exclusion"></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -48,7 +48,7 @@
 				</td>
 				<td width="30"></td>
 				<td rowspan="2" height="50" style="padding-top:80px;">
-					<textarea cols="75" rows="5"></textarea>
+					<textarea cols="75" rows="5" name="preparation"></textarea>
 				</td>
 			</tr>
 			<tr>
