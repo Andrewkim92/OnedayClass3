@@ -31,3 +31,4 @@
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script src="/resources/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="/resources/js/jquery-ui.js"></script>
+<script src="/resources/js/naver_editor/js/service/HuskyEZCreator.js"></script>

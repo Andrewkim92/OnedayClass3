@@ -3,20 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link rel="stylesheet" type="text/css" href="/resources/css/board.css">
-<script src="/resources/js/timeSelecter.js"></script>
 
-<script>
-$(document).ready(function() {
-	$('#contents').load("/board/classRegister .tab1");
-	$('.tabmenu').click(function() {
-		var activeTab = $(this).attr('data-tab');
-		$('li').removeClass('tab-current');
-		$(this).addClass('tab-current');
-		$('#contents').load("/board/classRegister ." + activeTab);
-		call(activeTab);
-	});
-});
-</script>
 
 <div class="container2">
 	<br>
@@ -45,10 +32,17 @@ $(document).ready(function() {
 	</div>
 </div>
 
+
 <script>
-	function call(activeTab) {
-		if(activeTab == "tab2"){
-			jQuery.getScript("/resources/js/timeSelecter.js", function(){timeSelecter();});
-		}
-	};
+$(document).ready(function() {
+	$('#contents').load("/board/tab1");
+	$('.tabmenu').click(function() {
+		var activeTab = $(this).attr('data-tab');
+		$('li').removeClass('tab-current');
+		$(this).addClass('tab-current');
+		$('#contents').load("/board/" + activeTab);
+	});
+});
+
+
 </script>

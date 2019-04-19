@@ -1,8 +1,11 @@
 package com.day.one.service;
 
+import com.day.one.vo.BoardVO;
 
 public interface BoardService {
-
-	String test(int id);
+	
+	
+	//클래스 등록
+	public void registerBoard(BoardVO boardVO);
 		
 }
