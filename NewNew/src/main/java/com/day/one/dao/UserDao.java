@@ -1,8 +1,5 @@
 package com.day.one.dao;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-
 import com.day.one.vo.UserVO;
 
 
@@ -19,5 +16,9 @@ public interface UserDao {
 	public int delete(int userNumber);
 	
 	public int update(UserVO user);
+
+	public int checkIDPwd(UserVO dto);
+
+	public UserVO login(UserVO dto);
 	
 }
