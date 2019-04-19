@@ -19,6 +19,7 @@
 			</tr>
 			<tr>
 				<td class="a hide" style="padding-top: 60px;">
+					<!-- 	네이버에디터 -->
 					<textarea rows="20" cols="90" id="editerArea" name="editerArea"></textarea>
 				</td>
 			</tr>
