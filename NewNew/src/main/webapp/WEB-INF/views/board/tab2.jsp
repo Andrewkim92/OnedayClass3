@@ -16,7 +16,7 @@
 			<tr>
 				<td class="title" style="padding-top:80px;"><font size="4em" > 날짜 </font></td>
 				<td width="30"></td>
-				<td colspan="2"><input type="text" id="testDatepicker">  </td>
+				<td colspan="1"><input type="text" id="datepicker"></td>
 			</tr>
 			<tr>
 				<td class="title" style="padding-top:80px;"><font size="4em"> 시작/종료시간 </font></td>
@@ -71,10 +71,8 @@
 </div>
 
 <script>
-$(function() {
-    $( "#testDatepicker" ).datepicker({
-    });
-});
+
+$("#datepicker").datepicker();
 
 //board timeSelecter
 

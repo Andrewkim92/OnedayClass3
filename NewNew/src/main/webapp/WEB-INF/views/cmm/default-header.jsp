@@ -27,15 +27,10 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/tabs.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/tabstyles.css" />
-<link rel="stylesheet" href="./jquery-ui-1.12.1/jquery-ui.min.css">
 
 <script src="/resources/js/modernizr.custom.js"></script>
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script src="/resources/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="/resources/js/jquery-ui.js"></script>
 <script src="/resources/js/service/HuskyEZCreator.js"></script>
-
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="./jquery-ui-1.12.1/jquery-ui.min.js"></script>
-<script src="./jquery-ui-1.12.1/datepicker-ko.js"></script>
 
