@@ -37,18 +37,17 @@
 									<c:when test="${not empty sessionScope.userVO}">
 										<li class="has-children"><a href="program">${sessionScope.userLoginInfo.email} 대원님</a>
 											<ul class="dropdown arrow-top">
-												<li><a href="/program">내 좋아요</a></li>
-												<li><a href="/program">프로필 수정</a></li>
-												<li><a href="/program">로그아웃</a></li>
+												<li><a href="/my/info">내 좋아요</a></li>
+												<li><a href="/my/info2">프로필 수정</a></li>
+												<li><a href="/logout">로그아웃</a></li>
 											</ul></li>
 										
 									</c:when>
 									<c:otherwise>
-										<li><a href="/register">회원가입${sessionScope.userVO2.id}</a></li>
+										<li><a href="/register">회원가입</a></li>
 										<li><a href="/login">로그인</a></li>
 									</c:otherwise>
 								</c:choose>
-
 										
 										<li class="has-children"><a href="program">고객센터</a>
 											<ul class="dropdown arrow-top">

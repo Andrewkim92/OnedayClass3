@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ page session="true"%>
+
 
 <script type="text/javascript">
 	
@@ -55,7 +57,7 @@
 					<h3>닉네임</h3>
 				</div>
 				<div style="float:left; width:50%; text-align:left;">
-					<input type="text" value="nickName">
+					<input type="text" value="${sessionScope.userLoginInfo.name}">
 				</div>
 			</div><br>
 			<div id="phNumber" style="width:100%; height:50px;">
@@ -63,7 +65,7 @@
 					<h3>휴대전화번호</h3>
 				</div>
 				<div style="float:left; width:50%; text-align:left;">
-					<input type="text" value="nickName">
+					<button id="">본인인증하기</button>
 				</div>
 			</div><br>
 			<div id="email" style="width:100%; height:50px;">
@@ -71,7 +73,8 @@
 					<h2>이메일</h2>
 				</div>
 				<div style="float:left; width:50%; text-align:left;">
-					<input type="text" value="nickName">
+					<input type="text" value="${sessionScope.userLoginInfo.email}"><br><br>
+					<input type="checkbox">다양한 이벤트, 할인, 상품 정보 메일을 받겠습니다.
 				</div>
 			</div><br>
 			<div id="password" style="width:100%; height:50px;">
@@ -79,7 +82,7 @@
 					<h2>비밀번호</h2>
 				</div>
 				<div style="float:left; width:50%; text-align:left;">
-					<input type="text" value="nickName">
+					<button id="">변경하기</button>
 				</div>
 			</div><br>
 			<div id="interestings" style="width:100%; height:50px;">
@@ -89,6 +92,10 @@
 				<div style="float:left; width:50%; text-align:left;">
 					<h2>후순위 </h2>
 				</div>
+			</div><br><br>
+			
+			<div id="save" style="text-align:center;">
+				<button>저장하기</button>
 			</div>
 		</div>
 
