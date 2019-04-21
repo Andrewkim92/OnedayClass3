@@ -3,7 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link rel="stylesheet" type="text/css" href="/resources/css/board.css">
-
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
 <div class="container2">
 	<br>
@@ -27,22 +29,24 @@
 			</nav>
 			<div id="contents">
 			
-			</div>
+				<div class="content-wrap">
+				<div id="wrap">
+				<table>
+				<tr>
+				<td><input type="text" id="datepicker"></td>
+				</tr>
+				</table>
+				</div>
+				</div>
+
+</div>
 		</div>
 	</div>
 </div>
 
 
 <script>
-$(document).ready(function() {
-	$('#contents').load("/board/tab1");
-	$('.tabmenu').click(function() {
-		var activeTab = $(this).attr('data-tab');
-		$('li').removeClass('tab-current');
-		$(this).addClass('tab-current');
-		$('#contents').load("/board/" + activeTab);
-	});
-});
 
+$("#datepicker").datepicker();
 
 </script>

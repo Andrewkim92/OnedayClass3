@@ -27,7 +27,11 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/tabs.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/tabstyles.css" />
+
 <script src="/resources/js/modernizr.custom.js"></script>
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script src="/resources/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="/resources/js/jquery-ui.js"></script>
+<!-- 네이버에디터 -->
+<script src="/resources/js/naver_editor/js/service/HuskyEZCreator.js"></script>
+

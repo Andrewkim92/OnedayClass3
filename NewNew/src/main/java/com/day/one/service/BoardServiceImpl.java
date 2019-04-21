@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.day.one.dao.BoardDao;
 import com.day.one.service.BoardService;
+import com.day.one.vo.BoardVO;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
@@ -14,7 +15,8 @@ public class BoardServiceImpl implements BoardService {
     private BoardDao dao;
 
 	@Override
-	public String test(int id) {
-		return dao.checkId(id);
+	public void registerBoard(BoardVO boardVO) {
+		
+		
 	}
 }
