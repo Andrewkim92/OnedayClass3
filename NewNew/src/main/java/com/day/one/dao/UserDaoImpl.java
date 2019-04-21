@@ -18,7 +18,8 @@ public class UserDaoImpl implements UserDao{
 	
 	@Override
 	public void insert(UserVO user) {
-		// TODO Auto-generated method stub
+		sqlSession.insert("insert", user);
+		
 	}
 
 	@Override

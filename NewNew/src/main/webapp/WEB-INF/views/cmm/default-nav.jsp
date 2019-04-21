@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page session="true"%>
 
 <div class="site-mobile-menu">
 	<div class="site-mobile-menu-header">
@@ -31,26 +33,42 @@
 
 								<ul class="site-menu js-clone-nav d-none d-lg-block">
 
-									<li><a href="/register">회원가입</a></li>
-									<li><a href="/login">로그인</a></li>
-									<li class="has-children"><a href="program">고객센터</a>
-										<ul class="dropdown arrow-top">
-											<li><a href="/program">Body Building</a></li>
-											<li><a href="/program">Morning Energy</a></li>
-											<li><a href="/program">Stretching</a></li>
-											<li class="has-children"><a href="program">Sub Menus</a>
-												<ul class="dropdown">
-													<li><a href="/program">Swimming</a></li>
-													<li><a href="/program">Boxing</a></li>
-													<li><a href="/program">Running</a></li>
-													<li><a href="/program">Jogging</a></li>
+								<c:choose>
+									<c:when test="${not empty sessionScope.userVO}">
+										<li class="has-children"><a href="program">${sessionScope.userLoginInfo.email} 대원님</a>
+											<ul class="dropdown arrow-top">
+												<li><a href="/program">내 좋아요</a></li>
+												<li><a href="/program">프로필 수정</a></li>
+												<li><a href="/program">로그아웃</a></li>
+											</ul></li>
+										
+									</c:when>
+									<c:otherwise>
+										<li><a href="/register">회원가입${sessionScope.userVO2.id}</a></li>
+										<li><a href="/login">로그인</a></li>
+									</c:otherwise>
+								</c:choose>
 
-												</ul></li>
+										
+										<li class="has-children"><a href="program">고객센터</a>
+											<ul class="dropdown arrow-top">
+												<li><a href="/program">Body Building</a></li>
+												<li><a href="/program">Morning Energy</a></li>
+												<li><a href="/program">Stretching</a></li>
+												<li class="has-children"><a href="program">Sub
+														Menus</a>
+													<ul class="dropdown">
+														<li><a href="/program">Swimming</a></li>
+														<li><a href="/program">Boxing</a></li>
+														<li><a href="/program">Running</a></li>
+														<li><a href="/program">Jogging</a></li>
 
-										</ul></li>
-									<li><a href="/board">Board</a></li>
-									<li><a href="/about">제휴문의</a></li>
-									<!--  <li><a href="contact">Contact</a></li> -->
+													</ul></li>
+
+											</ul></li>
+										<li><a href="/board">Board</a></li>
+										<li><a href="/about">제휴문의</a></li>
+										<!--  <li><a href="contact">Contact</a></li> -->
 								</ul>
 							</div>
 						</nav>

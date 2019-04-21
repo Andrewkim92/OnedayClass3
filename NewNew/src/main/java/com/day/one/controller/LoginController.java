@@ -61,14 +61,17 @@ public class LoginController {
 
 		// if (pwdEncoder.matches(dto.getUserPwd(), userService.getPwd(dto))) // DB
 		// 비밀번호와 로그인 비밀번호 비교
-		if (loginService.checkIDPwd(dto) == 1) {
+		if (loginService.checkIDPwd(dto) > 0) {
 			vo = loginService.login(dto); // vo에 userNo, userEmail, UserNick, userAuth 저장
 		} else { // 로그인 실패시
 			model.addAttribute("loginFail", true);
-			return "";
+			System.out.println("loginFail..");
+			return "login/login.tiles";
 		}
 
-		model.addAttribute("userVO", vo); // model에 {userVO : vo} 저장
+//		model.addAttribute("userVO", vo); // model에 {userVO : vo} 저장
+		session.setAttribute("userVO", vo);
+		System.out.println("loginSucceed..");
 		return "redirect:/";
 	}
 
