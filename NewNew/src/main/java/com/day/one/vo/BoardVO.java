@@ -49,7 +49,7 @@ public class BoardVO {
 	
 	private Date mod_date;
 
-//	*****applicant 테이블******
+//	*****applicant 테이블****** fk 제외
 	
 	private char deposit_check;
 	
@@ -59,7 +59,7 @@ public class BoardVO {
 	
 	private Date a_reg_date;
 	
-//	*****review 테이블*****
+//	*****review 테이블***** fk 제외
 
 	private int seq_review;
 	
