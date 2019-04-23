@@ -269,50 +269,6 @@ function changeRowId(elementId, target) {
 
 
 
-//날짜 삭제
-function deleteDate(){
-	var cnum = $(this).parent().attr('class').substring(2, 1);
-	var lastnum = $('#wrap_c > div:last').attr('class').substring(2, 1);  
-	var selected = $(this).parent("#content_");
-	console.log(selected); 
-	deleteDate(selected);
-	nnum--;
-	
-	if(cnum != lastnum){
-		$('#wrap_c > div:first').attr('class', 'c1');
-		$('#wrap_c > div:first > input[id^=datepicker]').attr('id','datepicker1');
-		$('#wrap_c > div:first > input[id^=datepicker]').attr('name','datepicker1');
-		$('#wrap_c > div:first > select[id^=startHour]').attr('name','startHour1');
-		$('#wrap_c > div:first > select[id^=startMin]').attr('name','startMin1');
-		$('#wrap_c > div:first > select[id^=endHour]').attr('name','endHour1');
-		$('#wrap_c > div:first > select[id^=endMin]').attr('name','endMin1');
-
-		if(lastnum - cnum != 1){ 
-			$('#wrap_c > div:last').attr('class', 'c2');
-			$('#wrap_c > div:last > input[id^=datepicker]').attr('id','datepicker2');
-			$('#wrap_c > div:last > input[id^=datepicker]').attr('name','datepicker2');
-			$('#wrap_c > div:last > select[id^=startHour]').attr('name','startHour2');
-			$('#wrap_c > div:last > select[id^=startMin]').attr('name','startMin2');
-			$('#wrap_c > div:last > select[id^=endHour]').attr('name','endHour2');
-			$('#wrap_c > div:last > select[id^=endMin]').attr('name','endMin2');
-			$('.c1 > input[id^=delete]').hide();
-		}
-	}
-	
-	if(lastnum - 1 != 1){
-		$('#content_1 > input[id^=delete]').show();
-	} else {
-		$('#content_1 > input[id^=delete]').hide();
-	}
-	$('#content_1 > input[id^=add]').show();
-	
-	var adds = document.querySelectorAll('#add');
-	adds.forEach(function(add){
-		add.addEventListener('click', function(){addDate()});
-	})
-}; 
-
-
 
 
 //주소
