@@ -44,7 +44,7 @@
 		update odc.user
 		set id=#{id}, password=#{password}, name=#{name}, userGrade=#{userGrade},
 		phoneNumber=#{phoneNumber}, intro=#{intro}, confirm=#{confirm} where
-		userNumber=#{userNumber}
+		id=#{id}
 	</update>
     	
     </mapper>

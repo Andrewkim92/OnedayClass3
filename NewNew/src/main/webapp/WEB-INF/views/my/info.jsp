@@ -6,7 +6,13 @@
 
 
 <script type="text/javascript">
-	
+function checkValue() {
+	if (!document.userInfo.nicName.value) {
+		alert("닉네임을 입력하세요.");
+		return false;
+	}
+
+}
 </script>
 
 <div id="infoArea"
@@ -21,7 +27,7 @@
 		</div>
 		<div id="myInfo" style="float: left; width: 50%">
 			<div style="">
-				<h1>닉네임영역</h1>
+				<h1>${sessionScope.userLoginInfo.nickName}</h1>
 				<button id="changeNic">변경</button>
 			</div>
 			<h2>관심사 영역</h2>
@@ -38,65 +44,76 @@
 		<div id="infoDown_nav"
 			style="float: left; width: 20%; text-align: left;">
 			<div id="infoDown_nav_b1">
-				<a href="">내 프립</a>
+				<a href="../my/history">내 프립</a>
 			</div>
 			<br>
 			<div id="infoDown_nav_b2">
-				<a href="">프로필 수정</a>
+				<a href="../my/info">프로필 수정</a>
 			</div>
 
 		</div>
 		<div id="infoDown_content"
 			style="float: left; width: 70%; text-align: left;">
+			<form method="post" action="../my/updateProfile" name="userInfo"
+				onsubmit="return checkValue()">
+				<div style="text-align: left">
+					<h1>내 프로필</h1>
+				</div>
+				<div id="nickNameArea"  style="width: 100%; height: 50px;">
+					<div style="float: left; width: 30%; text-align: left;">
+						<h3>닉네임</h3>
+					</div>
+					<div style="float: left; width: 50%; text-align: left;">
+						<input type="text" id="nickName" name="nickName" value="${sessionScope.userLoginInfo.name}">
+					</div>
+				</div>
+				<br>
+				<div id="phNumber"  style="width: 100%; height: 50px;">
+					<div style="float: left; width: 30%; text-align: left;">
+						<h3>휴대전화번호</h3>
+					</div>
+					<div style="float: left; width: 50%; text-align: left;">
+						<button id="">본인인증하기</button>
+					</div>
+				</div>
+				<br>
+				<div id="emailArea" style="width: 100%; height: 50px;">
+					<div style="float: left; width: 30%; text-align: left;">
+						<h2>이메일</h2>
+					</div>
+					<div style="float: left; width: 50%; text-align: left;">
+						<input type="text" id="email" name="email" value="${sessionScope.userLoginInfo.email}"><br>
+						<br> <input type="checkbox">다양한 이벤트, 할인, 상품 정보 메일을
+						받겠습니다.
+					</div>
+				</div>
+				<br>
+				<div id="password" style="width: 100%; height: 50px;">
+					<div style="float: left; width: 30%; text-align: left;">
+						<h2>비밀번호</h2>
+					</div>
+					<div style="float: left; width: 50%; text-align: left;">
+						<button id="">변경하기</button>
+					</div>
+				</div>
+				<br>
+				<div id="interestings" style="width: 100%; height: 50px;">
+					<div style="float: left; width: 30%; text-align: left;">
+						<h2>관심사</h2>
+					</div>
+					<div style="float: left; width: 50%; text-align: left;">
+						<h2>후순위</h2>
+					</div>
+				</div>
+				<br>
+				<br>
 
-			<div style="text-align: left">
-				<h1>내 프로필</h1>
-			</div>
-			<div id="nickName" style="width:100%; height:50px;">
-				<div style="float: left; width: 30%; text-align: left;">
-					<h3>닉네임</h3>
+				<div id="save" style="text-align: center;">
+					<input type="submit" value="가입하기"
+					style="width: 35%; height: 50px; background-color: rgb(51, 151, 255); color: white; line-height: 13px; font-size: 13px; border-radius: 4px;"
+					>	
 				</div>
-				<div style="float:left; width:50%; text-align:left;">
-					<input type="text" value="${sessionScope.userLoginInfo.name}">
-				</div>
-			</div><br>
-			<div id="phNumber" style="width:100%; height:50px;">
-				<div style="float: left; width: 30%; text-align: left;">
-					<h3>휴대전화번호</h3>
-				</div>
-				<div style="float:left; width:50%; text-align:left;">
-					<button id="">본인인증하기</button>
-				</div>
-			</div><br>
-			<div id="email" style="width:100%; height:50px;">
-				<div style="float: left; width: 30%; text-align: left;">
-					<h2>이메일</h2>
-				</div>
-				<div style="float:left; width:50%; text-align:left;">
-					<input type="text" value="${sessionScope.userLoginInfo.email}"><br><br>
-					<input type="checkbox">다양한 이벤트, 할인, 상품 정보 메일을 받겠습니다.
-				</div>
-			</div><br>
-			<div id="password" style="width:100%; height:50px;">
-				<div style="float: left; width: 30%; text-align: left;">
-					<h2>비밀번호</h2>
-				</div>
-				<div style="float:left; width:50%; text-align:left;">
-					<button id="">변경하기</button>
-				</div>
-			</div><br>
-			<div id="interestings" style="width:100%; height:50px;">
-				<div style="float: left; width: 30%; text-align: left;">
-					<h2>관심사</h2>
-				</div>
-				<div style="float:left; width:50%; text-align:left;">
-					<h2>후순위 </h2>
-				</div>
-			</div><br><br>
-			
-			<div id="save" style="text-align:center;">
-				<button>저장하기</button>
-			</div>
+				</form>
 		</div>
 
 	</div>

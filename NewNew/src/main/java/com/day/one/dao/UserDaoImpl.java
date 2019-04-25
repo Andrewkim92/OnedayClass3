@@ -36,8 +36,7 @@ public class UserDaoImpl implements UserDao{
 
 	@Override
 	public int update(UserVO user) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update("update", user);
 	}
 
 	@Override
