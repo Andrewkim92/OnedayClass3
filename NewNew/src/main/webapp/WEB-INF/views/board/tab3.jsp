@@ -4,65 +4,53 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link rel="stylesheet" type="text/css" href="/resources/css/board.css">
 
-<div class="content-wrap">
-	<div id="wrap">
-		<table>
-			<tr>
-				<td class="title b" width="95" height="20">
-					<font size="4em"> 세부일정 </font>
-				</td>
-				<td width="30"></td>
-				<td rowspan="2">
-					<textarea cols="75" rows="5" name="details"></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-			</tr>
-			<tr>
-				<td class="title b" height="20" style="padding-top:80px;">
-					<font size="4em"> 포함사항 </font>
-				</td>
-				<td width="30"></td>
-				<td rowspan="2" height="50" style="padding-top:80px;">
-					<textarea cols="75" rows="5" name="inclusion"></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-			</tr>
-			<tr>
-				<td class="title b" height="20" style="padding-top:80px;">
-					<font size="4em"> 불포함사항</font></td>
-				<td width="30"></td>
-				<td rowspan="2" height="50" style="padding-top:80px;" >
-					<textarea cols="75" rows="5" name="exclusion"></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-			</tr>
-			<tr>
-				<td class="title b"  height="20" style="padding-top:80px;">
-					<font size="4em"> 준비물 </font>
-				</td>
-				<td width="30"></td>
-				<td rowspan="2" height="50" style="padding-top:80px;">
-					<textarea cols="75" rows="5" name="preparation"></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-			</tr>
-			<tr>
-				<td colspan="3" style="padding-top:80px;">
-					<div style="text-align: center">
-						<input type="submit" value="등록" /> 
-						<input type="button" value="취소">
-					</div>
-				</td>
-			</tr>
-		</table>
+<form id="tab3" method="get" action="classBoardWrite/tab3">
+	<div class="content-wrap">
+		<div id="wrap">
+			<div id="wrap_">
+				<div id="title">
+					<p class="title">
+						<b>세부일정&emsp;&emsp;&emsp; </b>
+					</p>
+				</div>
+				<div id="content">
+					<textarea cols="67" rows="3" name="details1"></textarea>
+				</div>
+			</div>
+			<div id="wrap_">
+				<div id="title">
+					<p class="title">
+						<b>포함사항&emsp;&emsp;&emsp; </b>
+					</p>
+				</div>
+				<div id="content">
+					<textarea cols="67" rows="3" name="details2"></textarea>
+				</div>
+			</div>
+			<div id="wrap_">
+				<div id="title">
+					<p class="title">
+						<b>불포함사항&emsp;&emsp;&emsp; </b>
+					</p>
+				</div>
+				<div id="content">
+					<textarea cols="67" rows="3" name="details3"></textarea>
+				</div>
+			</div>
+			<div id="wrap_">
+				<div id="title">
+					<p class="title">
+						<b>준비물&emsp;&emsp;&emsp; </b>
+					</p>
+				</div>
+				<div id="content">
+					<textarea cols="67" rows="3" name="details4"></textarea>
+				</div>
+			</div>
+			<div id="button">
+				<input type="submit" value="저장"> 
+				<input type="button" value="취소">
+			</div>
+		</div>
 	</div>
-</div>
-
+</form>
