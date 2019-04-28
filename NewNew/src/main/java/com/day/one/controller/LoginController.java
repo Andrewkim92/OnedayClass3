@@ -71,17 +71,17 @@ public class LoginController {
 				accessToken = accessGrant.getRefreshToken();
 				System.out.println("accessToken is expired. refresh token = {} " + accessToken);
 			}
-			;
+			
 
 			Connection<Facebook> connection = connectionFactory.createConnection(accessGrant);
 			Facebook facebook = connection == null ? new FacebookTemplate(accessToken) : connection.getApi();
-			UserOperations userOperations = facebook.userOperations();
-
+//			UserOperations userOperations = facebook.userOperations();
+			
 			try
 
 			{
 				String[] fields = { "id", "email", "name","birthday" };
-				connection.fetchUserProfile();
+//				connection.fetchUserProfile();
 				User userProfile = facebook.fetchObject("me", User.class, fields);
 				System.out.println("유저이메일 : " + userProfile.getEmail());
 				System.out.println("유저 id : " + userProfile.getId());
@@ -94,7 +94,6 @@ public class LoginController {
 				vo.setUserGrade(4);
 				
 				loginService.insert(vo);
-				
 				
 				session.setAttribute("userVO", vo);
 			} catch (MissingAuthorizationException e) {
@@ -167,14 +166,14 @@ public class LoginController {
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request, HttpServletResponse response, HttpSession session)
 			throws Exception { // 로그아웃
-		Object obj = session.getAttribute("login");
+		Object obj = session.getAttribute("userVO");
 
 		if (obj != null) {
 			UserVO vo = (UserVO) obj;
-			session.removeAttribute("login"); // 세션 제거
+			session.removeAttribute("userVO"); // 세션 제거
 			session.invalidate();
 		}
-		return "/login/logout";
+		return "redirect:/";
 	}
 
 	@RequestMapping("/findPassword")

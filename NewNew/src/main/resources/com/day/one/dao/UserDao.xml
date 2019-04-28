@@ -13,7 +13,11 @@
 		#{confirm})
 		<!-- userNumber는 AI라 자동으로 값이 들어감 -->
 	</insert>
-
+		
+	<select id="getVOById" parameterType="String" resultType="com.day.one.vo.UserVO">
+		select * from odc.user where id = #{id }
+	</select>
+	
 	<select id="read" resultType="com.day.one.vo.UserVO">
 		select * from odc.user where userNumber = #{userNumber }
 	</select>
@@ -40,11 +44,18 @@
 		delete odc.user where userNumber = #{userNumber }
 	</delete>
 
-	<update id="update">
+	<update id="update" parameterType="com.day.one.vo.UserVO">
 		update odc.user
 		set id=#{id}, password=#{password}, name=#{name}, userGrade=#{userGrade},
 		phoneNumber=#{phoneNumber}, intro=#{intro}, confirm=#{confirm} where
-		id=#{id}
+		userNumber=#{userNumber}
+	</update>
+	
+	<update id="updateInfo" parameterType="com.day.one.vo.UserVO">
+		update odc.user
+		set name=#{name}, userGrade=#{userGrade},
+		phoneNumber=#{phoneNumber}, intro=#{intro}, confirm=#{confirm} where
+		userNumber=#{userNumber}
 	</update>
     	
     </mapper>

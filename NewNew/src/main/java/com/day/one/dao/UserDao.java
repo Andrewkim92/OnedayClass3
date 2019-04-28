@@ -2,8 +2,6 @@ package com.day.one.dao;
 
 import com.day.one.vo.UserVO;
 
-
-
 public interface UserDao {
 
 //	@Insert("insert into user (id, password, name, userGrade, phoneNumber, intro, confirm) "
@@ -20,5 +18,9 @@ public interface UserDao {
 	public int checkIDPwd(UserVO dto);
 
 	public UserVO login(UserVO dto);
+
+	public UserVO getVOById(String id);
+
+	public int updateInfo(UserVO vo);
 	
 }

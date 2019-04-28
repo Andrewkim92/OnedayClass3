@@ -6,13 +6,12 @@
 
 
 <script type="text/javascript">
-function checkValue() {
-	if (!document.userInfo.nicName.value) {
-		alert("닉네임을 입력하세요.");
-		return false;
+	function checkValue() {
+		if (!document.userInfo.name.value) {
+			alert("닉네임을 입력하세요.");
+			return false;
+		}
 	}
-
-}
 </script>
 
 <div id="infoArea"
@@ -27,7 +26,7 @@ function checkValue() {
 		</div>
 		<div id="myInfo" style="float: left; width: 50%">
 			<div style="">
-				<h1>${sessionScope.userLoginInfo.nickName}</h1>
+				<h1>${sessionScope.userVO.name}</h1>
 				<button id="changeNic">변경</button>
 			</div>
 			<h2>관심사 영역</h2>
@@ -59,21 +58,24 @@ function checkValue() {
 				<div style="text-align: left">
 					<h1>내 프로필</h1>
 				</div>
-				<div id="nickNameArea"  style="width: 100%; height: 50px;">
+				<div id="nameArea" style="width: 100%; height: 50px;">
 					<div style="float: left; width: 30%; text-align: left;">
 						<h3>닉네임</h3>
 					</div>
 					<div style="float: left; width: 50%; text-align: left;">
-						<input type="text" id="nickName" name="nickName" value="${sessionScope.userLoginInfo.name}">
+						<input type="text" id="name" name="name"
+							value="${sessionScope.userVO.name}">
 					</div>
 				</div>
 				<br>
-				<div id="phNumber"  style="width: 100%; height: 50px;">
+				<div id="phNumber" style="width: 100%; height: 50px;">
 					<div style="float: left; width: 30%; text-align: left;">
 						<h3>휴대전화번호</h3>
 					</div>
 					<div style="float: left; width: 50%; text-align: left;">
 						<button id="">본인인증하기</button>
+						<input type="hidden" value="${sessionScope.userVO.phoneNumber}"
+							name="phoneNumber" id="phoneNumber">
 					</div>
 				</div>
 				<br>
@@ -82,9 +84,9 @@ function checkValue() {
 						<h2>이메일</h2>
 					</div>
 					<div style="float: left; width: 50%; text-align: left;">
-						<input type="text" id="email" name="email" value="${sessionScope.userLoginInfo.email}"><br>
-						<br> <input type="checkbox">다양한 이벤트, 할인, 상품 정보 메일을
-						받겠습니다.
+						<input type="text" id="id" name="id"
+							value="${sessionScope.userVO.id}"><br> <br> <input
+							type="checkbox">다양한 이벤트, 할인, 상품 정보 메일을 받겠습니다.
 					</div>
 				</div>
 				<br>
@@ -105,15 +107,24 @@ function checkValue() {
 						<h2>후순위</h2>
 					</div>
 				</div>
-				<br>
-				<br>
-
+				<br> <br> <input type="hidden"
+					value="${sessionScope.userVO.userNumber}" name="userNumber"
+					id="userNumber">
+					<input type="hidden"
+					value="${sessionScope.userVO.userGrade}" name="userGrade"
+					id="userGrade">
+					<input type="hidden"
+					value="${sessionScope.userVO.intro}" name="intro"
+					id="intro">
+					<input type="hidden"
+					value="${sessionScope.userVO.confirm}" name="confirm"
+					id="confirm">
+					
 				<div id="save" style="text-align: center;">
-					<input type="submit" value="가입하기"
-					style="width: 35%; height: 50px; background-color: rgb(51, 151, 255); color: white; line-height: 13px; font-size: 13px; border-radius: 4px;"
-					>	
+					<input type="submit" value="수정하기"
+						style="width: 35%; height: 50px; background-color: rgb(51, 151, 255); color: white; line-height: 13px; font-size: 13px; border-radius: 4px;">
 				</div>
-				</form>
+			</form>
 		</div>
 
 	</div>

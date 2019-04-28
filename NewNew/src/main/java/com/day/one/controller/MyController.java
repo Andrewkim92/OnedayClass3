@@ -1,6 +1,7 @@
 package com.day.one.controller;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +20,12 @@ public class MyController {
 	private UserDao userService;
 	
 	@RequestMapping("/info")
-	public String info() {
+	public String info(UserVO vo,HttpServletResponse response, Model model,HttpSession session) {
 	
+		UserVO svo = (UserVO) session.getAttribute("userVO");
+		UserVO resVO = userService.getVOById(svo.getId());
+		
+		model.addAttribute("vo", resVO);
 		return "my/info.tiles";
 	}
 	
@@ -43,13 +48,12 @@ public class MyController {
 	}
 	
 	@PostMapping("/updateProfile")
-	public String updateProfile(UserVO vo, HttpServletResponse response, Model model) {
-
+	public String updateProfile(UserVO vo, HttpServletResponse response, Model model,HttpSession session) throws Exception{
 //		System.out.println(vo.getId());
 //		System.out.println(vo.getPassword());
-		userService.update(vo);
-		
-		return "redirect:/";
+//		userService.update(vo);
+		userService.updateInfo(vo);
+		return "redirect:/my/info";
 	}
 	
 }
