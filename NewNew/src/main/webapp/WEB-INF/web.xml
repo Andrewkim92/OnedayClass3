@@ -31,7 +31,8 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
-	<security-constraint>
+<!-- 	security 관련 - 8443 -->
+	<!-- <security-constraint>
         <web-resource-collection>
             <web-resource-name>my-secure-app</web-resource-name>
             <url-pattern>/*</url-pattern>
@@ -40,7 +41,7 @@
         <user-data-constraint>
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
         </user-data-constraint>
-    </security-constraint>
+    </security-constraint> -->
 	
 	<!-- Encoding Filter 추가 -->
 	<filter>
