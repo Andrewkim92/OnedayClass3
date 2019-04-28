@@ -24,7 +24,8 @@ public class UserDaoImpl implements UserDao{
 
 	@Override
 	public UserVO read(int userNumber) {
-		return sqlSession.selectOne("read", userNumber);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -46,16 +47,6 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public UserVO login(UserVO dto) {
 		return sqlSession.selectOne("login", dto);
-	}
-
-	@Override
-	public UserVO getVOById(String id) {
-		return sqlSession.selectOne("getVOById", id);
-	}
-
-	@Override
-	public int updateInfo(UserVO vo) {
-		return sqlSession.update("updateInfo", vo);
 	}
 
 }

@@ -61,12 +61,12 @@
 			회원가입</button>
 		<br>
 
-		<a href="${facebook_url}"><button id="facebook_login"
+		<button id="facebook_login"
 			style="width: 35%; height: 50px; background-color: rgb(66, 103, 178); color: white; line-height: 13px; font-size: 13px; border-radius: 4px; margin: 15px 0px 0px 0px;">
 			<img style="text-align: left;"
 				src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E %3Cpath fill='%23FFF' fill-rule='nonzero' d='M20.897 2H3.103C2.494 2 2 2.494 2 3.103v17.794C2 21.506 2.494 22 3.103 22h9.587v-7.734h-2.604v-3.028h2.604V9.01c0-2.582 1.579-3.99 3.882-3.99.777-.001 1.552.038 2.325.118v2.7H17.31c-1.255 0-1.5.593-1.5 1.469v1.927h3l-.39 3.028h-2.627V22h5.104c.609 0 1.103-.494 1.103-1.103V3.103C22 2.494 21.506 2 20.897 2z'/%3E %3C/svg%3E">페이스북으로
 			회원가입
-		</button></a>
+		</button>
 		<br>
 		<button id="kakao_login"
 			style="width: 35%; height: 50px; background-color: rgb(255, 222, 0); line-height: 13px; font-size: 13px; border-radius: 4px; margin: 15px 0px 25px 0px;">
@@ -77,6 +77,10 @@
 		<br>
 
 		<h1>로그인</h1>
+		<a href="${facebook_url}"><button
+                                    class="btn btn-primary btn-round" style="width: 100%">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>Facebook Login
+                                </button></a> 
 	</div>
 
 	<div id="eLogin" style="display: none;">
@@ -123,4 +127,5 @@
 
 
 </div>
+<div id="eLogin2" style="display: none;">Hide none</div>
 

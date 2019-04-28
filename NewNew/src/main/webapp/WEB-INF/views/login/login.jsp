@@ -70,7 +70,7 @@
 		</button>
 		<br>
 
-<!-- 		<h1>회원가입22</h1> -->
+		<h1>회원가입22</h1>
 	</div>
 
 	<div id="eLogin" style="display: none;">
