@@ -44,12 +44,6 @@ public class OneController {
 		return "one/board.tiles";
 	}
 	
-	@RequestMapping(value="/login")
-	public String login() {
-	
-		return "login/login.tiles";
-	}
-	
 	@RequestMapping("/register")
 	public String register() {
 	
