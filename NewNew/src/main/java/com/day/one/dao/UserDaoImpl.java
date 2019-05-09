@@ -58,4 +58,9 @@ public class UserDaoImpl implements UserDao{
 		return sqlSession.update("updateInfo", vo);
 	}
 
+	@Override
+	public int checkID(UserVO vo) {
+		return sqlSession.selectOne("checkID", vo);
+	}
+
 }

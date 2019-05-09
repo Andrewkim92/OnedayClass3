@@ -45,7 +45,7 @@
 									</c:when>
 									<c:otherwise>
 										<li><a href="/login/register">회원가입</a></li>
-										<li><a href="/login">로그인</a></li>
+										<li><a href="/login/login">로그인</a></li>
 									</c:otherwise>
 								</c:choose>
 										
@@ -61,9 +61,7 @@
 														<li><a href="/program">Boxing</a></li>
 														<li><a href="/program">Running</a></li>
 														<li><a href="/program">Jogging</a></li>
-
 													</ul></li>
-
 											</ul></li>
 										<li><a href="/board">Board</a></li>
 										<li><a href="/about">제휴문의</a></li>

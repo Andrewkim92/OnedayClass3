@@ -22,5 +22,7 @@ public interface UserDao {
 	public UserVO getVOById(String id);
 
 	public int updateInfo(UserVO vo);
+
+	public int checkID(UserVO vo);
 	
 }

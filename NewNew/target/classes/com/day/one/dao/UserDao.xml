@@ -39,6 +39,15 @@
 		where
 		id = #{id}
 	</select>
+	
+	<select id="checkID" parameterType="com.day.one.vo.UserVO" resultType="int">
+		select
+		count(id)
+		from
+		odc.user
+		where
+		id = #{id}
+	</select>
 
 	<delete id="delete">
 		delete odc.user where userNumber = #{userNumber }

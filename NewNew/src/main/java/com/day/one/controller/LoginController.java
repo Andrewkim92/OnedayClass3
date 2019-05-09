@@ -53,7 +53,7 @@ public class LoginController {
 
 	@RequestMapping(value = "/facebookSignInCallback", method = { RequestMethod.GET, RequestMethod.POST })
 	public String facebookSignInCallback(@RequestParam String code,HttpSession session) throws Exception {
-
+		
 		UserVO vo =new UserVO();
 		
 		try {
@@ -78,7 +78,6 @@ public class LoginController {
 //			UserOperations userOperations = facebook.userOperations();
 			
 			try
-
 			{
 				String[] fields = { "id", "email", "name","birthday" };
 //				connection.fetchUserProfile();
@@ -92,8 +91,11 @@ public class LoginController {
 				vo.setName(userProfile.getName());
 				vo.setPassword("facebookUser");
 				vo.setUserGrade(4);
-				
-				loginService.insert(vo);
+				if(loginService.checkID(vo)==1) {
+					System.out.println("유저 id :" + userProfile.getId() +"는 존재합니다.");
+				}else {
+					loginService.insert(vo);
+				}
 				
 				session.setAttribute("userVO", vo);
 			} catch (MissingAuthorizationException e) {
@@ -127,8 +129,8 @@ public class LoginController {
 		return "redirect:/";
 	}
 
-	@RequestMapping(value = "/loginGet", method = RequestMethod.GET)
-	public String loginGet(HttpServletRequest request) throws Exception { // 로그인창
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginGet(HttpServletRequest request,Model model) throws Exception { // 로그인창
 		HttpSession session = request.getSession();
 		if (request.getRequestURI() != null && request.getHeader("referer") != null) { // 바로 로그인 URI 접근시 null값 방지
 			if (session.getAttribute("temp") != null) // auth인터셉터 거칠때는 이전 페이지 저장 X
@@ -138,6 +140,13 @@ public class LoginController {
 																								// 않음
 				session.setAttribute("dest", request.getHeader("referer")); // 이전 페이지 정보 저장
 		}
+		
+		OAuth2Operations oauthOperations = connectionFactory.getOAuthOperations();
+		String facebook_url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, oAuth2Parameters);
+
+		model.addAttribute("facebook_url", facebook_url);
+		System.out.println("/facebook" + facebook_url);
+		
 
 		return "login/login.tiles";
 	}
