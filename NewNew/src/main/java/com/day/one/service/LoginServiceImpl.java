@@ -2,11 +2,11 @@ package com.day.one.service;
 
 import javax.annotation.Resource;
 
+
 import org.springframework.stereotype.Service;
 
-import com.day.one.dao.BoardDao;
+
 import com.day.one.dao.UserDao;
-import com.day.one.service.BoardService;
 import com.day.one.vo.UserVO;
 
 @Service("LoginService")
