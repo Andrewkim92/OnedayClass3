@@ -14,46 +14,22 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		lazy-init="false">
-		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/odc?serverTimezone=UTC" />
 		<property name="username" value="root" />
-		<property name="password" value="1234" />
+		<property name="password" value="123456" />
 	</bean>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-<!-- 		<property name="configLocation" value="classpath:/mybatis-config.xml"></property> -->
-<!-- 		<property name="mapperLocations" value="classpath:mybatis/sqlmaps/*.xml" /> -->
+		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+		<property name="mapperLocations" value="classpath:mybatis/sqlmaps/*.xml" />
 	</bean>
-	
-<!-- 	<bean id="dataSourceLog4j" class="net.sf.log4jdbc.Log4jdbcProxyDataSource"> -->
-<!--         <constructor-arg ref="dataSource" /> -->
-<!--         <property name="logFormatter"> -->
-<!--             <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter"> -->
-<!--                 <property name="loggingType" value="MULTI_LINE" /> -->
-<!--                 <property name="sqlPrefix" value="SQL         :  "/> -->
-<!--             </bean> -->
-<!--         </property> -->
-<!--     </bean> -->
 	
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"
 		destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
-	
-	<!-- Facebook 소셜 로그인 연결 설정 -->
- 
-    <bean id="connectionFactory"
-        class="org.springframework.social.facebook.connect.FacebookConnectionFactory">
-        <constructor-arg value="641513919606342" />
-        <constructor-arg value="66f51ecc82f509597ced0f8053af6110" />
-    </bean>
- 
-    <bean id="oAuth2Parameters"
-        class="org.springframework.social.oauth2.OAuth2Parameters">
-        <property name="scope" value="email" />
-        <property name="redirectUri" value="https://localhost:8443/login/facebookSignInCallback" />
-    </bean>
 	
 	<!-- dao 패키지를 빈으로 사용 -->
 	<mybatis-spring:scan base-package="com.day.one.dao"></mybatis-spring:scan>
