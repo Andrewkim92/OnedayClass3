@@ -77,10 +77,6 @@
 		<br>
 
 		<h1>로그인</h1>
-		<a href="${facebook_url}"><button
-                                    class="btn btn-primary btn-round" style="width: 100%">
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>Facebook Login
-                                </button></a> 
 	</div>
 
 	<div id="eLogin" style="display: none;">
@@ -125,7 +121,5 @@
 
 	</div>
 
-
 </div>
-<div id="eLogin2" style="display: none;">Hide none</div>
 

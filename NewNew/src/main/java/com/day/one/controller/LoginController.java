@@ -5,17 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.social.MissingAuthorizationException;
-import org.springframework.social.connect.Connection;
-import org.springframework.social.facebook.api.Facebook;
-import org.springframework.social.facebook.api.User;
-import org.springframework.social.facebook.api.UserOperations;
-import org.springframework.social.facebook.api.impl.FacebookTemplate;
-import org.springframework.social.facebook.connect.FacebookConnectionFactory;
-import org.springframework.social.oauth2.AccessGrant;
-import org.springframework.social.oauth2.GrantType;
-import org.springframework.social.oauth2.OAuth2Operations;
-import org.springframework.social.oauth2.OAuth2Parameters;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.day.one.dao.UserDao;
 import com.day.one.vo.UserVO;
+import com.fasterxml.jackson.databind.JsonNode;
 
 @Controller
 @RequestMapping("/login")
@@ -34,78 +24,107 @@ public class LoginController {
 	private UserDao loginService;
 
 	@Autowired
-	private FacebookConnectionFactory connectionFactory;
+	private KakaoController kakaoLogin;
 
-	@Autowired
-	private OAuth2Parameters oAuth2Parameters;
+	// @Autowired
+	// private FacebookConnectionFactory connectionFactory;
+
+	// @Autowired
+	// private OAuth2Parameters oAuth2Parameters;
+
+	@RequestMapping(value = "/oauth", produces = "application/json", method = { RequestMethod.GET, RequestMethod.POST })
+	public String kakaoLogin(@RequestParam("code") String code, Model model, HttpSession session) {
+		JsonNode userInfo = kakaoLogin.getKakaoUserInfo(code);
+
+		System.out.println(userInfo);
+
+		String id = userInfo.get("id").toString();
+//		String email = userInfo.get("kaccount_email").toString();
+		String image = userInfo.get("properties").get("profile_image").toString();
+		String nickname = userInfo.get("properties").get("nickname").toString().replace("\"", "");
+
+//		System.out.println(id + email);
+
+//		model.addAttribute("k_userInfo", userInfo);
+//		model.addAttribute("id", id);
+//		model.addAttribute("email", email);
+//		model.addAttribute("nickname", nickname);
+//		model.addAttribute("image", image);
+
+		UserVO vo = new UserVO();
+		
+		vo.setName(nickname);
+		
+		session.setAttribute("userVO", vo);
+		
+		return "redirect:/";
+	}
 
 	@RequestMapping("/register")
-	public String register(Model model,HttpSession session) {
+	public String register(Model model, HttpSession session) {
 
-		OAuth2Operations oauthOperations = connectionFactory.getOAuthOperations();
-		String facebook_url = oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE, oAuth2Parameters);
-
-		model.addAttribute("facebook_url", facebook_url);
-		System.out.println("/facebook" + facebook_url);
+		// OAuth2Operations oauthOperations = connectionFactory.getOAuthOperations();
+		// String facebook_url =
+		// oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE,
+		// oAuth2Parameters);
+		//
+		// model.addAttribute("facebook_url", facebook_url);
+		// System.out.println("/facebook" + facebook_url);
 
 		return "login/register.tiles";
 	}
 
 	@RequestMapping(value = "/facebookSignInCallback", method = { RequestMethod.GET, RequestMethod.POST })
-	public String facebookSignInCallback(@RequestParam String code,HttpSession session) throws Exception {
+	public String facebookSignInCallback(@RequestParam String code, HttpSession session) throws Exception {
 
-		UserVO vo =new UserVO();
-		
-		try {
-			String redirectUri = oAuth2Parameters.getRedirectUri();
-			System.out.println("Redirect URI : " + redirectUri);
-			System.out.println("Code : " + code);
+		UserVO vo = new UserVO();
 
-			OAuth2Operations oauthOperations = connectionFactory.getOAuthOperations();
-			AccessGrant accessGrant = oauthOperations.exchangeForAccess(code, redirectUri, null);
-			String accessToken = accessGrant.getAccessToken();
-			System.out.println("AccessToken: " + accessToken);
-			Long expireTime = accessGrant.getExpireTime();
+		/*
+		 * try { String redirectUri = oAuth2Parameters.getRedirectUri();
+		 * System.out.println("Redirect URI : " + redirectUri);
+		 * System.out.println("Code : " + code);
+		 * 
+		 * OAuth2Operations oauthOperations = connectionFactory.getOAuthOperations();
+		 * AccessGrant accessGrant = oauthOperations.exchangeForAccess(code,
+		 * redirectUri, null); String accessToken = accessGrant.getAccessToken();
+		 * System.out.println("AccessToken: " + accessToken); Long expireTime =
+		 * accessGrant.getExpireTime();
+		 * 
+		 * if (expireTime != null && expireTime < System.currentTimeMillis()) {
+		 * accessToken = accessGrant.getRefreshToken();
+		 * System.out.println("accessToken is expired. refresh token = {} " +
+		 * accessToken); } ;
+		 * 
+		 * Connection<Facebook> connection =
+		 * connectionFactory.createConnection(accessGrant); Facebook facebook =
+		 * connection == null ? new FacebookTemplate(accessToken) : connection.getApi();
+		 * UserOperations userOperations = facebook.userOperations();
+		 * 
+		 * try
+		 * 
+		 * { String[] fields = { "id", "email", "name","birthday" };
+		 * connection.fetchUserProfile(); User userProfile = facebook.fetchObject("me",
+		 * User.class, fields); System.out.println("유저이메일 : " + userProfile.getEmail());
+		 * System.out.println("유저 id : " + userProfile.getId());
+		 * System.out.println("유저 name : " + userProfile.getName());
+		 * System.out.println("유저 user_birthday : " + userProfile.getBirthday());
+		 * 
+		 * vo.setId(userProfile.getEmail()); vo.setName(userProfile.getName());
+		 * vo.setPassword("facebookUser"); vo.setUserGrade(4);
+		 * 
+		 * loginService.insert(vo);
+		 * 
+		 * 
+		 * session.setAttribute("userVO", vo); } catch (MissingAuthorizationException e)
+		 * { e.printStackTrace(); }
+		 * 
+		 * } catch (Exception e) {
+		 * 
+		 * e.printStackTrace();
+		 * 
+		 * }
+		 */
 
-			if (expireTime != null && expireTime < System.currentTimeMillis()) {
-				accessToken = accessGrant.getRefreshToken();
-				System.out.println("accessToken is expired. refresh token = {} " + accessToken);
-			}
-			;
-
-			Connection<Facebook> connection = connectionFactory.createConnection(accessGrant);
-			Facebook facebook = connection == null ? new FacebookTemplate(accessToken) : connection.getApi();
-			UserOperations userOperations = facebook.userOperations();
-
-			try
-
-			{
-				String[] fields = { "id", "email", "name","birthday" };
-				connection.fetchUserProfile();
-				User userProfile = facebook.fetchObject("me", User.class, fields);
-				System.out.println("유저이메일 : " + userProfile.getEmail());
-				System.out.println("유저 id : " + userProfile.getId());
-				System.out.println("유저 name : " + userProfile.getName());
-				System.out.println("유저 user_birthday : " + userProfile.getBirthday());
-				
-				vo.setId(userProfile.getEmail());
-				vo.setName(userProfile.getName());
-				vo.setPassword("facebookUser");
-				vo.setUserGrade(4);
-				
-				loginService.insert(vo);
-				
-				
-				session.setAttribute("userVO", vo);
-			} catch (MissingAuthorizationException e) {
-				e.printStackTrace();
-			}
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-		}
 		return "redirect:/";
 
 	}
@@ -113,13 +132,13 @@ public class LoginController {
 	@PostMapping("/doRegister")
 	public String doRegister(UserVO vo, HttpServletResponse response, Model model) {
 
-		 OAuth2Operations oauthOperations = connectionFactory.getOAuthOperations();
-		 String facebook_url =
-		 oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE,
-		 oAuth2Parameters);
-		
-		 model.addAttribute("facebook_url", facebook_url);
-		 System.out.println("/facebook" + facebook_url);
+		// OAuth2Operations oauthOperations = connectionFactory.getOAuthOperations();
+		// String facebook_url =
+		// oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE,
+		// oAuth2Parameters);
+		//
+		// model.addAttribute("facebook_url", facebook_url);
+		// System.out.println("/facebook" + facebook_url);
 
 		System.out.println(vo.getId());
 		System.out.println(vo.getPassword());
@@ -128,8 +147,8 @@ public class LoginController {
 		return "redirect:/";
 	}
 
-	@RequestMapping(value = "/loginGet", method = RequestMethod.GET)
-	public String loginGet(HttpServletRequest request) throws Exception { // 로그인창
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginGet(HttpServletRequest request, Model model) throws Exception { // 로그인창
 		HttpSession session = request.getSession();
 		if (request.getRequestURI() != null && request.getHeader("referer") != null) { // 바로 로그인 URI 접근시 null값 방지
 			if (session.getAttribute("temp") != null) // auth인터셉터 거칠때는 이전 페이지 저장 X
@@ -139,6 +158,10 @@ public class LoginController {
 																								// 않음
 				session.setAttribute("dest", request.getHeader("referer")); // 이전 페이지 정보 저장
 		}
+
+		String kakaoUrl = kakaoLogin.getAuthorizationUrl(session);
+		System.out.println(kakaoUrl);
+		model.addAttribute("kakao_url", kakaoUrl);
 
 		return "login/login.tiles";
 	}

@@ -27,7 +27,7 @@ function checkValue() {
 		</div>
 		<div id="myInfo" style="float: left; width: 50%">
 			<div style="">
-				<h1>${sessionScope.userLoginInfo.nickName}</h1>
+				<h1>${sessionScope.userVO.name}</h1>
 				<button id="changeNic">변경</button>
 			</div>
 			<h2>관심사 영역</h2>
@@ -64,7 +64,7 @@ function checkValue() {
 						<h3>닉네임</h3>
 					</div>
 					<div style="float: left; width: 50%; text-align: left;">
-						<input type="text" id="nickName" name="nickName" value="${sessionScope.userLoginInfo.name}">
+						<input type="text" id="nickName" name="nickName" value="${sessionScope.userVO.name}">
 					</div>
 				</div>
 				<br>
@@ -82,7 +82,7 @@ function checkValue() {
 						<h2>이메일</h2>
 					</div>
 					<div style="float: left; width: 50%; text-align: left;">
-						<input type="text" id="email" name="email" value="${sessionScope.userLoginInfo.email}"><br>
+						<input type="text" id="email" name="email" value="${sessionScope.userVO.id}"><br>
 						<br> <input type="checkbox">다양한 이벤트, 할인, 상품 정보 메일을
 						받겠습니다.
 					</div>
