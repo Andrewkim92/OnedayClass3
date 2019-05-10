@@ -44,8 +44,8 @@
 										
 									</c:when>
 									<c:otherwise>
-										<li><a href="/register">회원가입</a></li>
-										<li><a href="/login">로그인</a></li>
+										<li><a href="/login/register">회원가입</a></li>
+										<li><a href="/login/login">로그인</a></li>
 									</c:otherwise>
 								</c:choose>
 										
