@@ -26,6 +26,15 @@
 		where
 		id = #{id} and password= #{password}
 	</select>
+	
+	<select id="checkID" parameterType="com.day.one.vo.UserVO" resultType="int">
+		select
+			count(userNumber)
+		from
+		odc.user
+		where
+		id = #{id}
+	</select>
 
 	<select id="login" resultType="com.day.one.vo.UserVO">
 		select

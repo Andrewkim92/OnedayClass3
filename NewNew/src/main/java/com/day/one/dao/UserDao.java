@@ -20,5 +20,7 @@ public interface UserDao {
 	public int checkIDPwd(UserVO dto);
 
 	public UserVO login(UserVO dto);
+
+	public int checkID(UserVO vo);
 	
 }

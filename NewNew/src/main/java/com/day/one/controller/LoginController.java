@@ -1,5 +1,7 @@
 package com.day.one.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -53,7 +55,16 @@ public class LoginController {
 
 		UserVO vo = new UserVO();
 		
+		vo.setId(id);
 		vo.setName(nickname);
+		vo.setUserGrade(5);
+		
+		
+		if(loginService.checkID(vo)>0) { //존재 -> 로그인
+			
+		}else { //미존재 -> 회원가입
+			loginService.insert(vo);
+		}
 		
 		session.setAttribute("userVO", vo);
 		
@@ -71,6 +82,11 @@ public class LoginController {
 		// model.addAttribute("facebook_url", facebook_url);
 		// System.out.println("/facebook" + facebook_url);
 
+		
+		String kakaoUrl = kakaoLogin.getAuthorizationUrl(session);
+		System.out.println(kakaoUrl);
+		model.addAttribute("kakao_url", kakaoUrl);
+		
 		return "login/register.tiles";
 	}
 
@@ -197,7 +213,7 @@ public class LoginController {
 			session.removeAttribute("login"); // 세션 제거
 			session.invalidate();
 		}
-		return "/login/logout";
+		return "redirect:/";
 	}
 
 	@RequestMapping("/findPassword")

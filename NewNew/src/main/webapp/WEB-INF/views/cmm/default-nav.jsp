@@ -38,7 +38,6 @@
 										<li class="has-children"><a href="program">
 										<c:choose>
 										<c:when test="${not empty sessionScope.userVO.id}">
-										
 										${sessionScope.userVO.id}</c:when>
 										<c:otherwise>
 										${sessionScope.userVO.name}
@@ -46,8 +45,8 @@
 										</c:choose>
 										 대원님</a>
 											<ul class="dropdown arrow-top">
-												<li><a href="/my/info">내 좋아요</a></li>
-												<li><a href="/my/history">프로필 수정</a></li>
+												<li><a href="/my/history">내 좋아요</a></li>
+												<li><a href="/my/info">프로필 수정</a></li>
 												<li><a href="/login/logout">로그아웃</a></li>
 											</ul></li>
 										
@@ -70,7 +69,6 @@
 														<li><a href="/program">Boxing</a></li>
 														<li><a href="/program">Running</a></li>
 														<li><a href="/program">Jogging</a></li>
-
 													</ul></li>
 
 											</ul></li>
