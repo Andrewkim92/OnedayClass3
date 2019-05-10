@@ -4,6 +4,8 @@ import com.day.one.vo.ProgVO;
 
 public class ProgDaoImpl implements ProgDao {
 
+	// 아직 건드릴 부분이 딱히 없다
+	
 	@Override
 	public void insert(ProgVO prog) {
 		// TODO Auto-generated method stub
