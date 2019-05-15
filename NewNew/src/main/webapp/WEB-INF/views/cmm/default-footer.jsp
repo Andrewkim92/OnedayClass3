@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-md-4">
             <h3 class="footer-heading mb-4 text-white">About</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quos rem ullam, placeat amet.</p>
+            <p>about us</p>
             <p><a href="#" class="btn btn-primary rounded text-white px-4">Read More</a></p>
           </div>
           <div class="col-md-5 ml-auto">
@@ -16,11 +16,11 @@
                   <ul class="list-unstyled">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Our Trainers</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Contacts</a></li>
-                    <li><a href="#">The Club</a></li>
-                    <li><a href="#">Privacy</a></li>
+<!--                     <li><a href="#">Our Trainers</a></li> -->
+<!--                     <li><a href="#">News</a></li> -->
+<!--                     <li><a href="#">Contacts</a></li> -->
+<!--                     <li><a href="#">The Club</a></li> -->
+<!--                     <li><a href="#">Privacy</a></li> -->
                   </ul>
               </div>
               <div class="col-md-6">
@@ -34,7 +34,6 @@
               </div>
             </div>
           </div>
-
           
           <div class="col-md-2">
             <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Social Icons</h3></div>
@@ -53,7 +52,7 @@
           <div class="col-md-12">
             <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy; <script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            Copyright &copy; <script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="#" target="_blank" >OneDayClass</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
