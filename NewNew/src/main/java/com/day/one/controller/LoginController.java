@@ -197,11 +197,11 @@ public class LoginController {
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request, HttpServletResponse response, HttpSession session)
 			throws Exception { // 로그아웃
-		Object obj = session.getAttribute("login");
+		Object obj = session.getAttribute("userVO");
 
 		if (obj != null) {
 			UserVO vo = (UserVO) obj;
-			session.removeAttribute("login"); // 세션 제거
+			session.removeAttribute("userVO"); // 세션 제거
 			session.invalidate();
 		}
 		return "redirect:/";
