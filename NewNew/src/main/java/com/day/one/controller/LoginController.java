@@ -1,7 +1,5 @@
 package com.day.one.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -41,33 +39,27 @@ public class LoginController {
 		System.out.println(userInfo);
 
 		String id = userInfo.get("id").toString();
-//		String email = userInfo.get("kaccount_email").toString();
+		// String email = userInfo.get("kaccount_email").toString();
 		String image = userInfo.get("properties").get("profile_image").toString();
 		String nickname = userInfo.get("properties").get("nickname").toString().replace("\"", "");
 
-//		System.out.println(id + email);
-
-//		model.addAttribute("k_userInfo", userInfo);
-//		model.addAttribute("id", id);
-//		model.addAttribute("email", email);
-//		model.addAttribute("nickname", nickname);
-//		model.addAttribute("image", image);
-
-		UserVO vo = new UserVO();
 		
+		UserVO vo = new UserVO();
+
 		vo.setId(id);
 		vo.setName(nickname);
 		vo.setUserGrade(5);
-		
-		
-		if(loginService.checkID(vo)>0) { //존재 -> 로그인
-			
-		}else { //미존재 -> 회원가입
+
+		// 1. 회원가입 되있는지?
+		if (loginService.checkID(vo) > 0) { // 2. 회원가입 o -> 기존 아이디 불러와 로그인
+
+			vo = loginService.getVObyId(vo);
+		} else { // 3. 회원가입 x -> kakao 정보로 회원가입
 			loginService.insert(vo);
 		}
 		
 		session.setAttribute("userVO", vo);
-		
+
 		return "redirect:/";
 	}
 
@@ -82,11 +74,10 @@ public class LoginController {
 		// model.addAttribute("facebook_url", facebook_url);
 		// System.out.println("/facebook" + facebook_url);
 
-		
 		String kakaoUrl = kakaoLogin.getAuthorizationUrl(session);
 		System.out.println(kakaoUrl);
 		model.addAttribute("kakao_url", kakaoUrl);
-		
+
 		return "login/register.tiles";
 	}
 

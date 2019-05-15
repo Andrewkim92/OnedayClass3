@@ -54,4 +54,9 @@ public class UserDaoImpl implements UserDao{
 		return sqlSession.selectOne("checkID", vo);
 	}
 
+	@Override
+	public UserVO getVObyId(UserVO vo) {
+		return sqlSession.selectOne("getVObyId", vo);
+	}
+
 }

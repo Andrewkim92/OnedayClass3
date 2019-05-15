@@ -44,6 +44,16 @@
 		where
 		id = #{id}
 	</select>
+	
+	<select id="getVObyId" resultType="com.day.one.vo.UserVO">
+		select
+		*
+		from
+		odc.user
+		where
+		id = #{id}
+	</select>
+	
 
 	<delete id="delete">
 		delete odc.user where userNumber = #{userNumber }
@@ -55,5 +65,7 @@
 		phoneNumber=#{phoneNumber}, intro=#{intro}, confirm=#{confirm} where
 		id=#{id}
 	</update>
+	
+	
     	
     </mapper>

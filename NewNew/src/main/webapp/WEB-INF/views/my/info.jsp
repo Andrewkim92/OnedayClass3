@@ -16,7 +16,7 @@ function checkValue() {
 </script>
 
 <div id="infoArea"
-	style="width: 100%; height: 800px; margin: 100px 0px 100px 0px; text-align: center;">
+	style="width: 100%; height: 800px; margin: 100px 0px 50px 0px; text-align: center;">
 
 	<div id="infoUP"
 		style="margin: 0px 0px 100px 0px; width: 100%; height: 200px;">
@@ -40,7 +40,7 @@ function checkValue() {
 	</div>
 
 	<div id="infoDown"
-		style="margin: 100px 0px 0px 0px; width: 100%; height: 500px;">
+		style="margin: 50px 0px 0px 0px; width: 100%; height: 800px;">
 		<div id="infoDown_nav"
 			style="float: left; width: 20%; text-align: left;">
 			<div id="infoDown_nav_b1">
@@ -53,7 +53,7 @@ function checkValue() {
 
 		</div>
 		<div id="infoDown_content"
-			style="float: left; width: 70%; text-align: left;">
+			style="float: left; width: 70%; height:500px; 	text-align: left; margin: 0px 0px 0px 0px;">
 			<form method="post" action="../my/updateProfile" name="userInfo"
 				onsubmit="return checkValue()">
 				<div style="text-align: left">
@@ -106,11 +106,9 @@ function checkValue() {
 					</div>
 				</div>
 				<br>
-				<br>
-
 				<div id="save" style="text-align: center;">
-					<input type="submit" value="가입하기"
-					style="width: 35%; height: 50px; background-color: rgb(51, 151, 255); color: white; line-height: 13px; font-size: 13px; border-radius: 4px;"
+					<input type="submit" value="수정하기"
+					style="width: 30%; height: 30px; background-color: rgb(51, 151, 255); color: white; line-height: 13px; font-size: 13px; border-radius: 4px;"
 					>	
 				</div>
 				</form>

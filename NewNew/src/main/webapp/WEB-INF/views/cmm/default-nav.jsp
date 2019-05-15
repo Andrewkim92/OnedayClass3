@@ -37,10 +37,10 @@
 									<c:when test="${not empty sessionScope.userVO}">
 										<li class="has-children"><a href="program">
 										<c:choose>
-										<c:when test="${not empty sessionScope.userVO.id}">
-										${sessionScope.userVO.id}</c:when>
+										<c:when test="${not empty sessionScope.userVO.name}">
+										${sessionScope.userVO.name}</c:when>
 										<c:otherwise>
-										${sessionScope.userVO.name}
+										${sessionScope.userVO.id}
 										</c:otherwise>
 										</c:choose>
 										 대원님</a>

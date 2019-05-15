@@ -22,5 +22,7 @@ public interface UserDao {
 	public UserVO login(UserVO dto);
 
 	public int checkID(UserVO vo);
+
+	public UserVO getVObyId(UserVO vo);
 	
 }
