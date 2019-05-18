@@ -10,18 +10,26 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-<!-- 	2019.05.15 -->
-
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		lazy-init="false">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="driverClassName" value="net.sf.log4jdbc.DriverSpy" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/odc?serverTimezone=UTC" />
+			value="jdbc:log4jdbc:mysql://localhost:3306/odc?serverTimezone=UTC" />
 		<property name="username" value="root" />
 		<property name="password" value="1234" />
 	</bean>
+
+<!-- 	<bean id="dataSourceLog4j" class="net.sf.log4jdbc.Log4jdbcProxyDataSource"> -->
+<!-- 		<constructor-arg ref="dataSource" /> -->
+<!-- 		<property name="logFormatter"> -->
+<!-- 			<bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter"> -->
+<!-- 				<property name="loggingType" value="MULTI_LINE" /> -->
+<!-- 				<property name="sqlPrefix" value="SQL         :  " /> -->
+<!-- 			</bean> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
