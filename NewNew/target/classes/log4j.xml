@@ -35,6 +35,11 @@
 		<level value="debug" />
 		<appender-ref ref="console-infolog" />
 	</logger>
+	
+	<logger name="jdbc.resultset" additivity="false">
+		<level value="off" />
+		<appender-ref ref="console"/> 
+	</logger>
 
 	<logger name="jdbc.resultsettable" additivity="false">
 		<level value="debug" />
