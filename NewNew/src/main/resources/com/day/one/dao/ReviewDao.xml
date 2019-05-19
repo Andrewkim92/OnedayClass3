@@ -6,15 +6,15 @@
 
 	<insert id="insert">
 		insert into odc.review (program_progSeq, user_userNumber, reviewDate, reviewRate,  likeCount, reviewComment, uploadLocation) 
-		values (#{progSeq}, #{userNumber}, #{reviewDate}, #{reviewRate}, #{likeCount}, #{reviewComment}, #{uploadLocation})
+		values (#{program_progSeq}, #{user_userNumber}, #{reviewDate}, #{reviewRate}, #{likeCount}, #{reviewComment}, #{uploadLocation})
 	</insert>
 
 	<select id="listAll" resultType="com.day.one.vo.ReviewVO">
-		select * from odc.review where program_progSeq = #{progSeq}
+		select * from odc.review where program_progSeq = #{program_progSeq}
 	</select>
 
 	<delete id="delete">
-		delete odc.review where program_progSeq = #{progSeq} and user_userNumber = #{userNumber}
+		delete from odc.review where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber}
 	</delete>
 
 	<update id="update">
@@ -24,7 +24,7 @@
 		reviewRate = #{reviewRate},
 		reviewComment = #{reviewComment},
 		uploadLocation = #{uploadLocation}
-		where program_progSeq = #{progSeq} and user_userNumber = #{userNumber} 
+		where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber} 
 	</update>
 
 

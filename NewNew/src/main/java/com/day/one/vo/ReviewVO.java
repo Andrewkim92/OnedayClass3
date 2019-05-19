@@ -7,9 +7,9 @@ import lombok.Data;
 @Data
 public class ReviewVO {
 	
-	private int progSeq;
+	private int program_progSeq;
 	
-	private int userNumber;
+	private int user_userNumber;
 	
 	private Date reviewDate;
 	
