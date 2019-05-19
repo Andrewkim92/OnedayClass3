@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.day.one.dao.ReviewDao">
+
+	<insert id="insert">
+		insert into odc.review (program_progSeq, user_userNumber, reviewDate, reviewRate,  likeCount, reviewComment, uploadLocation) 
+		values (#{progSeq}, #{userNumber}, #{reviewDate}, #{reviewRate}, #{likeCount}, #{reviewComment}, #{uploadLocation})
+	</insert>
+
+	<select id="listAll" resultType="com.day.one.vo.ReviewVO">
+		select * from odc.review where program_progSeq = #{progSeq}
+	</select>
+
+	<delete id="delete">
+		delete odc.review where program_progSeq = #{progSeq} and user_userNumber = #{userNumber}
+	</delete>
+
+	<update id="update">
+		update odc.review 
+		set 
+		reviewDate = #{reviewDate},
+		reviewRate = #{reviewRate},
+		reviewComment = #{reviewComment},
+		uploadLocation = #{uploadLocation}
+		where program_progSeq = #{progSeq} and user_userNumber = #{userNumber} 
+	</update>
+
+
+</mapper>
