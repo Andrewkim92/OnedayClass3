@@ -24,6 +24,17 @@
 	
 	<context:component-scan base-package="com.day.one.controller" />
 	
+<!-- 	Intercepter -->
+	<beans:bean id="authenticationInterceptor" class="com.day.one.intercepter.AuthenticationInterceptor">
+	</beans:bean>
+	<!-- Interceptor 설정 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/my/*"/>
+			<beans:ref bean="authenticationInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
 	<!-- tiles -->
 	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
