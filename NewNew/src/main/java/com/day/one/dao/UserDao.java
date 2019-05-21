@@ -24,5 +24,7 @@ public interface UserDao {
 	public int checkID(UserVO vo);
 
 	public UserVO getVObyId(UserVO vo);
+
+	public void updateImgPath(UserVO vo);
 	
 }

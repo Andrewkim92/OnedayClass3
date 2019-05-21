@@ -6,28 +6,68 @@
 
 
 <script type="text/javascript">
-	function checkValue() {
-		if (!document.userInfo.nicName.value) {
-			alert("닉네임을 입력하세요.");
-			return false;
-		}
+	$(function() {
+		//이미지 클릭시 업로드창 실행
+		$('#profile_file_add').click(function() {
+			console.log('fileadd');
+			$("#file").click();
 
-	}
+		})
+
+		$(function() {
+			$("#file").change(function() {
+				var form = new FormData(document.getElementById('uploadForm'));
+				
+				$.ajax({
+					url : '/upload/uploadAjax',
+					data : form,
+					dataType : 'json',
+					processData : false,
+					contentType : false,
+					type : 'POST',
+					success : function(response) {
+						alert("success");
+						console.log(response);
+						location.reload();
+					},
+					error : function(jqXHR) {
+// 						alert(jqXHR.responseText);
+						location.reload();
+					}
+				});
+			});
+		});
+
+	})
 </script>
 
 <div id="infoArea"
-	style="width: 100%; height: 800px; margin: 100px 0px 50px 0px; /* text-align: center; */">
+	style="width: 100%; height: 800px; margin: 100px 0px 50px 0px;">
 
 	<div id="infoUP"
 		style="margin: 0px 0px 100px 0px; width: 100%; height: 200px;">
 		<div id="profile_pic" style="float: left; width: 30%;">
-			<img style="margin: 0px 50px 100px 50px; width: 50%; height: 150px;"
-				src="https://t1.daumcdn.net/cfile/tistory/99D95E425C727AE821"
-				alt="프로필 이미지">
+			<a href="#" id="profile_file_add"><img id="profile_file_add2"
+				style="margin: 0px 50px 100px 50px; width: 50%; height: 150px;"
+				src="${sessionScope.userVO.imgPath }"
+				alt="프로필 이미지"></a>
+			
+			<div id="hiddenArea" style="">
+			<form id="uploadForm" enctype="multipart/form-data" method="POST"
+				action="/upload/uploadForm">
+				<div>
+					<input type="file" id="file" name="file" required="required" />
+					<input id="userNumber" name="userNumber" type="hidden" value="${sessionScope.userVO.userNumber}">
+				</div>
+			</form>
+			</div>
+
 		</div>
-		<div id="myInfo" style="float:left; width: 30%">
+		<div id="myInfo" style="float: left; width: 30%">
 			<div style="">
-				<h1>${sessionScope.userVO.name}  <button id="changeNic">설정</button></h1>
+				<h1>${sessionScope.userVO.name}
+					<a href="/my/info"><button id="changeNic">설정</button></a>
+				</h1>
 			</div>
 			<h2>관심사 영역</h2>
 			<h2>이메일 계정</h2>
@@ -61,7 +101,7 @@
 		</div>
 		<div id="infoDown_content"
 			style="float: left; width: 70%; height: 500px; text-align: left; margin: 0px 0px 0px 0px;">
-			<form method="post" action="../my/updateProfile" name="userInfo"
+			<form method="post" action="../my/updateProfile" name="vo"
 				onsubmit="return checkValue()">
 				<div style="text-align: left">
 					<h1>내 프로필</h1>
@@ -71,7 +111,7 @@
 						<h3>닉네임</h3>
 					</div>
 					<div style="float: left; width: 50%; text-align: left;">
-						<input type="text" id="nickName" name="nickName"
+						<input type="text" id="name" name="name"
 							value="${sessionScope.userVO.name}">
 					</div>
 				</div>
@@ -90,7 +130,7 @@
 						<h2>이메일</h2>
 					</div>
 					<div style="float: left; width: 50%; text-align: left;">
-						<input type="text" id="email" name="email"
+						<input type="text" id="id" name="id"
 							value="${sessionScope.userVO.id}"><br> <br> <input
 							type="checkbox">다양한 이벤트, 할인, 상품 정보 메일을 받겠습니다.
 					</div>

@@ -13,7 +13,7 @@
 		#{confirm})
 		<!-- userNumber는 AI라 자동으로 값이 들어감 -->
 	</insert>
-
+	
 	<select id="read" resultType="com.day.one.vo.UserVO">
 		select * from odc.user where userNumber = #{userNumber }
 	</select>
@@ -66,6 +66,10 @@
 		id=#{id}
 	</update>
 	
-	
+	<update id="updateImgPath">
+		update odc.user
+		set imgPath=#{imgPath} where
+		userNumber=#{userNumber}
+	</update>
     	
     </mapper>

@@ -1,10 +1,12 @@
 package com.day.one.controller;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,9 +24,12 @@ public class LoginController {
 
 	@Autowired
 	private UserDao loginService;
-
+	
 	@Autowired
 	private KakaoController kakaoLogin;
+	
+	@Inject
+    PasswordEncoder passwordEncoder;
 
 	// @Autowired
 	// private FacebookConnectionFactory connectionFactory;
@@ -42,13 +47,13 @@ public class LoginController {
 		// String email = userInfo.get("kaccount_email").toString();
 		String image = userInfo.get("properties").get("profile_image").toString();
 		String nickname = userInfo.get("properties").get("nickname").toString().replace("\"", "");
-
 		
 		UserVO vo = new UserVO();
 
 		vo.setId(id);
 		vo.setName(nickname);
 		vo.setUserGrade(5);
+		vo.setImgPath(image);
 
 		// 1. 회원가입 되있는지?
 		if (loginService.checkID(vo) > 0) { // 2. 회원가입 o -> 기존 아이디 불러와 로그인
@@ -147,6 +152,11 @@ public class LoginController {
 		// model.addAttribute("facebook_url", facebook_url);
 		// System.out.println("/facebook" + facebook_url);
 
+		String encPassword = passwordEncoder.encode(vo.getPassword());
+		
+		vo.setPassword(encPassword);
+		
+		System.out.println(encPassword);
 		System.out.println(vo.getId());
 		System.out.println(vo.getPassword());
 		loginService.insert(vo);
@@ -178,11 +188,11 @@ public class LoginController {
 
 		UserVO vo = null;
 
-		// if (pwdEncoder.matches(dto.getUserPwd(), userService.getPwd(dto))) // DB
-		// 비밀번호와 로그인 비밀번호 비교
-		if (loginService.checkIDPwd(dto) > 0) {
-			vo = loginService.login(dto); // vo에 userNo, userEmail, UserNick, userAuth 저장
-		} else { // 로그인 실패시
+//		passwordEncoder.matches(rawPw, pw)
+		if (passwordEncoder.matches(dto.getPassword(),loginService.getVObyId(dto).getPassword())){// DB
+				vo = loginService.login(dto); // vo에 userNo, userEmail, UserNick, userAuth 저장
+		}else {
+			System.out.println("password not match");
 			model.addAttribute("loginFail", true);
 			System.out.println("loginFail..");
 			return "login/login.tiles";
@@ -200,7 +210,7 @@ public class LoginController {
 		Object obj = session.getAttribute("userVO");
 
 		if (obj != null) {
-			UserVO vo = (UserVO) obj;
+//			UserVO vo = (UserVO) obj;
 			session.removeAttribute("userVO"); // 세션 제거
 			session.invalidate();
 		}

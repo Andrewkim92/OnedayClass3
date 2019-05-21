@@ -1,6 +1,7 @@
 package com.day.one.controller;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,11 +44,13 @@ public class MyController {
 	}
 	
 	@PostMapping("/updateProfile")
-	public String updateProfile(UserVO vo, HttpServletResponse response, Model model) {
+	public String updateProfile(UserVO vo, HttpServletResponse response, Model model,HttpSession session) {
 
-//		System.out.println(vo.getId());
-//		System.out.println(vo.getPassword());
+		System.out.println(vo.getId());
+		System.out.println(vo.getName());
 		userService.update(vo);
+		
+		session.setAttribute("userVO", vo);
 		
 		return "redirect:/";
 	}

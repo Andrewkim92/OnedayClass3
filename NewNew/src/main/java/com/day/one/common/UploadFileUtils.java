@@ -11,9 +11,15 @@ import javax.imageio.ImageIO;
 import org.imgscalr.Scalr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FileCopyUtils;
 
+import com.day.one.dao.UserDao;
+
 public class UploadFileUtils {
+	
+	@Autowired
+	private UserDao loginService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(UploadFileUtils.class);
 
@@ -45,7 +51,7 @@ public class UploadFileUtils {
 			uploadedFileName = makeIcon(uploadPath, savedPath, savedName);
 		}
 		
-		//uploadedFileName는 썸네일명으로 화면에 전달된다.
+		//썸네일명으로 화면에 전달된다.
 		return uploadedFileName;
 	}//
 	
