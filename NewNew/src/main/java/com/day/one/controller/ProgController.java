@@ -31,6 +31,6 @@ public class ProgController {
 		return "redirect:/board/list";
 	}
 
-	
+	//김유철기텁푸시테스트
 	
 }
