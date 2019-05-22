@@ -12,6 +12,8 @@ public interface ReviewDao {
 	
 	public int update(ReviewVO review);
 	
-	public int delete(int progSeq, int userNumber);
+	public int delete(ReviewVO review);
+	
+	public int count(int progSeq);
 	
 }

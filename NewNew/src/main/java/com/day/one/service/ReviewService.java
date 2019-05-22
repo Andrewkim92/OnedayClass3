@@ -12,5 +12,7 @@ public interface ReviewService {
 	
 	public int modify(ReviewVO review);
 	
-	public int remove(int progSeq, int userNumber);
+	public int remove(ReviewVO review);
+	
+	public int count(int progSeq);
 }

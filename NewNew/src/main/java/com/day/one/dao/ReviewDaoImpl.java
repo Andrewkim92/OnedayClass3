@@ -29,13 +29,19 @@ public class ReviewDaoImpl implements ReviewDao {
 	};
 	
 	@Override
+	public int count(int progSeq) {
+		return sqlSession.selectOne("count",progSeq);
+	}
+	
+	
+	@Override
 	public int update(ReviewVO review) {
-		return 0;
+		return sqlSession.update("update",review);
 	};
 	
 	@Override
-	public int delete(int progSeq, int userNumber) {
-		return 0;
+	public int delete(ReviewVO review) {
+		return sqlSession.delete("delete",review);
 	};
 	
 }
