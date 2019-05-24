@@ -6,7 +6,7 @@
 
 	<insert id="insert">
 		insert into odc.review (program_progSeq, user_userNumber, reviewDate, reviewRate,  likeCount, reviewComment, uploadLocation) 
-		values (#{program_progSeq}, #{user_userNumber}, #{reviewDate}, #{reviewRate}, #{likeCount}, #{reviewComment}, #{uploadLocation})
+		values (#{program_progSeq}, #{user_userNumber}, now(), #{reviewRate}, #{likeCount}, #{reviewComment}, #{uploadLocation})
 	</insert>
 
 	<select id="listAll" resultType="com.day.one.vo.ReviewVO">
@@ -20,12 +20,15 @@
 	<update id="update">
 		update odc.review 
 		set 
-		reviewDate = #{reviewDate},
+		reviewDate = now(),
 		reviewRate = #{reviewRate},
 		reviewComment = #{reviewComment},
 		uploadLocation = #{uploadLocation}
 		where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber} 
 	</update>
-
+	
+	<select id="count" resultType="int">
+		SELECT COUNT(*) as count FROM odc.review where program_progSeq = #{program_progSeq};
+	</select>
 
 </mapper>

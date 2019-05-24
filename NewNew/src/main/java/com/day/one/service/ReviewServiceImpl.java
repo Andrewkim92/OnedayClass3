@@ -37,9 +37,15 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public int remove(int progSeq, int userNumber) {
+	public int remove(ReviewVO review) {
 		// TODO Auto-generated method stub
-		return rDao.delete(progSeq, userNumber);
+		return rDao.delete(review);
+	}
+
+	@Override
+	public int count(int progSeq) {
+		// TODO Auto-generated method stub
+		return rDao.count(progSeq);
 	}
 
 }
