@@ -2,6 +2,7 @@ package com.day.one.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -30,7 +31,17 @@ public class ProgController {
 		// 다시 list로 가서 등록됐는지 보여줌
 		return "redirect:/board/list";
 	}
-
-	//김유철기텁푸시테스트
+	
+	@GetMapping("/list")
+	public String list() {
+		
+		return "program/list.tiles";
+	}
+	
+	@GetMapping("/info")
+	public String info() {
+		
+		return "program/info.tiles";
+	}
 	
 }
