@@ -12,6 +12,10 @@
 	<select id="listAll" resultType="com.day.one.vo.ReviewVO">
 		select * from odc.review where program_progSeq = #{program_progSeq}
 	</select>
+	
+	<select id="listMy" resultType="com.day.one.vo.ReviewVO">
+		select * from odc.review where user_userNumber = #{user_userNumber}
+	</select>
 
 	<delete id="delete">
 		delete from odc.review where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber}
@@ -30,5 +34,14 @@
 	<select id="count" resultType="int">
 		SELECT COUNT(*) as count FROM odc.review where program_progSeq = #{program_progSeq};
 	</select>
+	
+	<select id="rateAvg" resultType="float">
+		SELECT AVG(reviewRate) FROM odc.review where program_progSeq = #{program_progSeq};
+	</select>
+	
+	<select id="readOne" resultType="com.day.one.vo.ReviewVO">
+		SELECT * FROM odc.review where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber}
+	</select>
+	
 
 </mapper>

@@ -25,9 +25,9 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public List<ReviewVO> getAll(int progSeq) {
+	public List<ReviewVO> getAll(int program_progSeq) {
 		// TODO Auto-generated method stub
-		return rDao.listAll(progSeq);
+		return rDao.listAll(program_progSeq);
 	}
 
 	@Override
@@ -43,9 +43,26 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public int count(int progSeq) {
+	public int count(int program_progSeq) {
 		// TODO Auto-generated method stub
-		return rDao.count(progSeq);
+		return rDao.count(program_progSeq);
+	}
+
+	@Override
+	public float rateAvg(int program_progSeq) {
+		// TODO Auto-generated method stub
+		return rDao.rateAvg(program_progSeq);
+	}
+
+	@Override
+	public ReviewVO readOne(ReviewVO review) {
+		// TODO Auto-generated method stub
+		return rDao.readOne(review);
+	}
+
+	@Override
+	public List<ReviewVO> getMy(int user_userNumber) {
+		return rDao.listMy(user_userNumber);
 	}
 
 }

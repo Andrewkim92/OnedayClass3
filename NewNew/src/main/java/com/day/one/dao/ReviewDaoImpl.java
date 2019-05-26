@@ -24,13 +24,13 @@ public class ReviewDaoImpl implements ReviewDao {
 	};
 	
 	@Override
-	public List<ReviewVO> listAll(int progSeq){
-		return sqlSession.selectList("listAll",progSeq);
+	public List<ReviewVO> listAll(int program_progSeq){
+		return sqlSession.selectList("listAll",program_progSeq);
 	};
 	
 	@Override
-	public int count(int progSeq) {
-		return sqlSession.selectOne("count",progSeq);
+	public int count(int program_progSeq) {
+		return sqlSession.selectOne("count",program_progSeq);
 	}
 	
 	
@@ -42,6 +42,22 @@ public class ReviewDaoImpl implements ReviewDao {
 	@Override
 	public int delete(ReviewVO review) {
 		return sqlSession.delete("delete",review);
-	};
+	}
+
+	@Override
+	public float rateAvg(int program_progSeq) {
+		return sqlSession.selectOne("rateAvg",program_progSeq);
+	}
+
+	@Override
+	public ReviewVO readOne(ReviewVO review) {
+		return sqlSession.selectOne("readOne",review);
+	}
+
+	@Override
+	public List<ReviewVO> listMy(int user_userNumber) {
+		return sqlSession.selectList("listMy",user_userNumber);
+	}
+
 	
 }

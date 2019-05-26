@@ -14,8 +14,8 @@
 </h1>
     <form action="/review/write" method="POST">
         <div class="createForm">
-            <input type="hidden" name="program_progSeq" class="createForm" value = ${progSeq}>
-            <input type="hidden" name="user_userNumber" class="createForm" value = ${userNumber}>
+            <input type="hidden" name="program_progSeq" class="createForm" value = ${program_progSeq}>
+            <input type="hidden" name="user_userNumber" class="createForm" value = ${user_userNumber}>
             <input type="hidden" name="uploadLocation" class="createForm" value = "">
             <input type="hidden" name="likeCount" class="createForm" value = 0>
         </div>
