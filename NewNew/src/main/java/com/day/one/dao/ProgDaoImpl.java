@@ -1,33 +1,32 @@
 package com.day.one.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.day.one.vo.Criteria;
 import com.day.one.vo.ProgVO;
 
+@Repository("ProgDao")
 public class ProgDaoImpl implements ProgDao {
-
-	// 아직 건드릴 부분이 딱히 없다
+	
+	@Autowired
+	private SqlSession sqlSession;
 	
 	@Override
-	public void insert(ProgVO prog) {
-		// TODO Auto-generated method stub
-		
+	public ProgVO read(int progSeq) {
+		return sqlSession.selectOne("read",progSeq);
 	}
 
 	@Override
-	public ProgVO read(int userNumber) {
-		// TODO Auto-generated method stub
+	public List<ProgVO> getList(Criteria cri) {
 		return null;
 	}
 
 	@Override
-	public int update(ProgVO prog) {
-		// TODO Auto-generated method stub
+	public int getTotalCount(Criteria cri) {
 		return 0;
 	}
-
-	@Override
-	public int delete(int userNumber) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }

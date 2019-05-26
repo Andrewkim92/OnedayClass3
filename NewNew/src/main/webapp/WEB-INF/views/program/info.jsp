@@ -21,10 +21,10 @@
                   <section class="sc-dCaJBF bfcWhe">
                   <div class="sc-erOsFi hFjPxk">
                      <!--서브제목  -->
-                     <h2 class="sc-bscRGj jYYcp">${progSmallTitle}</h2>
+                     <h2 class="sc-bscRGj jYYcp"><c:out value="${program.progSmallTitle}"/></h2>
                         
                      <!-- 제목  -->
-                     <h1 class="sc-hlELIx bhbvkZ">${progBigTitle}</h1>
+                     <h1 class="sc-hlELIx bhbvkZ"><c:out value="${program.progBigTitle}"/></h1>
                      
                      <!-- 링크 -->
                      <div class="sc-eGXxtx hxxvuL">
@@ -44,7 +44,7 @@
                      <div class="sc-cgzHhG bFyWVq">
                         <img class="sc-jtHxuu bmAmNZ" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath d='M0 0h24v24H0z'/%3E %3Cpath fill='%23F66' d='M12.242 6.129l-.555-.555C9.84 3.727 6.841 3.428 4.828 5.091a5.001 5.001 0 0 0-.364 7.402l7.071 7.07a1 1 0 0 0 1.415 0l7.07-7.07a5.001 5.001 0 0 0-.364-7.402c-2.013-1.663-5.012-1.364-6.859.483l-.555.555z'/%3E %3C/g%3E %3C/svg%3E">
                         <div class="sc-blIhvV fXrOfX">
-                        ${progLikeCount}
+                        <c:out value="${program.progLikeCount}"/>
                         </div>
                      </div>
                      <!-- 유효기간 -->
@@ -54,7 +54,7 @@
                      <!-- 위치 -->
                      <div class="sc-cgzHhG bFyWVq">
                         <img class="sc-jtHxuu bmAmNZ" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E %3Cg fill='none' fill-rule='evenodd'%3E %3Cpath d='M0 0h18v18H0z'/%3E %3Cpath fill='%233397FF' d='M3 7c0 1.094.298 2.117.81 3 .624 1.077 2.092 3.081 4.405 6.01a1 1 0 0 0 1.57 0c2.313-2.929 3.782-4.933 4.406-6.01A5.96 5.96 0 0 0 15 7 6 6 0 0 0 3 7z'/%3E %3Cpath fill='%23FFF' d='M8.875 8.75a1.876 1.876 0 1 1 .001-3.751 1.876 1.876 0 0 1-.001 3.751z'/%3E %3C/g%3E %3C/svg%3E">
-                        ${progLocation}
+                        <c:out value="${program.progLocation}"/>
                      </div>
                      <!-- 평점 -->
                      <div class="sc-cgzHhG bFyWVq">
@@ -81,7 +81,7 @@
                         <h4 class="sc-ihiiSJ ixbWtH">프립 소개</h4>
                      </header>
                      <div class="sc-gJTSre jVuYqM">
-                        ${progContents}
+                        <c:out value="${program.progContents}"/>
                         <p style="text-align:center">
                            <strong>ㅡ <br>
                               프립에서 구매 후 <br>

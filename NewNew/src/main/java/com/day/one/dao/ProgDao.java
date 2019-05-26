@@ -1,15 +1,17 @@
 package com.day.one.dao;
 
+import java.util.List;
+
+import com.day.one.vo.Criteria;
 import com.day.one.vo.ProgVO;
 
 public interface ProgDao {
-
-	public void insert(ProgVO prog);
+	//get
+	public ProgVO read(int progSeq);
 	
-	public ProgVO read(int userNumber);
+	//list
+	public List<ProgVO> getList(Criteria cri);
 	
-	public int update(ProgVO prog);
-	
-	public int delete(int userNumber);
-	
+	//총 프로그램 수
+	public int getTotalCount(Criteria cri);
 }
