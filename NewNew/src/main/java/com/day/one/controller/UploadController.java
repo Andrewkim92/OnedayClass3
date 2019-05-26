@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,7 +45,7 @@ public class UploadController {
 	private UserDao loginService;
 	
 	//Post 방식 파일 업로드
-	@RequestMapping(value = "/uploadForm", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/uploadForm", method = RequestMethod.POST)
 	public String uploadFormPOST(MultipartFile file, Model model,MultipartHttpServletRequest req) throws Exception {
 		
 		logger.info("uploadFormPost");
@@ -60,7 +61,7 @@ public class UploadController {
 		model.addAttribute("savedName", savedName);
 		
 		return "/upload/uploadForm";
-	}
+	}*/
 	
 	//업로드된 파일을 저장하는 함수
 	private String uploadFile(String originalName, byte[] fileDate,String uploadPath) throws IOException {
@@ -79,16 +80,15 @@ public class UploadController {
 	}
 	
 	//Ajax 파일 업로드
-	@RequestMapping(value="/upload/uploadAjax", method = RequestMethod.GET)
-	public String uploadAjaxGET() {
-		return "/upload/uploadAjax";
-	}
-	
+//	@RequestMapping(value="/upload/uploadAjax", method = RequestMethod.GET)
+//	public String uploadAjaxGET() {
+//		return "/upload/uploadAjax";
+//	}
 	
 	//Ajax 파일 업로드 produces는 한국어를 정상적으로 전송하기 위한 속성
 	@ResponseBody
 	@RequestMapping(value="/uploadAjax", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
-	public ResponseEntity<String> uploadAjaxPOST(MultipartFile file,MultipartHttpServletRequest req,HttpServletRequest request,int userNumber) throws Exception {
+	public ResponseEntity<String> uploadAjaxPOST(MultipartFile file,MultipartHttpServletRequest req,HttpServletRequest request,int userNumber,HttpSession session) throws Exception {
 		
 		logger.info("originalName:" + file.getOriginalFilename());
 		logger.info("size:" + file.getSize());
@@ -97,7 +97,6 @@ public class UploadController {
 		//String savedName = uploadFile(file.getOriginalFilename(), file.getBytes());
 		//HttpStatus.CREATED : 리소스가 정상적으로 생성되었다는 상태코드.
 		//return new ResponseEntity<>(file.getOriginalFilename(), HttpStatus.CREATED);
-		
 		
 		String savedPath = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
 		
@@ -111,7 +110,12 @@ public class UploadController {
 		vo.setImgPath(imgPath);
 		loginService.updateImgPath(vo);
 		
-		return new ResponseEntity<>(savedPath, HttpStatus.CREATED);
+		UserVO tmpVO = (UserVO) session.getAttribute("userVO");
+		tmpVO.setImgPath(imgPath);
+		session.setAttribute("userVO", tmpVO);
+		
+		Thread.sleep(1000);
+		return new ResponseEntity<>(savedPath, HttpStatus.OK);
 	}
 	
 	//화면에 저장된 파일을 보여주는 컨트롤러 /년/월/일/파일명 형태로 입력 받는다.
@@ -178,7 +182,5 @@ public class UploadController {
 		
 	}*/
 	
-	
-
 	
 }

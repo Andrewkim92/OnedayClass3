@@ -4,31 +4,38 @@
     
 <mapper namespace="com.day.one.dao.ProgDao">
 
-	<insert id="insert">
-		insert into odc.program (progName, progBigTitle, progSmallTitle, progContent,  progLocation, progLikeCount, userNumber, uploadLocation) 
-		values (#{progName}, #{progBigTitle}, #{progSmallTitle}, #{progContent}, #{progLocation}, #{progLikeCount}, #{userNumber}, #{uploadLocation})
-	</insert>
+    <insert id="insert">
+        insert into odc.program (progName, progBigTitle, progSmallTitle, progContent,  progLocation, progLikeCount, userNumber, uploadLocation) 
+        values (#{progName}, #{progBigTitle}, #{progSmallTitle}, #{progContent}, #{progLocation}, #{progLikeCount}, #{userNumber}, #{uploadLocation})
+    </insert>
 
-	<select id="read" resultType="com.day.one.vo.ProgVO">
-		select * from odc.program where progSeq = #{progSeq }
+    <select id="read" resultType="com.day.one.vo.ProgVO">
+        select * from odc.program where progSeq = #{progSeq }
+    </select>
+
+    <delete id="delete">
+        delete odc.program where progSeq = #{progSeq }
+    </delete>
+
+    <update id="update">
+        update odc.program set 
+        
+        progName = #{progName},
+        progBigTitle = #{progBigTitle},
+        progSmallTitle = #{progSmallTitle},
+        progContent = #{progContent},
+        progLocation = #{progLikeCount},
+        userNumber = #{userNumber},
+        uploadLocation = #{uploadLocation}
+
+        where progSeq = #{progSeq}
+    </update>
+
+	<select id="getList" resultType="com.day.one.vo.ProgVO">
+		<![CDATA[ select * from odc.program where progSeq < 7 ]]>
 	</select>
 
-	<delete id="delete">
-		delete odc.program where progSeq = #{progSeq }
-	</delete>
-
-	<update id="update">
-		update odc.program set 
-		
-		progName = #{progName},
-		progBigTitle = #{progBigTitle},
-		progSmallTitle = #{progSmallTitle},
-		progContent = #{progContent},
-		progLocation = #{progLikeCount},
-		userNumber = #{userNumber},
-		uploadLocation = #{uploadLocation}
-
-		where progSeq = #{progSeq}
-	</update>
-
+	<select id="getTotalCount" resultType="int">
+		 <![CDATA[ select count(*) from odc.program where progSeq > 0 ]]>
+	</select>
 </mapper>

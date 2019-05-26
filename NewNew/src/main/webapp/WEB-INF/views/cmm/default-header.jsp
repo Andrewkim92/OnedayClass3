@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Oneday Class!! &mdash;</title>
+<title>Oneday Class &mdash;</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="/resources/css/aos.css">
 <link rel="stylesheet" href="/resources/css/style.css">
 
-<link rel="shortcut icon" href="../favicon.ico">
+<link rel="shortcut icon" href="/resources/images/OneLogo.PNG">
 <link rel="stylesheet" type="text/css" href="/resources/css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/tabs.css" />
@@ -35,4 +35,4 @@
 <script src="/resources/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="/resources/js/jquery-ui.js"></script>
 <script src="/resources/js/naver_editor/js/service/HuskyEZCreator.js"></script>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> -->

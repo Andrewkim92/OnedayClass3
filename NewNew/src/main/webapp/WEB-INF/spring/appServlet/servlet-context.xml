@@ -49,7 +49,10 @@
 
 	<!-- 	각자 local 맞게 경로 수정 필요 -->
 	<beans:bean id="uploadPath" class="java.lang.String">
+<!-- 		내 local 경로 -->
 		<beans:constructor-arg value="C:\Users\qwerh\git\OnedayClass3\NewNew\src\main\webapp\resources\profile_imgs"></beans:constructor-arg>
+<!-- 		AWS 경로 -->
+<!-- 		<beans:constructor-arg value="/var/lib/tomcat8/webapps/ROOT/resources/profile_imgs"></beans:constructor-arg>  -->
 	</beans:bean>
 	
 	<!-- tiles -->

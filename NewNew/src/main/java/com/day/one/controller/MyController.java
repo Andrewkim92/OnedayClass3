@@ -52,7 +52,7 @@ public class MyController {
 		
 		session.setAttribute("userVO", vo);
 		
-		return "redirect:/";
+		return "redirect:/my/info";
 	}
 	
 }

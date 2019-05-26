@@ -60,16 +60,23 @@
 	</delete>
 
 	<update id="update">
-		update odc.user
-		set id=#{id}, password=#{password}, name=#{name}, userGrade=#{userGrade},
-		phoneNumber=#{phoneNumber}, intro=#{intro}, confirm=#{confirm} where
-		id=#{id}
+		update 
+			odc.user
+		set 
+			id=#{id}, password=#{password}, name=#{name}, userGrade=#{userGrade},
+		phoneNumber=#{phoneNumber}, intro=#{intro}, confirm=#{confirm} 
+		where
+			id=#{id}
 	</update>
 	
 	<update id="updateImgPath">
-		update odc.user
-		set imgPath=#{imgPath} where
-		userNumber=#{userNumber}
+		update 
+			odc.user
+		set 
+			imgPath=#{imgPath} 
+		where
+			userNumber=#{userNumber}
+		<!-- 			test.. -->
 	</update>
     	
     </mapper>

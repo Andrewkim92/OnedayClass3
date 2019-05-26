@@ -31,7 +31,8 @@
 						location.reload();
 					},
 					error : function(jqXHR) {
-// 						alert(jqXHR.responseText);
+						alert("error : "+jqXHR.responseText);
+// 						window.location.href = 'http://localhost:8080/my/info/';
 						location.reload();
 					}
 				});
@@ -47,12 +48,12 @@
 	<div id="infoUP"
 		style="margin: 0px 0px 100px 0px; width: 100%; height: 200px;">
 		<div id="profile_pic" style="float: left; width: 30%;">
-			<a href="#" id="profile_file_add"><img id="profile_file_add2"
+			<a href="#" id="profile_file_add"><img id="profile_file_add_img"
 				style="margin: 0px 50px 100px 50px; width: 50%; height: 150px;"
-				src="${sessionScope.userVO.imgPath }"
+				src="${sessionScope.userVO.imgPath}"
 				alt="프로필 이미지"></a>
 			
-			<div id="hiddenArea" style="">
+			<div id="hiddenArea" style="display:none">
 			<form id="uploadForm" enctype="multipart/form-data" method="POST"
 				action="/upload/uploadForm">
 				<div>
