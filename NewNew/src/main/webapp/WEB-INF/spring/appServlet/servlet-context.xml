@@ -27,6 +27,7 @@
 	</beans:bean>
 
 	<context:component-scan base-package="com.day.one.controller" />
+	<context:component-scan base-package="com.day.one.service" />
 
 	<!-- Intercepter -->
 	<beans:bean id="authenticationInterceptor"
