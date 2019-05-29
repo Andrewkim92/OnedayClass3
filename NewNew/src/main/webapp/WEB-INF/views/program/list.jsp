@@ -26,8 +26,8 @@
              <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
                <div class="media-with-text mb-5">
                  <div class="mb-4">
-                   <a href="/program/info">
-                     <img src="/resources/images/img_1.jpg" alt="" class="img-fluid">
+                   <a class='move' href='<c:out value="${program.progSeq}"/>'>
+                    	<img src="/resources/images/img_1.jpg" alt="" class="img-fluid">
                    </a>
                  </div>
                  <h2 class="h5 mb-2"><a class='move' href='<c:out value="${program.progSeq}"/>'>${program.progName}class</a></h2>
@@ -36,45 +36,6 @@
                </div>
              </div>
           </c:forEach>
-          
-           <%--  <!-- class 1 -->
-         <c:forEach var="program" items="${programs}">
-             <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-               <div class="media-with-text mb-5">
-                 <div class="mb-4">
-                   <a href="/program/info">
-                     <img src="/resources/images/img_1.jpg" alt="" class="img-fluid">
-                   </a>
-                 </div>
-                 <h2 class="h5 mb-2"><a href="/program/info?progSeq=<c:out value="${program.progSeq}"/>><c:out value="${program.progName}"/>class 6</a></h2>
-                 <span class="mb-3 d-block post-date">January 20, 2018 &bullet; By <c:out value="${program.progLocation}"/> <a href="#"><c:out value="${program.name}"/>Josh Holmes</a></span>
-                 <p><c:out value="${program.progBigTitle"/>}</p>
-               </div>
-             </div>
-          </c:forEach> --%>
-          
-    <%-- <c:forEach var="program" items="${programs}">
-  			<h1><c:out value="${program.progSeq}"/></h1>
-  			<h1><c:out value="${program.progName}"/></h1>
-  			<h1><c:out value="${program.progLocation}"/></h1>
-  			<h1><c:out value="${program.progBigTitle}"/></h1>
-  			<h1><c:out value="${program.name}"/></h1>
- 	  </c:forEach>    --%>
-       <%-- <!-- class 1 -->
-         <c:forEach var="program" items="${programs}">
-             <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-               <div class="media-with-text mb-5">
-                 <div class="mb-4">
-                   <a href="/program/info">
-                     <img src="/resources/images/img_1.jpg" alt="" class="img-fluid">
-                   </a>
-                 </div>
-                 <h2 class="h5 mb-2"><a href='/program/info?progSeq=<c:out value="${program.progSeq}"/>'><c:out value="${program.progName}"/>class 6</a></h2>
-                 <span class="mb-3 d-block post-date">January 20, 2018 By<c:out value="${program.progLocation}"/> <a href="#"><c:out value="${program.name}"/>Josh Holmes</a></span>
-                 <p><c:out value="${program.progBigTitle}"/></p>
-               </div>
-             </div>
-          </c:forEach>       --%>
 	
       <!--    페이징  -->
        <form action="/program/list" method="get">
