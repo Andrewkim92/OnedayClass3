@@ -36,10 +36,10 @@ public class ProgController {
 	
 	@GetMapping("/list")
 	public String list(Criteria cri, Model model) {
-		List<ProgVO> programs = progService.getList(cri);
+		List<ProgVO> programs = progService.getListWithPaging(cri);
 		model.addAttribute("programs", programs);
 		
-		int total = progService.getTotalCount(cri);
+		int total = progService.getTotalCount();
 		PageDTO pageDTO = new PageDTO(cri, total);
 		model.addAttribute("pageMaker", pageDTO);
 		
@@ -64,5 +64,10 @@ public class ProgController {
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		
 		return "program/info.tiles";
+	}
+
+	@GetMapping("/jstest")
+	public String jstest() {
+		return "program/jstest";
 	}
 }

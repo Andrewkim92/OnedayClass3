@@ -9,7 +9,9 @@ public interface ProgService {
 	
 	public ProgVO get(int progSeq);
 	
-	public List<ProgVO> getList(Criteria cri);
+	//public List<ProgVO> getList(Criteria cri);
 
-	public int getTotalCount(Criteria cri);
+	public int getTotalCount();
+	
+	public List<ProgVO> getListWithPaging(Criteria cri);
 }

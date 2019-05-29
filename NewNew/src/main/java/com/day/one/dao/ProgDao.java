@@ -10,8 +10,10 @@ public interface ProgDao {
 	public ProgVO read(int progSeq);
 	
 	//list
-	public List<ProgVO> getList(Criteria cri);
+	//public List<ProgVO> getList(Criteria cri);
 	
 	//총 프로그램 수
-	public int getTotalCount(Criteria cri);
+	public int getTotalCount();
+	
+	public List<ProgVO> getListWithPaging(Criteria cri);
 }

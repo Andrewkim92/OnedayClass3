@@ -13,7 +13,7 @@ public class ProgVO {
 	
 	private String progSmallTitle;
 	
-	private String progContent;
+	private String progContents;
 	
 	private String progLocation;
 	

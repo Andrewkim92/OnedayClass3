@@ -20,13 +20,18 @@ public class ProgDaoImpl implements ProgDao {
 		return sqlSession.selectOne("read",progSeq);
 	}
 
+	/*
+	 * @Override public List<ProgVO> getList(Criteria cri) { return null; }
+	 */
+
 	@Override
-	public List<ProgVO> getList(Criteria cri) {
-		return null;
+	public int getTotalCount() {
+		return sqlSession.selectOne("getTotalCount");
 	}
 
 	@Override
-	public int getTotalCount(Criteria cri) {
-		return 0;
+	public List<ProgVO> getListWithPaging(Criteria cri) {
+		
+		return sqlSession.selectOne("getListWithPaging",cri);
 	}
 }

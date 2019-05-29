@@ -12,21 +12,16 @@ public class Criteria {
 
   private int pageNum;
   private int amount;
-  
-  private String type;
-  private String keyword;
+  private int startNum;
 
   public Criteria() {
-    this(1, 10);
+    this(1, 6, 1);
   }
 
-  public Criteria(int pageNum, int amount) {
+  public Criteria(int pageNum, int amount, int startNum) {
     this.pageNum = pageNum;
     this.amount = amount;
+    this.startNum = startNum;
   }
   
-  public String[] getTypeArr() {
-    
-    return type == null? new String[] {}: type.split("");
-  }
 }

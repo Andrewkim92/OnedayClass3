@@ -23,13 +23,22 @@ public class ProgServiceImpl implements ProgService{
 		return pDao.read(progSeq);
 	}
 
+	/*
+	 * @Override public List<ProgVO> getList(Criteria cri) { return
+	 * pDao.getList(cri); }
+	 */
+
 	@Override
-	public List<ProgVO> getList(Criteria cri) {
-		return pDao.getList(cri);
+	public int getTotalCount() {
+		return pDao.getTotalCount();
 	}
 
 	@Override
-	public int getTotalCount(Criteria cri) {
-		return pDao.getTotalCount(cri);
+	public List<ProgVO> getListWithPaging(Criteria cri) {
+		int amount = cri.getAmount();
+		int pageNum = cri.getPageNum();
+		int startNum = (pageNum-1)*amount;
+		cri.setStartNum(startNum);
+		return pDao.getListWithPaging(cri);
 	}
 }
