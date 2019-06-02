@@ -49,7 +49,7 @@ public class LoginController {
 
 		String id = userInfo.get("id").toString();
 		// String email = userInfo.get("kaccount_email").toString();
-		String image = userInfo.get("properties").get("profile_image").toString();
+		String image = userInfo.get("properties").get("profile_image").toString().replaceAll("\"", "");
 		String nickname = userInfo.get("properties").get("nickname").toString().replace("\"", "");
 
 		UserVO vo = new UserVO();
