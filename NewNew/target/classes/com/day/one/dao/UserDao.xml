@@ -8,9 +8,9 @@
     	
     <insert id="insert">
 		insert into odc.user (id, password, name, userGrade, phoneNumber,
-		intro, confirm)
+		intro, confirm,imgPath)
 		values (#{id}, #{password}, #{name}, #{userGrade}, #{phoneNumber}, #{intro},
-		#{confirm})
+		#{confirm},#{imgPath})
 		<!-- userNumber는 AI라 자동으로 값이 들어감 -->
 	</insert>
 	
