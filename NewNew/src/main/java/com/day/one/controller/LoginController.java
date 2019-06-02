@@ -1,5 +1,8 @@
 package com.day.one.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.day.one.dao.UserDao;
 import com.day.one.vo.UserVO;
@@ -24,12 +28,12 @@ public class LoginController {
 
 	@Autowired
 	private UserDao loginService;
-	
+
 	@Autowired
 	private KakaoController kakaoLogin;
-	
+
 	@Inject
-    PasswordEncoder passwordEncoder;
+	PasswordEncoder passwordEncoder;
 
 	// @Autowired
 	// private FacebookConnectionFactory connectionFactory;
@@ -47,7 +51,7 @@ public class LoginController {
 		// String email = userInfo.get("kaccount_email").toString();
 		String image = userInfo.get("properties").get("profile_image").toString();
 		String nickname = userInfo.get("properties").get("nickname").toString().replace("\"", "");
-		
+
 		UserVO vo = new UserVO();
 
 		vo.setId(id);
@@ -62,7 +66,7 @@ public class LoginController {
 		} else { // 3. 회원가입 x -> kakao 정보로 회원가입
 			loginService.insert(vo);
 		}
-		
+
 		session.setAttribute("userVO", vo);
 
 		return "redirect:/";
@@ -86,6 +90,47 @@ public class LoginController {
 		return "login/register.tiles";
 	}
 
+	@PostMapping("/doRegister")
+	public ModelAndView doRegister(UserVO vo, HttpServletResponse response, Model model,HttpSession session) throws IOException {
+
+		// OAuth2Operations oauthOperations = connectionFactory.getOAuthOperations();
+		// String facebook_url =
+		// oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE,
+		// oAuth2Parameters);
+		//
+		// model.addAttribute("facebook_url", facebook_url);
+		// System.out.println("/facebook" + facebook_url);
+
+		String encPassword = passwordEncoder.encode(vo.getPassword());
+
+		vo.setPassword(encPassword);
+
+		System.out.println(encPassword);
+		System.out.println(vo.getId());
+		System.out.println(vo.getPassword());
+		
+		if(loginService.getVObyId(vo)!=null) { // 이미 있는 ID 존재
+//			return "redirect:/";
+			response.setContentType("text/html; charset=UTF-8");
+			 
+			PrintWriter out = response.getWriter();
+			 
+			out.println("<script>alert('이미 존재하는 ID입니다. '); location.href='http://localhost:8080/login/register';</script>");
+			 
+			out.flush();
+			
+			return new ModelAndView("/");
+
+		}else {
+			loginService.insert(vo);
+			
+			session.setAttribute("userVO", vo);
+			
+			return new ModelAndView("redirect:/");
+		}
+		
+	}
+	
 	@RequestMapping(value = "/facebookSignInCallback", method = { RequestMethod.GET, RequestMethod.POST })
 	public String facebookSignInCallback(@RequestParam String code, HttpSession session) throws Exception {
 
@@ -141,29 +186,6 @@ public class LoginController {
 
 	}
 
-	@PostMapping("/doRegister")
-	public String doRegister(UserVO vo, HttpServletResponse response, Model model) {
-
-		// OAuth2Operations oauthOperations = connectionFactory.getOAuthOperations();
-		// String facebook_url =
-		// oauthOperations.buildAuthorizeUrl(GrantType.AUTHORIZATION_CODE,
-		// oAuth2Parameters);
-		//
-		// model.addAttribute("facebook_url", facebook_url);
-		// System.out.println("/facebook" + facebook_url);
-
-		String encPassword = passwordEncoder.encode(vo.getPassword());
-		
-		vo.setPassword(encPassword);
-		
-		System.out.println(encPassword);
-		System.out.println(vo.getId());
-		System.out.println(vo.getPassword());
-		loginService.insert(vo);
-
-		return "redirect:/";
-	}
-
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginGet(HttpServletRequest request, Model model) throws Exception { // 로그인창
 		HttpSession session = request.getSession();
@@ -186,19 +208,21 @@ public class LoginController {
 	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
 	public String loginPost(UserVO dto, Model model, HttpSession session) throws Exception { // 로그인
 
-		UserVO vo = null;
-
-//		passwordEncoder.matches(rawPw, pw)
-		if (passwordEncoder.matches(dto.getPassword(),loginService.getVObyId(dto).getPassword())){// DB
+		UserVO vo = loginService.getVObyId(dto);
+		if (vo != null) {
+			if (passwordEncoder.matches(dto.getPassword(), vo.getPassword())) {// DB
 				vo = loginService.login(dto); // vo에 userNo, userEmail, UserNick, userAuth 저장
-		}else {
-			System.out.println("password not match");
-			model.addAttribute("loginFail", true);
-			System.out.println("loginFail..");
+			} else {
+				System.out.println("password not match");
+				model.addAttribute("loginFail", true);
+				System.out.println("loginFail..");
+				return "login/login.tiles";
+			}
+		} else {
+			System.out.println("Id is wrong..");
 			return "login/login.tiles";
 		}
 
-		// model.addAttribute("userVO", vo); // model에 {userVO : vo} 저장
 		session.setAttribute("userVO", vo);
 		System.out.println("loginSucceed..");
 		return "redirect:/";
@@ -210,7 +234,7 @@ public class LoginController {
 		Object obj = session.getAttribute("userVO");
 
 		if (obj != null) {
-//			UserVO vo = (UserVO) obj;
+			// UserVO vo = (UserVO) obj;
 			session.removeAttribute("userVO"); // 세션 제거
 			session.invalidate();
 		}
