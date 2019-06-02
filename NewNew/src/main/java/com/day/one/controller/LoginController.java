@@ -110,15 +110,11 @@ public class LoginController {
 		System.out.println(vo.getPassword());
 		
 		if(loginService.getVObyId(vo)!=null) { // 이미 있는 ID 존재
-//			return "redirect:/";
 			response.setContentType("text/html; charset=UTF-8");
 			 
 			PrintWriter out = response.getWriter();
-			 
 			out.println("<script>alert('이미 존재하는 ID입니다. '); location.href='http://localhost:8080/login/register';</script>");
-			 
 			out.flush();
-			
 			return new ModelAndView("/");
 
 		}else {
@@ -206,9 +202,14 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
-	public String loginPost(UserVO dto, Model model, HttpSession session) throws Exception { // 로그인
-
+	public ModelAndView loginPost(UserVO dto, Model model, HttpSession session,HttpServletResponse response) throws Exception { // 로그인
+		
+		
 		UserVO vo = loginService.getVObyId(dto);
+		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
 		if (vo != null) {
 			if (passwordEncoder.matches(dto.getPassword(), vo.getPassword())) {// DB
 				vo = loginService.login(dto); // vo에 userNo, userEmail, UserNick, userAuth 저장
@@ -216,16 +217,21 @@ public class LoginController {
 				System.out.println("password not match");
 				model.addAttribute("loginFail", true);
 				System.out.println("loginFail..");
-				return "login/login.tiles";
+				
+				out.println("<script>alert('비밀번호가 일치하지 않습니다.'); location.href='http://localhost:8080//login/login';</script>");
+				out.flush();
+				return new ModelAndView("/login/login");
 			}
 		} else {
 			System.out.println("Id is wrong..");
-			return "login/login.tiles";
+			out.println("<script>alert('ID가 존재하지 않습니다.'); location.href='http://localhost:8080//login/login';</script>");
+			out.flush();
+			return new ModelAndView("/login/login");
 		}
 
 		session.setAttribute("userVO", vo);
 		System.out.println("loginSucceed..");
-		return "redirect:/";
+		return new ModelAndView("redirect:/");
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
