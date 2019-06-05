@@ -1,4 +1,4 @@
-<%@page import="java.util.Date"%>
+<%-- <%@page import="java.util.Date"%>
 <%@page import="java.util.Locale"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
@@ -75,3 +75,4 @@ if(request.getContentLength() > 10*1024*1024 ){
 	fileAttach();
 	this.window.close();
 </script>
+ --%>

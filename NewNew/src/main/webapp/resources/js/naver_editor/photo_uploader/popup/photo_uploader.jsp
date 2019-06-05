@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%-- <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="com.oreilly.servlet.MultipartRequest, com.oreilly.servlet.multipart.DefaultFileRenamePolicy, java.util.*, java.io.*"%>
 
 <style type="text/css">
@@ -121,3 +121,4 @@ h1{color:#333;font-size:14px;letter-spacing:-1px}
 <script type="text/javascript" src="jindo.fileuploader.js" charset="utf-8"></script>
 <script type="text/javascript" src="attach_photo.js" charset="utf-8"></script>
 
+ --%>
