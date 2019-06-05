@@ -61,15 +61,16 @@
                                  <ul class="dropdown arrow-top">
                                     <li><a href="/program">Body Building</a></li>
                                     <li><a href="/program">Morning Energy</a></li>
-                                    <li><a href="/program">Stretching</a></li>
-                                    <li class="has-children"><a href="program">Sub
-                                          Menus</a>
-                                       <ul class="dropdown">
-                                          <li><a href="/program">Swimming</a></li>
-                                          <li><a href="/program">Boxing</a></li>
-                                          <li><a href="/program">Running</a></li>
-                                          <li><a href="/program">Jogging</a></li>
-                                       </ul></li>
+                                    <li><a href="/my/hostRegister">호스트 가입</a></li>
+<!--                                     <li class="has-children"><a href="program">Sub -->
+<!--                                           Menus</a> -->
+<!--                                        <ul class="dropdown"> -->
+<!--                                           <li><a href="/program">Swimming</a></li> -->
+<!--                                           <li><a href="/program">Boxing</a></li> -->
+<!--                                           <li><a href="/program">Running</a></li> -->
+<!--                                           <li><a href="/program">Jogging</a></li> -->
+<!--                                        </ul> -->
+<!--                                        </li> -->
 
                                  </ul></li>
                               <li><a href="/program/list">program</a></li>
