@@ -20,25 +20,37 @@ public class MyController {
 	private UserDao userService;
 	
 	@RequestMapping("/info")
-	public String info() {
+	public String info(UserVO vo,HttpSession session) {
 	
 		return "my/info.tiles";
 	}
 	
+	@RequestMapping("/hostRegister")
+	public String hostRegister(UserVO vo,HttpSession session) {
+	
+		return "my/hostRegister.tiles";
+	}
+	
+	@RequestMapping("/hostRegisterTerm")
+	public String hostRegisterTerm(UserVO vo,HttpSession session) {
+	
+		return "my/hostRegisterTerm.tiles";
+	}
+	
 	@RequestMapping("/history")
-	public String history() {
+	public String history(UserVO vo,HttpSession session) {
 	
 		return "my/history.tiles";
 	}
 	
 	@RequestMapping("/history/class")
-	public String historyClass() {
+	public String historyClass(UserVO vo,HttpSession session) {
 	
 		return "my/class.tiles";
 	}
 	
 	@RequestMapping("/history/reviews")
-	public String historyReviews() {
+	public String historyReviews(UserVO vo,HttpSession session) {
 	
 		return "my/reviews.tiles";
 	}
@@ -50,7 +62,10 @@ public class MyController {
 		System.out.println(vo.getName());
 		userService.update(vo);
 		
-		session.setAttribute("userVO", vo);
+		UserVO tmpVO = (UserVO) session.getAttribute("userVO");
+		tmpVO.setId(vo.getId());
+		tmpVO.setName(vo.getName());
+		session.setAttribute("userVO", tmpVO);
 		
 		return "redirect:/my/info";
 	}

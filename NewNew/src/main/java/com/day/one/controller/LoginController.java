@@ -204,7 +204,6 @@ public class LoginController {
 	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
 	public ModelAndView loginPost(UserVO dto, Model model, HttpSession session,HttpServletResponse response) throws Exception { // 로그인
 		
-		
 		UserVO vo = loginService.getVObyId(dto);
 		
 		response.setContentType("text/html; charset=UTF-8");

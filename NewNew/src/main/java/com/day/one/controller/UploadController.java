@@ -114,6 +114,38 @@ public class UploadController {
 		tmpVO.setImgPath(imgPath);
 		session.setAttribute("userVO", tmpVO);
 		
+		Thread.sleep(2000);
+		return new ResponseEntity<>(savedPath, HttpStatus.OK);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/uploadAjax_program", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
+	public ResponseEntity<String> uploadAjax_program(MultipartFile file,MultipartHttpServletRequest req,HttpServletRequest request,int userNumber,HttpSession session) throws Exception {
+		
+		logger.info("originalName:" + file.getOriginalFilename());
+		logger.info("size:" + file.getSize());
+		logger.info("contentType:" + file.getContentType());
+		
+		//String savedName = uploadFile(file.getOriginalFilename(), file.getBytes());
+		//HttpStatus.CREATED : 리소스가 정상적으로 생성되었다는 상태코드.
+		//return new ResponseEntity<>(file.getOriginalFilename(), HttpStatus.CREATED);
+		
+		String savedPath = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
+		
+		String path = "/resources/profile_imgs";
+		
+		String imgPath = path + savedPath;
+		System.out.println(imgPath);
+		
+//		UserVO vo = new UserVO();
+//		vo.setUserNumber(userNumber);
+//		vo.setImgPath(imgPath);
+//		loginService.updateImgPath(vo);
+		
+		UserVO tmpVO = (UserVO) session.getAttribute("userVO");
+		tmpVO.setImgPath(imgPath);
+		session.setAttribute("userVO", tmpVO);
+		
 		Thread.sleep(1000);
 		return new ResponseEntity<>(savedPath, HttpStatus.OK);
 	}

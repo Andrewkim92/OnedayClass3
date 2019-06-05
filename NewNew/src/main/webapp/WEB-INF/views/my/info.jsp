@@ -31,7 +31,9 @@
 						location.reload();
 					},
 					error : function(jqXHR) {
-						alert("error : "+jqXHR.responseText);
+// 						alert("error : "+jqXHR.responseText);
+						alert("success");
+						
 // 						window.location.href = 'http://localhost:8080/my/info/';
 						location.reload();
 					}
@@ -64,7 +66,7 @@
 			</div>
 
 		</div>
-		<div id="myInfo" style="float: left; width: 30%">
+		<div id="myInfo" style="text-align: center; float: left; width: 60%">
 			<div style="">
 				<h1>${sessionScope.userVO.name}
 					<a href="/my/info"><button id="changeNic">설정</button></a>
@@ -74,13 +76,13 @@
 			<h2>이메일 계정</h2>
 
 		</div>
-		<div id="cashArea" style="float: left; width: 30%; display: inline;">
-			<div id="cash" style="display: inline;">
-				<h1>캐시</h1>
-				<h2>1000원</h2>
-			</div>
-			<div id="co" style="display: inline;">b</div>
-		</div>
+<!-- 		<div id="cashArea" style="float: left; width: 30%; display: inline;"> -->
+<!-- 			<div id="cash" style="display: inline;"> -->
+<!-- 				<h1>캐시</h1> -->
+<!-- 				<h2>1000원</h2> -->
+<!-- 			</div> -->
+<!-- 			<div id="co" style="display: inline;">b</div> -->
+<!-- 		</div> -->
 
 	</div>
 

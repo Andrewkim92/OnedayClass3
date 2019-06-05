@@ -61,7 +61,7 @@
                                  <ul class="dropdown arrow-top">
                                     <li><a href="/program">Body Building</a></li>
                                     <li><a href="/program">Morning Energy</a></li>
-                                    <li><a href="/my/hostRegister">호스트 가입</a></li>
+                                    <li><a href="/my/hostRegisterTerm">호스트 가입</a></li>
 <!--                                     <li class="has-children"><a href="program">Sub -->
 <!--                                           Menus</a> -->
 <!--                                        <ul class="dropdown"> -->
