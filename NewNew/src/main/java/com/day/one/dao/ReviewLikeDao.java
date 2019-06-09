@@ -6,7 +6,7 @@ public interface ReviewLikeDao {
 	
 	public void insert(ReviewLikeVO rLike);
 	
-	public int checkDup(ReviewLikeVO rLike);
+	public ReviewLikeVO checkDup(ReviewLikeVO rLike);
 	
 	public int delete(ReviewLikeVO rLike);
 	

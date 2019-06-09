@@ -90,9 +90,6 @@ $(function(){
         success:function(data){
             alert("완료!");
         },
-        error:function(jqXHR, textStatus, errorThrown){
-            alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
-        }
     });
     });
 });

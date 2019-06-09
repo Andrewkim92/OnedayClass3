@@ -10,11 +10,11 @@
 	</insert>
 
 	<select id="listAll" resultType="com.day.one.vo.ReviewVO">
-		select * from odc.review where program_progSeq = #{program_progSeq}
+		select * from odc.review where program_progSeq = #{program_progSeq} order by reviewDate desc
 	</select>
 	
 	<select id="listMy" resultType="com.day.one.vo.ReviewVO">
-		select * from odc.review where user_userNumber = #{user_userNumber}
+		select * from odc.review where user_userNumber = #{user_userNumber} order by reviewDate desc
 	</select>
 
 	<delete id="delete">
@@ -43,5 +43,8 @@
 		SELECT * FROM odc.review where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber}
 	</select>
 	
+	<select id="readName" resultType="String">
+		select name from odc.user where userNumber = #{user_userNumber}
+	</select>
 
 </mapper>

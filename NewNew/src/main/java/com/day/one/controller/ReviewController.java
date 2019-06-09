@@ -18,11 +18,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.day.one.dao.ReviewDao;
-import com.day.one.dao.UserDao;
-import com.day.one.service.ProgService;
+import com.day.one.dao.ReviewLikeDao;
+import com.day.one.dao.ProgDao;
+import com.day.one.service.ReviewLikeService;
 import com.day.one.service.ReviewService;
-import com.day.one.vo.ProgVO;
+import com.day.one.service.ProgService;
+import com.day.one.vo.ReviewLikeVO;
 import com.day.one.vo.ReviewVO;
+import com.day.one.vo.ProgVO;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
@@ -34,6 +37,9 @@ public class ReviewController {
 	
 	@Setter(onMethod_ = @Autowired)
 	private ReviewService reviewService;
+	
+	@Setter(onMethod_ = @Autowired)
+	private ReviewLikeService ReviewLikeService;
 	
 	@Setter(onMethod_ = @Autowired)
 	private ProgService progService;
@@ -101,13 +107,19 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value = "/reviewLike", method = RequestMethod.POST)
-	public String ReviewLikeCountUpdate(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println(request.getParameter("likedUser"));
-		Map<String, Object> m = new HashMap<>();
-		m.put("likedUser", request.getParameter("likedUser"));
-		m.put("reviewUser", request.getParameter("reviewUser"));
-		m.put("progSeq", request.getParameter("progSeq"));
+	public String ReviewLikeCountUpdate(ReviewLikeVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int lu = Integer.parseInt(request.getParameter("likedUser"));
+		vo.setLikedUser_userNumber(lu);
+		int ru = Integer.parseInt(request.getParameter("reviewUser"));
+		vo.setUser_userNumber(ru);
+		int ps = Integer.parseInt(request.getParameter("progSeq"));
+		vo.setProgram_progSeq(ps);
+		if(ReviewLikeService.readOne(vo) == null) {
+			ReviewLikeService.register(vo);
+		} else {
+			ReviewLikeService.remove(vo);
+		};
 
-		return "";
+		return null;
 	}
 }
