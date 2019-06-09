@@ -33,7 +33,6 @@ public class ReviewDaoImpl implements ReviewDao {
 		return sqlSession.selectOne("count",program_progSeq);
 	}
 	
-	
 	@Override
 	public int update(ReviewVO review) {
 		return sqlSession.update("update",review);
@@ -57,6 +56,11 @@ public class ReviewDaoImpl implements ReviewDao {
 	@Override
 	public List<ReviewVO> listMy(int user_userNumber) {
 		return sqlSession.selectList("listMy",user_userNumber);
+	}
+
+	@Override
+	public String readName(int user_userNumber) {
+		return sqlSession.selectOne("readName",user_userNumber);
 	}
 
 	

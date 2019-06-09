@@ -21,11 +21,11 @@
         </div>
         <div class="createForm">
             <label>별점</label>
-            <input type="number" name="reviewRate" class="createForm" min="1" max="5">
+            <input type="number" name="reviewRate" class="createForm" min="1" max="10">
         </div>
         <div class="createForm">
             <label>리뷰내용</label>
-            <textarea rows="4" cols="15" name="reviewComment" class="createForm" placeholder = "리뷰 내용"></textarea>
+            <textarea rows="4" cols="15" wrap="hard" name="reviewComment" class="createForm" placeholder = "리뷰 내용"></textarea>
         </div>
         <div class="Formfooter">
                 <button type="submit" class="btn_button">작성하기</button>

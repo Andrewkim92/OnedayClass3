@@ -65,4 +65,9 @@ public class ReviewServiceImpl implements ReviewService {
 		return rDao.listMy(user_userNumber);
 	}
 
+	@Override
+	public String readUserName(int user_userNumber) {
+		return rDao.readName(user_userNumber);
+	}
+
 }
