@@ -5,8 +5,8 @@
 <mapper namespace="com.day.one.dao.ProgDao">
 
     <insert id="insert">
-        insert into odc.program (progName, progBigTitle, progSmallTitle, progContent,  progLocation, progLikeCount, userNumber, uploadLocation) 
-        values (#{progName}, #{progBigTitle}, #{progSmallTitle}, #{progContent}, #{progLocation}, #{progLikeCount}, #{userNumber}, #{uploadLocation})
+        insert into odc.program (progName, progBigTitle, progSmallTitle, progContents,  progLocation, progLikeCount, user_userNumber, uploadLocation) 
+        values (#{progName}, #{progBigTitle}, #{progSmallTitle}, #{progContents}, #{progLocation}, #{progLikeCount}, #{user_userNumber}, #{uploadLocation})
     </insert>
 
     <select id="read" resultType="com.day.one.vo.ProgVO">
@@ -23,9 +23,9 @@
         progName = #{progName},
         progBigTitle = #{progBigTitle},
         progSmallTitle = #{progSmallTitle},
-        progContent = #{progContent},
+        progContents = #{progContents},
         progLocation = #{progLikeCount},
-        userNumber = #{userNumber},
+        user_userNumber = #{user_userNumber},
         uploadLocation = #{uploadLocation}
 
         where progSeq = #{progSeq}
