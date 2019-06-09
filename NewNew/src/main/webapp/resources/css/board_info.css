@@ -1,0 +1,336 @@
+@charset "UTF-8";
+/* 공통 */
+h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+body.fontLoaded {
+    font-family: "Noto Sans KR", Helvetica, Arial, sans-serif;
+}
+
+
+.kaCyPO {
+    width: 100%;
+    max-width: 990px;
+    min-height: 1px;
+    margin: 0px auto;
+}
+
+.jAiMre {
+    width: auto;
+    height: auto;
+    display: none;
+    opacity: 0;
+    min-width: 0px;
+    min-height: 1px;
+    transition: opacity 200ms ease-in-out 0s;
+}
+.bSSSsW {
+    position: relative;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin: 0px auto;
+}
+/*  왼쪽*/
+.hkKRDg {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    display: flex;
+    min-width: 0px;
+    width: 100%;
+    flex-flow: column nowrap;
+    padding: 40px 30px 30px;
+}
+
+.esthlj {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    min-height: 1px;
+}
+
+.slick-list, .slick-slider {
+    position: relative;
+    display: block;
+}
+
+.slick-slider {
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+/* 공통 */
+.bfcWhe { 
+    padding-top: 30px;
+    padding-bottom: 30px;
+    line-height: 22px;
+    font-size: 12px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+/* 제목+가격  */
+.hFjPxk {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+/* 서브제목 */
+.jYYcp {
+    line-height: 12px;
+    font-size: 12px;
+    font-weight: normal;
+    color: rgb(155, 155, 155);
+    margin: 0px 0px 11px;
+}
+
+/* 제목*/
+.bhbvkZ {
+    height: 64px;
+    line-height: 32px;
+    font-size: 20px;
+    font-weight: 500;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    margin: 0px;
+    overflow: hidden;
+}
+
+/* 링크 */
+.hxxvuL {
+    white-space: nowrap;
+}
+
+/* 가격 */
+.eTydPh {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 40px;
+    align-items: flex-end;
+}
+/* 가격-숫자  */
+.ehvImL {
+    font-size: 16px;
+    font-weight: 900;
+}
+
+/* 공통*/
+.fLDIpJ > div:last-child {
+    margin-bottom: 0;
+}
+.fLDIpJ > div {
+    margin-bottom: 14px;
+}
+.bFyWVq {
+    display: flex;
+    line-height: 18px;
+    font-size: 11px;
+}
+*, :after, :before {
+    background-repeat: no-repeat;
+    box-sizing: inherit;
+}
+
+/* 좋아요 하트 */
+.bmAmNZ {
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+}
+/* 세션2의 글씨 */
+.fXrOfX {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/*  호스트세션 - 공통*/
+.edoDdg {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.ixbWtH {
+    line-height: 14px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+/* 호스트프로필 */
+.kmtMnu {
+    width: 100%;
+    height: 50px;
+    line-height: 13px;
+    font-size: 13px;
+    text-align: center;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(238, 238, 238);
+    border-image: initial;
+    border-radius: 5px;
+    padding: 13px;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* 오른쪽 */
+.jQVKkL {
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    width: 370px;
+    height: auto;
+    border-left: 1px solid rgb(238, 238, 238);
+}
+.dBqRBP {
+    position: sticky;
+    top: 0px;
+    width: 370px;
+    padding: 40px 30px;
+}
+.frwmAG {
+    line-height: 14px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0px 0px 26px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+.bZSPZg {
+    position: relative;
+    display: block;
+    width: 90%;
+    color: black;
+    margin: 0px;
+    border-top: 1px solid white;
+}
+/* .jJUbVE {
+    position: relative;
+    width: 0%;
+    height: 60px;
+    line-height: 22px;
+    background-color: white;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.4s ease 0s;
+    border-bottom: 1px solid rgb(238, 238, 238);
+} */
+.gPfmeZ {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    padding: 14px 16px;
+}
+.frGBIt {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    font-size: 13px;
+    user-select: none;
+    line-height: 14px;
+    color: rgb(155, 155, 155);
+    padding: 23px 16px;
+}
+.hLwoa {
+    display: inline-block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    opacity: 1;
+    transform-origin: center center;
+    transform: rotate(180deg);
+    transition: opacity 0.2s ease 0s, transform 0.5s ease 0s;
+}
+.gWuKaH {
+    width: 100%;
+    height: 100%;
+    transform: rotate(90deg);
+}
+
+.dePIsb {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0px;
+    overflow: auto;
+    padding: 30px 0px;
+}
+.dRcDEu {
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    margin-top: auto;
+    padding: 20px 0px;
+}
+.drzSNz {
+    margin-top: 30px;
+}
+.cnMpLR {
+    width: 80%;
+    height: 50px;
+    line-height: 13px;
+    background-color: rgb(51, 151, 255);
+    text-align: center;
+    cursor: not-allowed;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0px 13px;
+    border-radius: 5px;
+}
+
+/* 유의사항 */
+.hfpCur {
+    margin-bottom: 10px;
+    color: rgb(255, 102, 102);
+}
+
+/* 지도 */
+.nsVQp {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
