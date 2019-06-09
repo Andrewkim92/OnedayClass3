@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.day.one.dao.ReviewDao">
+
+	<insert id="insert">
+		insert into odc.review (program_progSeq, user_userNumber, reviewDate, reviewRate,  likeCount, reviewComment, uploadLocation) 
+		values (#{program_progSeq}, #{user_userNumber}, now(), #{reviewRate}, #{likeCount}, #{reviewComment}, #{uploadLocation})
+	</insert>
+
+	<select id="listAll" resultType="com.day.one.vo.ReviewVO">
+		select * from odc.review where program_progSeq = #{program_progSeq}
+	</select>
+	
+	<select id="listMy" resultType="com.day.one.vo.ReviewVO">
+		select * from odc.review where user_userNumber = #{user_userNumber}
+	</select>
+
+	<delete id="delete">
+		delete from odc.review where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber}
+	</delete>
+
+	<update id="update">
+		update odc.review 
+		set 
+		reviewDate = now(),
+		reviewRate = #{reviewRate},
+		reviewComment = #{reviewComment},
+		uploadLocation = #{uploadLocation}
+		where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber} 
+	</update>
+	
+	<select id="count" resultType="int">
+		SELECT COUNT(*) as count FROM odc.review where program_progSeq = #{program_progSeq};
+	</select>
+	
+	<select id="rateAvg" resultType="float">
+		SELECT AVG(reviewRate) FROM odc.review where program_progSeq = #{program_progSeq};
+	</select>
+	
+	<select id="readOne" resultType="com.day.one.vo.ReviewVO">
+		SELECT * FROM odc.review where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber}
+	</select>
+	
+
+</mapper>

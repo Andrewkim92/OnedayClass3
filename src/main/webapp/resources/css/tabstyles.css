@@ -1,0 +1,33 @@
+/* Individual tab styles */
+
+/*****************************/
+/* Bar */
+/*****************************/
+
+.tabs-style-bar nav {
+	background: rgba(40,44,42,0.05);
+}
+
+
+.tabs-style-bar nav ul li a {
+	background-color: #f7f7f7;
+	color: #A6A6A6;
+	transition: background-color 0.2s, color 0.2s;
+}
+
+.tabs-style-bar nav ul li a:hover,
+.tabs-style-bar nav ul li a:focus {
+	color: #000000;
+}
+
+.tabs-style-bar nav ul li a span {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 500;
+	font-size: 1.5em;
+}
+
+.tabs-style-bar nav ul li.tab-current a {
+	background: #ffffff;
+	color: #000000;
+}
