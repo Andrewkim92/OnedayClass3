@@ -45,7 +45,6 @@
 		</div>
 	</form:form>
 </div>
-ㅇㅇ
 <%-- <f:form commandName="registerForm" modelAttribute="prog" enctype="Multipart/form-data" >
 	<f:hidden path="user_userNumber" value="10"/>
 	

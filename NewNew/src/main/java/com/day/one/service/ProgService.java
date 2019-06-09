@@ -9,6 +9,8 @@ public interface ProgService {
 	
 	public ProgVO get(int progSeq);
 	
+	public int insert(ProgVO prog);
+	
 	//public List<ProgVO> getList(Criteria cri);
 
 	public int getTotalCount();

@@ -34,4 +34,9 @@ public class ProgDaoImpl implements ProgDao {
 		
 		return sqlSession.selectOne("getListWithPaging",cri);
 	}
+
+	@Override
+	public int insert(ProgVO prog) {
+		return sqlSession.selectOne("insert",prog);
+	}
 }

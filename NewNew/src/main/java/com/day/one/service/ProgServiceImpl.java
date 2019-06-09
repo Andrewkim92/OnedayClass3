@@ -41,4 +41,10 @@ public class ProgServiceImpl implements ProgService{
 		cri.setStartNum(startNum);
 		return pDao.getListWithPaging(cri);
 	}
+
+	@Override
+	public int insert(ProgVO prog) {
+		
+		return pDao.insert(prog);
+	}
 }

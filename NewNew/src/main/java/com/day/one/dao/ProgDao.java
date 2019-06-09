@@ -9,6 +9,8 @@ public interface ProgDao {
 	//get
 	public ProgVO read(int progSeq);
 	
+	public int insert(ProgVO prog);
+	
 	//list
 	//public List<ProgVO> getList(Criteria cri);
 	
