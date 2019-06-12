@@ -96,10 +96,13 @@ public class ProgController {
 
 	@GetMapping("/list")
 	public String list(Criteria cri, Model model) {
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("cri: " + cri);
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		List<ProgVO> programs = progService.getListWithPaging(cri);
 		model.addAttribute("programs", programs);
 
-		int total = progService.getTotalCount();
+		int total = progService.getTotalCount(cri);
 		PageDTO pageDTO = new PageDTO(cri, total);
 		model.addAttribute("pageMaker", pageDTO);
 

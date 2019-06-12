@@ -13,7 +13,7 @@ public interface ProgService {
 	
 	//public List<ProgVO> getList(Criteria cri);
 
-	public int getTotalCount();
+	public int getTotalCount(Criteria cri);
 	
 	public List<ProgVO> getListWithPaging(Criteria cri);
 }

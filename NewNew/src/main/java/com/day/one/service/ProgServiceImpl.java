@@ -29,8 +29,8 @@ public class ProgServiceImpl implements ProgService{
 	 */
 
 	@Override
-	public int getTotalCount() {
-		return pDao.getTotalCount();
+	public int getTotalCount(Criteria cri) {
+		return pDao.getTotalCount(cri);
 	}
 
 	@Override

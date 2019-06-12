@@ -25,8 +25,8 @@ public class ProgDaoImpl implements ProgDao {
 	 */
 
 	@Override
-	public int getTotalCount() {
-		return sqlSession.selectOne("getTotalCount");
+	public int getTotalCount(Criteria cri) {
+		return sqlSession.selectOne("getTotalCount",cri);
 	}
 
 	@Override

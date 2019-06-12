@@ -13,6 +13,10 @@ public class Criteria {
   private int pageNum;
   private int amount;
   private int startNum;
+  
+  //검색기능추가
+  private String type;
+  private String keyword;
 
   public Criteria() {
     this(1, 6, 1);
@@ -24,4 +28,7 @@ public class Criteria {
     this.startNum = startNum;
   }
   
+  public String[] getTypeArr() {
+    return type == null? new String[] {}: type.split("");
+  }
 }

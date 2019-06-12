@@ -15,7 +15,7 @@ public interface ProgDao {
 	//public List<ProgVO> getList(Criteria cri);
 	
 	//총 프로그램 수
-	public int getTotalCount();
+	public int getTotalCount(Criteria cri);
 	
 	public List<ProgVO> getListWithPaging(Criteria cri);
 }
