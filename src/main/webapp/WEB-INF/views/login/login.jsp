@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<link rel="stylesheet" type="text/css" href="resources/css/login.css">
-<!-- <script src="resources/js/login.js"></script> -->
 <script type="text/javascript">
 	function clickEmailLogin() {
 		$('#login').css('display', 'none');

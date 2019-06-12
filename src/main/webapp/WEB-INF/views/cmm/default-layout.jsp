@@ -7,7 +7,7 @@
 <tiles:insertAttribute name="header" />
 </head>
 <body>
-	<div class="site-wrap">
+	<div class="site-wrap" style="max-width: 1200;">
 		<tiles:insertAttribute name="nav" />
 		<tiles:insertAttribute name="content" />
 		<tiles:insertAttribute name="footer" />
