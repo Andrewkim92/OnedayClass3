@@ -136,6 +136,7 @@
 						<input type="text" id="id" name="id"
 							value="${sessionScope.userVO.id}"><br> <br> <input
 							type="checkbox">다양한 이벤트, 할인, 상품 정보 메일을 받겠습니다.
+							<br>
 					</div>
 				</div>
 				<br>

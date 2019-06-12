@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!-- <div style="height: 113px;"></div> -->
 	<!--  이 div땜에 아래 background-image를 header에 못넣음  -->
@@ -11,7 +10,7 @@
         <!-- <div class="container"> -->
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center" data-aos="fade">
-              <h1>Welcome To Crossfits</h1>
+              <h1>OneDayClass 개꿀</h1>
               <span class="caption d-block text-white">Find The Healthy Way</span>
             </div>
           </div>
@@ -43,17 +42,17 @@
               <div class="media-image">
                 <img src="/resources/images/img_1.jpg" alt="Image" class="img-fluid">
                 <div class="media-image-body">
-                  <h2>Body Building</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, voluptate.</p>
-                  <p><a href="#" class="btn btn-primary text-white px-4"><span class="caption">Learn More</span></a></p>
+                  <h2>program 1</h2>
+                  <p>설명 1</p>
+                  <p><a href="#" class="btn btn-primary text-white px-4"></a></p>
                 </div>
               </div>
               <div class="media-image">
                 <img src="/resources/images/img_2.jpg" alt="Image" class="img-fluid">
                 <div class="media-image-body">
-                  <h2>Body Combat</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, voluptate.</p>
-                  <p><a href="#" class="btn btn-primary text-white px-4"><span class="caption">Learn More</span></a></p>
+                  <h2>program 2</h2>
+                  <p>설명 2</p>
+                  <p><a href="#" class="btn btn-primary text-white px-4"></a></p>
                 </div>
               </div>
               <div class="media-image">
