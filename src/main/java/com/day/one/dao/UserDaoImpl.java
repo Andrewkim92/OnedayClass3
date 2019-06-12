@@ -64,4 +64,9 @@ public class UserDaoImpl implements UserDao{
 		sqlSession.selectOne("updateImgPath", vo);
 	}
 
+	@Override
+	public void updateUserGrade(UserVO vo) {
+		sqlSession.update("updateUserGrade", vo);
+	}
+
 }

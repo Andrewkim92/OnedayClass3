@@ -76,8 +76,12 @@
 											<!--                                        </li> -->
 
 										</ul></li>
-									<li><a href="/program/list">program</a></li>
+<!-- 									<li><a href="/program/list">program</a></li> -->
+<c:choose>
+										<c:when test="${not empty sessionScope.userVO&&sessionScope.userVO.userGrade==2 }">
 									<li><a href="/program/register">program 등록</a></li>
+									
+									</c:when></c:choose>
 									<li><a href="/about">제휴문의</a></li>
 									<!--  <li><a href="contact">Contact</a></li> -->
 								</ul>

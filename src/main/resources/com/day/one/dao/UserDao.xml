@@ -69,6 +69,16 @@
 			id=#{id}
 	</update>
 	
+	<update id="updateUserGrade">
+		update 
+			odc.user
+		set 
+			userGrade=#{userGrade} 
+		where
+			id=#{id}
+	</update>
+	
+	
 	<update id="updateImgPath">
 		update 
 			odc.user

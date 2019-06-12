@@ -26,5 +26,7 @@ public interface UserDao {
 	public UserVO getVObyId(UserVO vo);
 
 	public void updateImgPath(UserVO vo);
+
+	public void updateUserGrade(UserVO vo);
 	
 }

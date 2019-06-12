@@ -28,7 +28,17 @@ public class MyController {
 	@RequestMapping("/hostRegister")
 	public String hostRegister(UserVO vo,HttpSession session) {
 	
+		
 		return "my/hostRegister.tiles";
+	}
+	
+	@PostMapping("/doHostRegister")
+	public String doHostRegister(UserVO vo,HttpSession session) {
+		
+		vo.setUserGrade(2);
+		userService.updateUserGrade(vo);
+		
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/hostRegisterTerm")
