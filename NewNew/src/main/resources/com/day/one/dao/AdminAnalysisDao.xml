@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.day.one.dao.AdminAnalysisDao">
+	<select id="getFirstToTenth" resultType="com.day.one.vo.ProgVO">
+		<![CDATA[ SELECT * FROM ODC.PROGRAM ORDER BY progLikeCount DESC LIMIT 0,10;]]>
+	</select>
+</mapper>
