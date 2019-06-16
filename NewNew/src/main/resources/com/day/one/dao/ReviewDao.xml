@@ -11,6 +11,7 @@
 
 	<select id="listAll" resultType="com.day.one.vo.ReviewVO">
 		select * from odc.review where program_progSeq = #{program_progSeq} order by reviewDate desc
+		limit #{start}, 5
 	</select>
 	
 	<select id="listMy" resultType="com.day.one.vo.ReviewVO">
@@ -28,6 +29,13 @@
 		reviewRate = #{reviewRate},
 		reviewComment = #{reviewComment},
 		uploadLocation = #{uploadLocation}
+		where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber} 
+	</update>
+	
+	<update id="likeUpdate">
+		update odc.review 
+		set 
+		likeCount = #{likeCount}
 		where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber} 
 	</update>
 	

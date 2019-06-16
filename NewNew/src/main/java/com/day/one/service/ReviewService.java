@@ -8,7 +8,7 @@ public interface ReviewService {
 	
 	public void register(ReviewVO review);
 	
-	public List<ReviewVO> getAll(int program_progSeq);
+	public List<ReviewVO> getAll(ReviewVO review);
 	
 	public List<ReviewVO> getMy(int user_userNumber);
 	
@@ -23,4 +23,6 @@ public interface ReviewService {
 	public ReviewVO readOne(ReviewVO review);
 
 	public String readUserName(int user_userNumber);
+	
+	public int likeCount(ReviewVO review);
 }

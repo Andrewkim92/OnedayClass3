@@ -22,4 +22,7 @@ public class ReviewVO {
 	
 	private int likedUser_userNumber;
 	
+	private int start;
+	
+	private int end;
 }

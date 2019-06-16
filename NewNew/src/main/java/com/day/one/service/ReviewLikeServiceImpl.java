@@ -31,6 +31,11 @@ public class ReviewLikeServiceImpl implements ReviewLikeService {
 	public ReviewLikeVO readOne(ReviewLikeVO rLike) {
 		return rlDao.checkDup(rLike);
 	}
+
+	@Override
+	public int count(ReviewLikeVO rLike) {
+		return rlDao.count(rLike);
+	}
 	
 
 }

@@ -31,6 +31,11 @@ public class ReviewLikeDaoImpl implements ReviewLikeDao {
 	public int delete(ReviewLikeVO rLike) {
 		return sqlSession.delete("delete",rLike);
 	}
+
+	@Override
+	public int count(ReviewLikeVO rLike) {
+		return sqlSession.selectOne("count",rLike);
+	}
 	
 
 }

@@ -64,16 +64,47 @@
 			</c:if>
 			<c:if test="${not empty sessionScope.userVO.userNumber }">
 				<a href=# class="likeAction">
-				<input type="hidden" id="${ReviewVO.user_userNumber}" value="${ReviewVO.program_progSeq}">
-				좋아요 : ${ReviewVO.likeCount}
+					<input type="hidden" id="${ReviewVO.user_userNumber}" value="${ReviewVO.program_progSeq}">
+					<span>좋아요 : ${ReviewVO.likeCount}</span>
 				</a>
 			</c:if>		 
-	 		</div>  		
+	 		</div>
+	 		<div class="col-md-4 col-md-offset-3">
+	 			<button class="btn btn-secondary">댓글달기</button>
+	 		</div>
+	 		<span></span>
        	</div>
        	<div class="row">
         ---
        	</div>
     </c:forEach>
+	<div>
+    	<c:if test="${reviewPager.curBlock ne 1}">
+    		<a href="/review/list?Program_progSeq=${program_progSeq}&curPage=1">[처음]</a>
+    	</c:if>
+    	<c:if test="${reviewPager.curPage ne 1}">
+    		<a href="/review/list?Program_progSeq=${program_progSeq}&curPage=${reviewPager.prevPage}">[이전]</a>
+    	</c:if>
+    	<c:forEach var="pageNum" begin="${reviewPager.blockBegin }" end="${reviewPager.blockEnd }">
+        	<c:choose>
+            	<c:when test="${pageNum eq  reviewPager.curPage}">
+                	<span style="font-weight: bold;">${pageNum}</span> 
+                </c:when>
+                <c:otherwise>
+                	<a href="/review/list?Program_progSeq=${program_progSeq}&curPage=${pageNum}">${pageNum}</a> 
+                </c:otherwise>
+             </c:choose>
+         </c:forEach>
+         <c:if test="${reviewPager.curPage ne reviewPager.pageCnt && reviewPager.pageCnt > 0}">
+         	<a href="/review/list?Program_progSeq=${program_progSeq}&curPage=${reviewPager.nextPage}">[다음]</a> 
+         </c:if>
+         <c:if test="${reviewPager.curBlock ne reviewPager.totBlock && reviewPager.totBlock > 0}">
+         	<a href="/review/list?Program_progSeq=${program_progSeq}&curPage=${reviewPager.pageCnt}">[끝]</a> 
+         </c:if>
+	</div>
+	<div>
+                    총 게시글 수 : ${reviewPager.reviewCnt} /    총 페이지 수 : ${reviewPager.pageCnt } / 현재 페이지 : ${reviewPager.curPage } / 현재 블럭 : ${reviewPager.curBlock } / 총 블럭 수 : ${reviewPager.totBlock }
+    </div>
 </div>
 </body>
 <script type="text/javascript">
@@ -82,16 +113,33 @@ $(function(){
         var likedUser = ${sessionScope.userVO.userNumber};
         var reviewUser = $(this).children('input').attr('id');
         var progSeq = $(this).children('input').attr('value');
-    $.ajax({
+        var element = this;
+        $.ajax({
         url:'/review/reviewLike',
         type:"POST",
+        cache: false,
         dataType: "json",
         data: {'likedUser':likedUser, 'reviewUser':reviewUser, 'progSeq':progSeq },
         success:function(data){
-            alert("완료!");
+        	$(element).children('span').text("좋아요 : "+ data);
         },
+        error: function (request, status, error){
+        	alert("ajax실패"); 
+        }
     });
     });
 });
+
+$(function(){
+    $(".btn-secondary").click(function(){
+    	var element2 = $(this).parent().parent().children('span');
+    	if(element2.html() == "" ){
+    		element2.html("<form id='rComment' method='POST'><textarea style='resize: none;' cols='80' id='rCommentData'></textarea>"+"<button class='rComment'>제출</button></form>")
+    	} else {
+    		element2.html("");
+    	}
+    	});
+});     
+
 </script>
 </html>

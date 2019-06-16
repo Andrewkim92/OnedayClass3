@@ -8,7 +8,7 @@ public interface ReviewDao {
 	
 	public void insert(ReviewVO review);
 	
-	public List<ReviewVO> listAll(int program_progSeq);
+	public List<ReviewVO> listAll(ReviewVO review);
 	
 	public List<ReviewVO> listMy(int user_userNumber);	
 	
@@ -23,6 +23,8 @@ public interface ReviewDao {
 	public ReviewVO readOne(ReviewVO review);
 
 	public String readName(int user_userNumber);
+	
+	public int likeUpdate(ReviewVO review);
 
 	
 }

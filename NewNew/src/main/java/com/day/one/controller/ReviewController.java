@@ -16,9 +16,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.day.one.dao.ReviewDao;
 import com.day.one.dao.ReviewLikeDao;
+import com.day.one.common.ReviewPager;
 import com.day.one.dao.ProgDao;
 import com.day.one.service.ReviewLikeService;
 import com.day.one.service.ReviewService;
@@ -45,9 +47,15 @@ public class ReviewController {
 	private ProgService progService;
 	
 	@RequestMapping(value="/list")
-	public String ReviewList(ReviewVO vo, Model model) {
+	public String ReviewList(@RequestParam(defaultValue="1") int curPage, ReviewVO vo, HttpServletRequest request, Model model) {
 		
-		List<ReviewVO> allList = (List<ReviewVO>) reviewService.getAll(vo.getProgram_progSeq());
+		//페이징 처리
+		// 전체 리뷰 개수
+		int reviewCount = reviewService.count(vo.getProgram_progSeq());
+		ReviewPager pager = new ReviewPager(reviewCount, curPage);
+		vo.setStart(pager.getStartPage());
+		vo.setEnd(pager.getEndPage());
+		List<ReviewVO> allList = (List<ReviewVO>) reviewService.getAll(vo);
 	
 		ProgVO pv = progService.get(vo.getProgram_progSeq());
 		
@@ -55,12 +63,14 @@ public class ReviewController {
 		for(ReviewVO rv : allList) {
 			nameList.put(rv.getUser_userNumber(),reviewService.readUserName(rv.getUser_userNumber()));
 		}
-				
+		
 		model.addAttribute("reviewList",allList);
 		model.addAttribute("progName",pv.getProgName());
-		model.addAttribute("count",reviewService.count(vo.getProgram_progSeq()));
+		model.addAttribute("count",reviewCount);
 		model.addAttribute("rateAvg",reviewService.rateAvg(vo.getProgram_progSeq()));
 		model.addAttribute("nameList",nameList);
+		model.addAttribute("reviewPager",pager);
+		model.addAttribute("program_progSeq",vo.getProgram_progSeq());
 		return "review/list.tiles";
 	};
 	
@@ -81,7 +91,7 @@ public class ReviewController {
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String ReviewWritePOST(ReviewVO vo, Model model) {
 		reviewService.register(vo);
-		model.addAttribute("reviewList",reviewService.getAll(vo.getProgram_progSeq()));
+		model.addAttribute("reviewList",reviewService.getAll(vo));
 		model.addAttribute("count",reviewService.count(vo.getProgram_progSeq()));
 		return "review/list.tiles";
 	}
@@ -106,20 +116,31 @@ public class ReviewController {
 		return "review/myReview.tiles";
 	}
 	
-	@RequestMapping(value = "/reviewLike", method = RequestMethod.POST)
-	public String ReviewLikeCountUpdate(ReviewLikeVO vo, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		int lu = Integer.parseInt(request.getParameter("likedUser"));
-		vo.setLikedUser_userNumber(lu);
-		int ru = Integer.parseInt(request.getParameter("reviewUser"));
-		vo.setUser_userNumber(ru);
-		int ps = Integer.parseInt(request.getParameter("progSeq"));
-		vo.setProgram_progSeq(ps);
-		if(ReviewLikeService.readOne(vo) == null) {
-			ReviewLikeService.register(vo);
-		} else {
-			ReviewLikeService.remove(vo);
-		};
 
-		return null;
+	@RequestMapping(value = "/reviewLike", method = RequestMethod.POST)
+	@ResponseBody
+	public int ReviewLikeCountUpdate(ReviewLikeVO lvo, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int lu = Integer.parseInt(request.getParameter("likedUser"));
+		lvo.setLikedUser_userNumber(lu);
+		int ru = Integer.parseInt(request.getParameter("reviewUser"));
+		lvo.setUser_userNumber(ru);
+		int ps = Integer.parseInt(request.getParameter("progSeq"));
+		lvo.setProgram_progSeq(ps);
+		
+		ReviewVO rVo = new ReviewVO();
+		rVo.setUser_userNumber(ru);
+		rVo.setProgram_progSeq(ps);
+		
+		if(ReviewLikeService.readOne(lvo) == null) {
+			ReviewLikeService.register(lvo);
+			rVo.setLikeCount(ReviewLikeService.count(lvo));
+			reviewService.likeCount(rVo);
+		} else {
+			ReviewLikeService.remove(lvo);
+			rVo.setLikeCount(ReviewLikeService.count(lvo));
+			reviewService.likeCount(rVo);
+		};
+		
+		return rVo.getLikeCount();
 	}
 }
