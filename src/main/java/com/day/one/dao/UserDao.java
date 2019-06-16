@@ -28,5 +28,7 @@ public interface UserDao {
 	public void updateImgPath(UserVO vo);
 
 	public void updateUserGrade(UserVO vo);
+
+	public int checkID_insert(UserVO vo);
 	
 }

@@ -2,34 +2,39 @@
 <!DOCTYPE mapper 
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    <mapper namespace="com.day.one.dao.UserDao">
-    	
-    <!-- 자동으로 항상 int -->
-    	
-    <insert id="insert">
+<mapper namespace="com.day.one.dao.UserDao">
+
+	<!-- 자동으로 항상 int -->
+
+	<insert id="insert">
 		insert into odc.user (id, password, name, userGrade, phoneNumber,
 		intro, confirm,imgPath)
-		values (#{id}, #{password}, #{name}, #{userGrade}, #{phoneNumber}, #{intro},
+		values (#{id}, #{password}, #{name},
+		#{userGrade}, #{phoneNumber}, #{intro},
 		#{confirm},#{imgPath})
 		<!-- userNumber는 AI라 자동으로 값이 들어감 -->
 	</insert>
-	
+
 	<select id="read" resultType="com.day.one.vo.UserVO">
-		select * from odc.user where userNumber = #{userNumber }
+		select * from odc.user where
+		userNumber = #{userNumber }
 	</select>
 
-	<select id="checkIDPwd" parameterType="com.day.one.vo.UserVO" resultType="int">
+	<select id="checkIDPwd" parameterType="com.day.one.vo.UserVO"
+		resultType="int">
 		select
-			userNumber
+		userNumber
 		from
 		odc.user
 		where
-		id = #{id} and password= #{password}
+		id = #{id} and password=
+		#{password}
 	</select>
-	
-	<select id="checkID" parameterType="com.day.one.vo.UserVO" resultType="int">
+
+	<select id="checkID" parameterType="com.day.one.vo.UserVO"
+		resultType="int">
 		select
-			count(userNumber)
+		count(userNumber)
 		from
 		odc.user
 		where
@@ -44,49 +49,61 @@
 		where
 		id = #{id}
 	</select>
-	
+
 	<select id="getVObyId" resultType="com.day.one.vo.UserVO">
 		select
 		*
 		from
 		odc.user
 		where
-		id = #{id}
+		id =
+		#{id}
 	</select>
-	
+
+	<select id="checkID_insert" parameterType="com.day.one.vo.UserVO" resultType="int"
+		statementType="CALLABLE">
+		{
+		call checkID_insert(
+		#{id,mode=IN,jdbcType=VARCHAR}
+		,
+		#{password,mode=IN,jdbcType=VARCHAR})
+		}
+	</select>
 
 	<delete id="delete">
 		delete odc.user where userNumber = #{userNumber }
 	</delete>
 
 	<update id="update">
-		update 
-			odc.user
-		set 
-			id=#{id}, password=#{password}, name=#{name}, userGrade=#{userGrade},
-		phoneNumber=#{phoneNumber}, intro=#{intro}, confirm=#{confirm} 
+		update
+		odc.user
+		set
+		id=#{id}, password=#{password},
+		name=#{name}, userGrade=#{userGrade},
+		phoneNumber=#{phoneNumber},
+		intro=#{intro}, confirm=#{confirm}
 		where
-			id=#{id}
+		id=#{id}
 	</update>
-	
+
 	<update id="updateUserGrade">
-		update 
-			odc.user
-		set 
-			userGrade=#{userGrade} 
+		update
+		odc.user
+		set
+		userGrade=#{userGrade}
 		where
-			id=#{id}
+		id=#{id}
 	</update>
-	
-	
+
+
 	<update id="updateImgPath">
-		update 
-			odc.user
-		set 
-			imgPath=#{imgPath} 
+		update
+		odc.user
+		set
+		imgPath=#{imgPath}
 		where
-			userNumber=#{userNumber}
-		<!-- 			test.. -->
+		userNumber=#{userNumber}
+		<!-- test.. -->
 	</update>
-    	
-    </mapper>
+
+</mapper>
