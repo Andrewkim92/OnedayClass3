@@ -76,4 +76,9 @@ public class ReviewServiceImpl implements ReviewService {
 		return rDao.likeUpdate(review);
 	}
 
+	@Override
+	public ReviewVO getOne(ReviewVO review) {
+		return rDao.getOne(review);
+	}
+
 }

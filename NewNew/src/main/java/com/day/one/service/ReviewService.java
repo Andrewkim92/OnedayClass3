@@ -21,6 +21,8 @@ public interface ReviewService {
 	public float rateAvg(int program_progSeq);
 	
 	public ReviewVO readOne(ReviewVO review);
+	
+	public ReviewVO getOne(ReviewVO review);
 
 	public String readUserName(int user_userNumber);
 	

@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.day.one.service.ProgService;
+import com.day.one.service.ReviewService;
 import com.day.one.vo.Criteria;
 import com.day.one.vo.PageDTO;
 import com.day.one.vo.ProgVO;
+import com.day.one.vo.ReviewVO;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
@@ -32,6 +34,9 @@ public class ProgController {
 
 	@Setter(onMethod_ = @Autowired)
 	private ProgService progService;
+	
+	@Setter(onMethod_ = @Autowired)
+	private ReviewService reviewService;
 
 	@Resource(name = "uploadPath")
 	private String uploadPath;
@@ -118,9 +123,22 @@ public class ProgController {
 
 	@GetMapping("/info")
 	public String info(@RequestParam("progSeq") int progSeq, @ModelAttribute("cri") Criteria cri, Model model) {
+		
 		ProgVO program = progService.get(progSeq);
 		model.addAttribute("program", program);
-
+		
+		// 전체 후기 개수
+		int reviewCount = reviewService.count(program.getProgSeq());
+		model.addAttribute("reviewCount",reviewCount);
+		
+		//대표 후기 읽어오기
+		ReviewVO review = new ReviewVO();
+		review.setProgram_progSeq(progSeq);
+		review = reviewService.getOne(review);
+		String reviewName = reviewService.readUserName(review.getUser_userNumber());
+		model.addAttribute("reviewOne",review);
+		model.addAttribute("reviewName",reviewName);
+		
 		// test
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		System.out.println("program: " + program);

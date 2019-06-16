@@ -72,8 +72,55 @@
                   <!-- 호스트 후기  -->
                   <section class="sc-jJkQYJ ifemui sc-dCaJBF bfcWhe">
                      <header class="sc-cXHFlN edoDdg">
-                        <h4 class="sc-ihiiSJ ixbWtH"><a href="#">호스트 후기 보기</a></h4>
+                        <h4 class="sc-ihiiSJ ixbWtH">호스트 후기</h4>
                      </header>
+                    <c:choose>
+            			<c:when test="${reviewCount > 0}">
+						<div>
+						<div class="row">
+						            <div class="col-md-1">    
+    	    							${reviewName}
+    								</div>
+						            <div class="col-md-2 col-md-offset-1">   
+										<c:forEach var="item" varStatus="i" begin="2" end="${reviewOne.reviewRate}" step="2">
+										★	
+										</c:forEach>
+										<c:if test="${reviewOne.reviewRate % 2 eq 1}">
+										※
+										</c:if>
+										<c:forEach var="item2" varStatus="j" begin="${reviewOne.reviewRate}" end="8" step="2">
+										☆	
+										</c:forEach>
+										(${reviewOne.reviewRate / 2})   
+									</div>        
+						     		<div class="col-md-4 col-md-offset-1"><fmt:formatDate value="${reviewOne.reviewDate}" pattern="yyyy.MM.dd HH:mm " /> 작성</div>
+						        </div>
+						       	<div class="row">
+						       	    <div class="span12"><pre><br>${reviewOne.reviewComment}</pre></div>  
+						       	</div>
+						       	<div class="row">
+						        <br>
+						       	</div>
+						       	<div class="row">
+						       		<div class="col-md-4 col-md-offset-4">
+						       		<c:if test="${empty sessionScope.userVO.userNumber }">
+										좋아요 : ${reviewOne.likeCount}
+									</c:if>
+									<c:if test="${not empty sessionScope.userVO.userNumber }">
+										<a href=# class="likeAction">
+											<input type="hidden" id="${reviewOne.user_userNumber}" value="${reviewOne.program_progSeq}">
+											<span>좋아요 : ${reviewOne.likeCount}</span>
+										</a>
+									</c:if>		 
+							 		</div>
+						  </div>
+                        	<button class="btn btn-secondary" onclick="location.href='${path}/review/list?Program_progSeq=${program.progSeq}'">${reviewCount} 개의 후기 모두 보기</button>
+                     	</div>
+                		</c:when>
+                		<c:otherwise>
+               			작성된 후기가 없습니다.	
+                		</c:otherwise>
+             		</c:choose>
                   </section>
                   <!--  프립 내용-->
                   <section class="sc-dCaJBF bfcWhe">

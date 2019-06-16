@@ -68,5 +68,11 @@ public class ReviewDaoImpl implements ReviewDao {
 		return sqlSession.update("likeUpdate",review);
 	}
 
+	@Override
+	public ReviewVO getOne(ReviewVO review) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("getOne",review);
+	}
+
 	
 }
