@@ -10,4 +10,6 @@ public interface ReviewLikeDao {
 	
 	public int delete(ReviewLikeVO rLike);
 	
+	public int count(ReviewLikeVO rLike);
+	
 }

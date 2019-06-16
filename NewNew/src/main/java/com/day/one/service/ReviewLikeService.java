@@ -11,5 +11,7 @@ public interface ReviewLikeService {
 	public int remove(ReviewLikeVO rLike);
 	
 	public ReviewLikeVO readOne(ReviewLikeVO rLike);
+	
+	public int count(ReviewLikeVO rLike);
 
 }

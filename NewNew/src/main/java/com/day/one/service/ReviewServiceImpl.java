@@ -25,9 +25,9 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public List<ReviewVO> getAll(int program_progSeq) {
+	public List<ReviewVO> getAll(ReviewVO review) {
 		// TODO Auto-generated method stub
-		return rDao.listAll(program_progSeq);
+		return rDao.listAll(review);
 	}
 
 	@Override
@@ -68,6 +68,12 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public String readUserName(int user_userNumber) {
 		return rDao.readName(user_userNumber);
+	}
+
+	@Override
+	public int likeCount(ReviewVO review) {
+		// TODO Auto-generated method stub
+		return rDao.likeUpdate(review);
 	}
 
 }

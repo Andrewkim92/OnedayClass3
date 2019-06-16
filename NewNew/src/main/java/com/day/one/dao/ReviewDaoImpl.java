@@ -24,8 +24,8 @@ public class ReviewDaoImpl implements ReviewDao {
 	};
 	
 	@Override
-	public List<ReviewVO> listAll(int program_progSeq){
-		return sqlSession.selectList("listAll",program_progSeq);
+	public List<ReviewVO> listAll(ReviewVO review){
+		return sqlSession.selectList("listAll",review);
 	};
 	
 	@Override
@@ -61,6 +61,11 @@ public class ReviewDaoImpl implements ReviewDao {
 	@Override
 	public String readName(int user_userNumber) {
 		return sqlSession.selectOne("readName",user_userNumber);
+	}
+
+	@Override
+	public int likeUpdate(ReviewVO review) {
+		return sqlSession.update("likeUpdate",review);
 	}
 
 	
