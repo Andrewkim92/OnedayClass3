@@ -17,4 +17,7 @@
 		delete from odc.reviewLike where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber} and likedUser_userNumber = #{likedUser_userNumber} 
 	</delete>
 
+	<select id="count" resultType="int">
+		SELECT COUNT(*) as count FROM odc.reviewLike where program_progSeq = #{program_progSeq} and  user_userNumber = #{user_userNumber}
+	</select>
 </mapper>
