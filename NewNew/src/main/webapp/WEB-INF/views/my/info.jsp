@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ page session="true"%>
 
 
@@ -46,7 +45,7 @@
 
 <div id="infoArea"
 	style="width: 100%; height: 800px; margin: 100px 0px 50px 0px;">
-<!-- 	push test 33 -->
+<!-- 	push test 3554 -->
 	<div id="infoUP"
 		style="margin: 0px 0px 100px 0px; width: 100%; height: 200px;">
 		<div id="profile_pic" style="float: left; width: 30%;">
@@ -136,6 +135,7 @@
 						<input type="text" id="id" name="id"
 							value="${sessionScope.userVO.id}"><br> <br> <input
 							type="checkbox">다양한 이벤트, 할인, 상품 정보 메일을 받겠습니다.
+							<br>
 					</div>
 				</div>
 				<br>

@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-	//NewNew 수정
+
 	@Autowired
 	private UserDao loginService;
 
@@ -91,7 +91,7 @@ public class LoginController {
 	}
 
 	@PostMapping("/doRegister")
-	public ModelAndView doRegister(UserVO vo, HttpServletResponse response, Model model,HttpSession session) throws IOException {
+	public String doRegister(UserVO vo, HttpServletResponse response, Model model,HttpSession session) throws IOException {
 
 		// OAuth2Operations oauthOperations = connectionFactory.getOAuthOperations();
 		// String facebook_url =
@@ -109,20 +109,19 @@ public class LoginController {
 		System.out.println(vo.getId());
 		System.out.println(vo.getPassword());
 		
-		if(loginService.getVObyId(vo)!=null) { // 이미 있는 ID 존재
+		if(loginService.checkID_insert(vo)<0) {// ID 존재
 			response.setContentType("text/html; charset=UTF-8");
 			 
-			PrintWriter out = response.getWriter();
-			out.println("<script>alert('이미 존재하는 ID입니다. '); location.href='http://localhost:8080/login/register';</script>");
-			out.flush();
-			return new ModelAndView("/");
+			model.addAttribute("message", "이미 존재하는 ID입니다.");
+			model.addAttribute("returnUrl", "/login/register");
+			return "/login/alertAndRedirect";
 
 		}else {
 			loginService.insert(vo);
 			
 			session.setAttribute("userVO", vo);
 			
-			return new ModelAndView("redirect:/");
+			return "redirect:/";
 		}
 		
 	}
