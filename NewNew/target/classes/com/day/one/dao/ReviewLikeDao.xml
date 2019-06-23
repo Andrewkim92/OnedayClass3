@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.day.one.dao.ReviewLikeDao">
+
+	<insert id="insert">
+		insert into odc.reviewLike (program_progSeq, user_userNumber, likedUser_userNumber) 
+		values (#{program_progSeq}, #{user_userNumber}, #{likedUser_userNumber})
+	</insert>
+
+	<select id="checkDup" resultType="com.day.one.vo.ReviewLikeVO">
+		select * from odc.reviewLike where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber} and likedUser_userNumber = #{likedUser_userNumber} 
+	</select>
+
+	<delete id="delete">
+		delete from odc.reviewLike where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber} and likedUser_userNumber = #{likedUser_userNumber} 
+	</delete>
+
+	<select id="count" resultType="int">
+		SELECT COUNT(*) as count FROM odc.reviewLike where program_progSeq = #{program_progSeq} and  user_userNumber = #{user_userNumber}
+	</select>
+</mapper>
