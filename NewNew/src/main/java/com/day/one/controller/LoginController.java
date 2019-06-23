@@ -25,7 +25,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-
+	//NewNew 수정
 	@Autowired
 	private UserDao loginService;
 
