@@ -30,7 +30,6 @@
         <div class="Formfooter">
                 <button type="submit" class="btn_button">작성하기</button>
         </div>            
-        
     </form>
 </body>
 </html>

@@ -91,9 +91,9 @@ public class ReviewController {
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String ReviewWritePOST(ReviewVO vo, Model model) {
 		reviewService.register(vo);
-		model.addAttribute("reviewList",reviewService.getAll(vo));
-		model.addAttribute("count",reviewService.count(vo.getProgram_progSeq()));
-		return "review/list.tiles";
+		List<ReviewVO> myList = (List<ReviewVO>) reviewService.getMy(vo.getUser_userNumber());
+		model.addAttribute("myReview",myList);
+		return "review/myReview.tiles";
 	}
 	
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
@@ -144,7 +144,7 @@ public class ReviewController {
 		return rVo.getLikeCount();
 	}
 	
-	@RequestMapping(value = "/writeCheck", method = RequestMethod.POST)
+	@RequestMapping(value = "/writeCheck", method = RequestMethod.GET)
 	@ResponseBody
 	public int ReviewWriteCheck(ReviewVO vo, Model model) {
 		if(reviewService.readOne(vo) != null) {

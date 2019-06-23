@@ -24,7 +24,7 @@
 	</select>
 
 	<delete id="delete">
-		delete from odc.review where program_progSeq = #{program_progSeq} and user_userNumber = #{user_userNumber}
+		delete from odc.review where user_userNumber = #{user_userNumber} and program_progSeq = #{program_progSeq}
 	</delete>
 
 	<update id="update">

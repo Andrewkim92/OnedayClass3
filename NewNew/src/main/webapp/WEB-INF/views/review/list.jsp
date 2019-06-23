@@ -140,7 +140,7 @@ $(function(){
     	var params = $("#writeForm").serialize();
         $.ajax({
         url:'/review/writeCheck',
-        type:"POST",
+        type:"GET",
         data: params,
         success:function(data){
         	if(data == 0){
