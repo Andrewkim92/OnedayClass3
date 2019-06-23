@@ -102,18 +102,10 @@
 						        <br>
 						       	</div>
 						       	<div class="row">
-						       		<div class="col-md-4 col-md-offset-4">
-						       		<c:if test="${empty sessionScope.userVO.userNumber }">
-										좋아요 : ${reviewOne.likeCount}
-									</c:if>
-									<c:if test="${not empty sessionScope.userVO.userNumber }">
-										<a href=# class="likeAction">
-											<input type="hidden" id="${reviewOne.user_userNumber}" value="${reviewOne.program_progSeq}">
-											<span>좋아요 : ${reviewOne.likeCount}</span>
-										</a>
-									</c:if>		 
+						       		<div class="col-md-4 col-md-offset-8">
+										좋아요 : ${reviewOne.likeCount}	 
 							 		</div>
-						  </div>
+						 		</div>
                         	<button class="btn btn-secondary" onclick="location.href='${path}/review/list?Program_progSeq=${program.progSeq}'">${reviewCount} 개의 후기 모두 보기</button>
                      	</div>
                 		</c:when>

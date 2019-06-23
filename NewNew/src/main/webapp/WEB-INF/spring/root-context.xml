@@ -16,7 +16,7 @@
 		lazy-init="false">
 		<property name="driverClassName" value="net.sf.log4jdbc.DriverSpy" />
 		<property name="url"
-			value="jdbc:log4jdbc:mysql://localhost:3306/odc?serverTimezone=UTC" />
+			value="jdbc:log4jdbc:mysql://localhost:3306/odc?serverTimezone=Asia/Seoul" />
 		<property name="username" value="root" />
 		<property name="password" value="1234" />
 	</bean>

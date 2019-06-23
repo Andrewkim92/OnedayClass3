@@ -127,17 +127,19 @@ public class ProgController {
 		ProgVO program = progService.get(progSeq);
 		model.addAttribute("program", program);
 		
-		// 전체 후기 개수
+		// 전체 후기 개수 불러오기
 		int reviewCount = reviewService.count(program.getProgSeq());
 		model.addAttribute("reviewCount",reviewCount);
 		
-		//대표 후기 읽어오기
+		// 후기가 있다면, 대표 후기 읽어오기
+		if(reviewCount > 0) {
 		ReviewVO review = new ReviewVO();
 		review.setProgram_progSeq(progSeq);
-		review = reviewService.getOne(review);
+		review = reviewService.getFirstOne(review);
 		String reviewName = reviewService.readUserName(review.getUser_userNumber());
 		model.addAttribute("reviewOne",review);
 		model.addAttribute("reviewName",reviewName);
+		}
 		
 		// test
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");

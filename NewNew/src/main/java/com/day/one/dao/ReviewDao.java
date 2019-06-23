@@ -22,7 +22,7 @@ public interface ReviewDao {
 	
 	public ReviewVO readOne(ReviewVO review);
 
-	public ReviewVO getOne(ReviewVO review);
+	public ReviewVO getFirstOne(ReviewVO review);
 
 	public String readName(int user_userNumber);
 	

@@ -143,4 +143,13 @@ public class ReviewController {
 		
 		return rVo.getLikeCount();
 	}
+	
+	@RequestMapping(value = "/writeCheck", method = RequestMethod.POST)
+	public String ReviewWriteCheck(ReviewVO vo, Model model) {
+		if(reviewService.readOne(vo) != null) {
+			return "true";
+		} else {
+			return "false";
+		}
+	}
 }

@@ -22,7 +22,7 @@ public interface ReviewService {
 	
 	public ReviewVO readOne(ReviewVO review);
 	
-	public ReviewVO getOne(ReviewVO review);
+	public ReviewVO getFirstOne(ReviewVO review);
 
 	public String readUserName(int user_userNumber);
 	

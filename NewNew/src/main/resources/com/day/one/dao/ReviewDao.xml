@@ -14,7 +14,7 @@
 		limit #{start}, 5
 	</select>
 	
-	<select id="getOne" resultType="com.day.one.vo.ReviewVO">
+	<select id="getFirstOne" resultType="com.day.one.vo.ReviewVO">
 		select * from odc.review where program_progSeq = #{program_progSeq} order by reviewDate desc
 		limit 0, 1
 	</select>
