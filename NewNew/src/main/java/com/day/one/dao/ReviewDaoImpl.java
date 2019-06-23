@@ -69,9 +69,9 @@ public class ReviewDaoImpl implements ReviewDao {
 	}
 
 	@Override
-	public ReviewVO getOne(ReviewVO review) {
+	public ReviewVO getFirstOne(ReviewVO review) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne("getOne",review);
+		return sqlSession.selectOne("getFirstOne",review);
 	}
 
 	

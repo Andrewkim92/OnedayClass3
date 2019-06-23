@@ -69,10 +69,6 @@
 				</a>
 			</c:if>		 
 	 		</div>
-	 		<div class="col-md-4 col-md-offset-3">
-	 			<button class="btn btn-secondary">댓글달기</button>
-	 		</div>
-	 		<span></span>
        	</div>
        	<div class="row">
         ---
@@ -105,6 +101,15 @@
 	<div>
                     총 게시글 수 : ${reviewPager.reviewCnt} /    총 페이지 수 : ${reviewPager.pageCnt } / 현재 페이지 : ${reviewPager.curPage } / 현재 블럭 : ${reviewPager.curBlock } / 총 블럭 수 : ${reviewPager.totBlock }
     </div>
+    <div>
+	<c:if test="${not empty sessionScope.userVO.userNumber}">
+		<form id="writeForm">
+		<input type="hidden" value="${sessionScope.userVO.userNumber}" name="user_userNumber">
+		<input type="hidden" value="${program_progSeq}" name="program_progSeq">
+		<input type="button" value="리뷰 작성" id="reviewWrite">
+		</form>
+	</c:if>		 
+    </div>
 </div>
 </body>
 <script type="text/javascript">
@@ -131,15 +136,21 @@ $(function(){
 });
 
 $(function(){
-    $(".btn-secondary").click(function(){
-    	var element2 = $(this).parent().parent().children('span');
-    	if(element2.html() == "" ){
-    		element2.html("<form id='rComment' method='POST'><textarea style='resize: none;' cols='80' id='rCommentData'></textarea>"+"<button class='rComment'>제출</button></form>")
-    	} else {
-    		element2.html("");
-    	}
-    	});
-});     
+    $("#reviewWrite").click(function(){
+    	var params = $("#writeForm").serialize();
+        $.ajax({
+        url:'/review/writeCheck',
+        type:"POST",
+        data: params,
+        success:function(data){
+        	location.href = "/review/write?"+params;
+        },
+        error: function (request, status, error){
+        	alert("ajax실패"); 
+        }
+    });
+    });
+});
 
 </script>
 </html>

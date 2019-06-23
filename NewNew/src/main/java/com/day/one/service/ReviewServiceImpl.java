@@ -77,8 +77,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public ReviewVO getOne(ReviewVO review) {
-		return rDao.getOne(review);
+	public ReviewVO getFirstOne(ReviewVO review) {
+		return rDao.getFirstOne(review);
 	}
 
 }
