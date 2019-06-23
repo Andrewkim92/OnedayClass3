@@ -145,11 +145,12 @@ public class ReviewController {
 	}
 	
 	@RequestMapping(value = "/writeCheck", method = RequestMethod.POST)
-	public String ReviewWriteCheck(ReviewVO vo, Model model) {
+	@ResponseBody
+	public int ReviewWriteCheck(ReviewVO vo, Model model) {
 		if(reviewService.readOne(vo) != null) {
-			return "true";
+			return 0;
 		} else {
-			return "false";
+			return 1;
 		}
 	}
 }

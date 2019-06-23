@@ -104,9 +104,9 @@
     <div>
 	<c:if test="${not empty sessionScope.userVO.userNumber}">
 		<form id="writeForm">
-		<input type="hidden" value="${sessionScope.userVO.userNumber}" name="user_userNumber">
-		<input type="hidden" value="${program_progSeq}" name="program_progSeq">
-		<input type="button" value="리뷰 작성" id="reviewWrite">
+			<input type="hidden" value="${sessionScope.userVO.userNumber}" name="user_userNumber">
+			<input type="hidden" value="${program_progSeq}" name="program_progSeq">
+			<input type="button" value="리뷰 작성" id="reviewWrite">
 		</form>
 	</c:if>		 
     </div>
@@ -143,7 +143,11 @@ $(function(){
         type:"POST",
         data: params,
         success:function(data){
+        	if(data == 0){
+        		alert("이미 리뷰를 작성하셨습니다.");
+        	} else {
         	location.href = "/review/write?"+params;
+        	}
         },
         error: function (request, status, error){
         	alert("ajax실패"); 
