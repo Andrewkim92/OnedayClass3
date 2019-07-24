@@ -104,16 +104,20 @@ public class ProgController {
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		System.out.println("cri: " + cri);
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		
 		List<ProgVO> programs = progService.getListWithPaging(cri);
-		model.addAttribute("programs", programs);
-
 		int total = progService.getTotalCount(cri);
+		if(total <1) { //검색 내역 없음
+			model.addAttribute("programs", null);
+		}else {
+			model.addAttribute("programs", programs);
+		}
 		PageDTO pageDTO = new PageDTO(cri, total);
 		model.addAttribute("pageMaker", pageDTO);
 
 		// 테스트(전체조회, 전체게시물수, pageDTO)
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("getList: " + programs);
+//		System.out.println("getList: " + programs);
 		System.out.println("getTotalCount: " + total);
 		System.out.println("pageMaker: " + pageDTO);
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");

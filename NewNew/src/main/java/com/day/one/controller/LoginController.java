@@ -44,7 +44,7 @@ public class LoginController {
 	@RequestMapping(value = "/oauth", produces = "application/json", method = { RequestMethod.GET, RequestMethod.POST })
 	public String kakaoLogin(@RequestParam("code") String code, Model model, HttpSession session) {
 		JsonNode userInfo = kakaoLogin.getKakaoUserInfo(code);
-
+		
 		System.out.println(userInfo);
 
 		String id = userInfo.get("id").toString();
